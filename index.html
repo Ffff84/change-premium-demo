@@ -1,0 +1,1670 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111214">
+<meta name="robots" content="noindex">
+<meta name="description" content="Demo: katalog, filiallardagi mavjudlik va kiyib ko‘rishga bron. Демо сайта магазина мужской одежды в Самарканде.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="change premium · demo sayt">
+<meta property="og:description" content="Demo: katalog, filiallardagi mavjudlik va kiyib ko‘rishga bron. Демо сайта магазина мужской одежды в Самарканде.">
+<meta property="og:image" content="https://ffff84.github.io/change-premium-demo/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<title>Change Premium Site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&family=Onest:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: onyx showroom with a 3D wordmark that assembles itself; chalk "fitting room" sections for products; mobile-first at 360px. */
+:root {
+  --onyx: #111214;
+  --graphite: #1D1F23;
+  --graphite-2: #2A2C31;
+  --steel: #8C9096;
+  --chalk: #ECEAE5;
+  --paper: #F5F4F0;
+  --card: #E2DFD9;
+  --cognac: #94603A;
+  --cognac-hi: #B57A4C;
+  --ok: #3F7D58;
+  --warn: #B07A1E;
+  --no: #8F3B36;
+  --line-d: #2C2E33;
+  --line-l: #D2CFC8;
+  --mut-d: #9A9DA3;
+  --mut-l: #63666C;
+  --f-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --f-body: "Onest", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --logo: url("data:image/webp;base64,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");
+  --g: clamp(16px, 4vw, 48px);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { background: var(--onyx); scroll-behavior: smooth; }
+body { background: var(--onyx); color: var(--chalk); font: 400 15px/1.55 var(--f-body); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 500; margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+p { margin: 0; }
+button { font: inherit; color: inherit; }
+.wrap { max-width: 1280px; margin: 0 auto; padding-inline: var(--g); }
+.mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+.logo { display: block; aspect-ratio: 2000 / 418; background: currentColor; -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; }
+.ico { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+:focus-visible { outline: 2px solid var(--cognac-hi); outline-offset: 2px; }
+.light { background: var(--paper); color: var(--onyx); }
+
+/* header */
+.hdr { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: color-mix(in srgb, var(--onyx) 88%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line-d); }
+.hdr .wrap { display: flex; align-items: center; gap: 24px; height: 60px; }
+.hdr .brand { appearance: none; border: 0; background: none; padding: 0; cursor: pointer; color: var(--chalk); }
+.hdr .brand .logo { width: 112px; }
+.hdr nav { display: flex; gap: 4px; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.hdr nav::-webkit-scrollbar { display: none; }
+.hdr nav button { appearance: none; border: 0; background: none; color: var(--mut-d); padding: 8px 12px; font-weight: 500; font-size: 14px; cursor: pointer; white-space: nowrap; border-radius: 999px; }
+.hdr nav button:hover, .hdr nav button.on { color: var(--chalk); background: var(--graphite-2); }
+.hdr .tools { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+.iconbtn { appearance: none; border: 0; background: none; cursor: pointer; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; position: relative; color: var(--chalk); }
+.iconbtn:hover { background: var(--graphite-2); }
+.iconbtn .badge { position: absolute; top: 4px; right: 3px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px; background: var(--cognac); color: var(--chalk); font: 600 10px/16px var(--f-body); text-align: center; }
+.lang { display: flex; border: 1px solid var(--line-d); border-radius: 999px; padding: 2px; }
+.lang button { appearance: none; border: 0; background: none; color: var(--mut-d); font: 500 12px var(--f-mono); padding: 6px 9px; border-radius: 999px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--chalk); color: var(--onyx); }
+.draft-pill { appearance: none; border: 0; background: var(--cognac); color: var(--chalk); border-radius: 999px; padding: 8px 12px; font: 600 12px var(--f-body); cursor: pointer; white-space: nowrap; }
+@media (max-width: 860px) {
+  .hdr .wrap { flex-wrap: wrap; height: auto; padding-block: 10px 0; gap: 8px 12px; }
+  .hdr nav { order: 3; flex-basis: 100%; margin-inline: calc(var(--g) * -1); padding-inline: var(--g); padding-bottom: 8px; }
+  .hdr .brand .logo { width: 96px; }
+}
+
+/* hero */
+.hero { position: relative; overflow: hidden; background:
+  radial-gradient(60% 55% at 50% 34%, rgba(148, 96, 58, .22), transparent 70%),
+  radial-gradient(40% 40% at 80% 90%, rgba(140, 144, 150, .08), transparent 70%), var(--onyx); border-bottom: 1px solid var(--line-d); }
+.hero-stage { position: relative; height: clamp(260px, 44vw, 600px); }
+.hero-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: pan-y; }
+.hero-fallback { position: absolute; inset: 0; display: grid; place-items: center; padding: 0 12%; }
+.hero-fallback .logo { width: 100%; max-width: 820px; color: var(--chalk); }
+.hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(to right, rgba(236, 234, 229, .04) 1px, transparent 1px); background-size: calc(100% / 12) 100%; mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent); }
+.hero-copy { position: relative; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px 56px; align-items: end; padding-block: 8px clamp(40px, 6vw, 72px); }
+.hero-copy .eyebrow { grid-column: 1 / -1; color: var(--cognac-hi); display: flex; align-items: center; gap: 10px; }
+.hero-copy .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+.hero h1 { font-size: clamp(36px, 6.2vw, 92px); line-height: .98; letter-spacing: -0.035em; }
+.hero h1 em { font-style: normal; color: var(--cognac-hi); }
+.hero-side { display: grid; gap: 22px; }
+.hero-side p { color: var(--mut-d); font-size: 16px; max-width: 46ch; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { appearance: none; border: 1px solid transparent; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 20px; border-radius: 999px; font: 600 14px var(--f-body); text-decoration: none; transition: transform .15s, background .2s, color .2s; }
+.btn:active { transform: scale(.98); }
+.btn-chalk { background: var(--chalk); color: var(--onyx); }
+.btn-chalk:hover { background: #fff; }
+.btn-ghost { border-color: var(--line-d); color: var(--chalk); background: transparent; }
+.btn-ghost:hover { border-color: var(--steel); }
+.btn-onyx { background: var(--onyx); color: var(--chalk); }
+.btn-onyx:hover { background: var(--graphite-2); }
+.btn-cognac { background: var(--cognac); color: var(--chalk); }
+.btn-cognac:hover { background: var(--cognac-hi); }
+.btn-line { border-color: var(--line-l); color: var(--onyx); background: transparent; }
+.btn-line:hover { border-color: var(--onyx); }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.live { display: flex; flex-wrap: wrap; gap: 8px; }
+.live span { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border: 1px solid var(--line-d); border-radius: 999px; font-size: 12px; color: var(--mut-d); }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--steel); flex: none; }
+.dot.open { background: #5FB884; box-shadow: 0 0 0 4px rgba(95, 184, 132, .15); }
+@media (max-width: 860px) { .hero-copy { grid-template-columns: minmax(0, 1fr); } }
+
+/* ticker */
+.ticker { overflow: hidden; border-bottom: 1px solid var(--line-d); background: var(--onyx); }
+.ticker-track { display: flex; width: max-content; animation: tick 38s linear infinite; }
+.ticker-track span { display: flex; align-items: center; gap: 28px; padding: 14px 14px 14px 0; white-space: nowrap; font: 500 12px var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mut-d); }
+.ticker-track span::after { content: ""; width: 14px; height: 9px; background: var(--cognac); clip-path: polygon(0 0, 100% 0, 100% 30%, 30% 30%, 30% 70%, 100% 70%, 100% 100%, 0 100%); }
+@keyframes tick { to { transform: translateX(-50%); } }
+
+/* sections */
+.sec { padding-block: clamp(56px, 8vw, 104px); }
+.sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px 32px; margin-bottom: clamp(24px, 4vw, 40px); }
+.sec-head h2 { font-size: clamp(26px, 3.6vw, 44px); line-height: 1.05; }
+.sec-head .mono { color: var(--cognac); display: block; margin-bottom: 12px; }
+.link { appearance: none; border: 0; background: none; cursor: pointer; display: inline-flex; gap: 8px; align-items: center; font-weight: 600; font-size: 14px; padding: 6px 0; border-bottom: 1px solid currentColor; }
+
+/* steps */
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line-l); }
+.step { padding: 28px 28px 8px 0; display: grid; gap: 10px; align-content: start; }
+.step + .step { padding-left: 28px; border-left: 1px solid var(--line-l); }
+.step .n { font: 500 44px/1 var(--f-display); color: transparent; -webkit-text-stroke: 1px var(--onyx); }
+.step h3 { font-size: 18px; }
+.step p { color: var(--mut-l); }
+@media (max-width: 760px) { .steps { grid-template-columns: minmax(0, 1fr); } .step + .step { border-left: 0; padding-left: 0; border-top: 1px solid var(--line-l); } }
+
+/* product grid */
+.pgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 16px; }
+@media (max-width: 1080px) { .pgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 10px; } }
+.pcard { position: relative; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.pimg { appearance: none; border: 0; padding: 0; cursor: pointer; display: block; width: 100%; aspect-ratio: 5 / 6; background: var(--card); position: relative; overflow: hidden; }
+.pimg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2, .7, .2, 1), opacity .35s; }
+.pcard:hover .pimg img { transform: scale(1.04); }
+.pimg .alt { opacity: 0; }
+.pcard:hover .pimg .alt { opacity: 1; }
+.tags { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; z-index: 2; pointer-events: none; }
+.tag { font: 500 10px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; padding: 4px 7px; background: var(--onyx); color: var(--chalk); }
+.tag.sale { background: var(--cognac); }
+.favbtn { position: absolute; top: 6px; right: 6px; z-index: 2; appearance: none; border: 0; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; background: rgba(245, 244, 240, .7); color: var(--onyx); backdrop-filter: blur(4px); }
+.favbtn[aria-pressed="true"] .ico { fill: var(--cognac); stroke: var(--cognac); }
+.pinfo { display: grid; gap: 4px; min-width: 0; }
+.pinfo .brand { color: var(--mut-l); }
+.pinfo .name { appearance: none; border: 0; background: none; padding: 0; text-align: left; cursor: pointer; font-weight: 500; font-size: 15px; line-height: 1.3; }
+.price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-variant-numeric: tabular-nums; }
+.price b { font: 500 15px var(--f-display); letter-spacing: -0.01em; }
+.price s { color: var(--mut-l); font-size: 13px; }
+.price .pct { color: var(--cognac); font-weight: 600; font-size: 13px; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.chips span { font: 500 11px var(--f-mono); border: 1px solid var(--line-l); padding: 2px 6px; color: var(--mut-l); }
+
+/* categories */
+.cats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 900px) { .cats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.cat { appearance: none; border: 0; cursor: pointer; text-align: left; background: var(--card); color: var(--chalk); aspect-ratio: 4 / 5; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; }
+.cat img.g { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+.cat::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(17, 18, 20, .62), rgba(17, 18, 20, 0) 42%, rgba(17, 18, 20, 0) 68%, rgba(17, 18, 20, .5)); }
+.cat:hover img.g { transform: scale(1.06); }
+.cat > :not(img) { z-index: 1; }
+.cat h3 { font-size: clamp(16px, 2vw, 22px); position: relative; max-width: 10ch; }
+.cat .mono { position: relative; color: rgba(236, 234, 229, .8); }
+.cat .arr { position: relative; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(236, 234, 229, .5); background: rgba(17, 18, 20, .35); backdrop-filter: blur(6px); display: grid; place-items: center; transition: background .2s; }
+.cat:hover .arr { background: var(--cognac); border-color: var(--cognac); }
+
+/* sale row */
+.hscroll { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+.hscroll > * { scroll-snap-align: start; }
+
+/* bot */
+.bot { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.5fr); gap: 48px; align-items: center; }
+@media (max-width: 980px) { .bot { grid-template-columns: minmax(0, 1fr); } }
+.bot ul { list-style: none; margin: 24px 0 28px; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line-d); }
+.bot li { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line-d); color: var(--mut-d); }
+.bot li::before { content: ""; width: 12px; height: 8px; margin-top: 7px; flex: none; background: var(--cognac-hi); clip-path: polygon(0 0, 100% 0, 100% 30%, 30% 30%, 30% 70%, 100% 70%, 100% 100%, 0 100%); }
+.phones { display: grid; grid-template-columns: repeat(3, minmax(230px, 1fr)); gap: 16px; overflow-x: auto; padding: 8px 2px 16px; scroll-snap-type: x mandatory; }
+.phones > figure { scroll-snap-align: center; margin: 0; display: grid; gap: 12px; }
+.phones figcaption { color: var(--mut-d); text-align: center; }
+.phone { background: #0B0C0E; border-radius: 34px; padding: 9px; box-shadow: 0 0 0 1px #2A2C31, 0 30px 60px -20px rgba(0, 0, 0, .8); }
+.screen { border-radius: 26px; overflow: hidden; background: #17191D; height: 470px; display: flex; flex-direction: column; }
+.tg-top { display: flex; align-items: center; gap: 10px; padding: 14px 14px 10px; background: #1E2025; border-bottom: 1px solid #2A2C31; }
+.tg-ava { width: 34px; height: 34px; border-radius: 50%; background: var(--chalk); display: grid; place-items: center; flex: none; }
+.tg-ava svg { width: 55%; }
+.tg-top b { font: 600 13px var(--f-body); display: block; }
+.tg-top small { font-size: 11px; color: var(--mut-d); }
+.tg-body { flex: 1; padding: 12px 10px; display: flex; flex-direction: column; gap: 8px; justify-content: flex-end; background:
+  radial-gradient(circle at 20% 10%, rgba(148, 96, 58, .1), transparent 50%), #15171A; overflow: hidden; }
+.msg { max-width: 88%; background: #23262B; border-radius: 14px 14px 14px 4px; padding: 8px 10px; font-size: 12px; line-height: 1.45; }
+.msg.me { align-self: flex-end; background: var(--cognac); border-radius: 14px 14px 4px 14px; }
+.msg .ph { margin: -4px -6px 8px; border-radius: 10px; background: var(--card); aspect-ratio: 4 / 3; display: grid; place-items: center; }
+.msg .ph { overflow: hidden; position: relative; aspect-ratio: 4 / 5; }
+.msg .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.msg s { color: var(--mut-d); }
+.kb { display: grid; gap: 4px; max-width: 88%; }
+.kb .r { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; }
+.kb span { background: rgba(255, 255, 255, .08); border-radius: 8px; padding: 7px 4px; text-align: center; font-size: 11px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kb span.sel { background: rgba(181, 122, 76, .4); }
+.menu-kb { padding: 8px; background: #1E2025; display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.menu-kb span { background: #2A2C31; border-radius: 8px; padding: 9px 6px; text-align: center; font-size: 11px; font-weight: 500; }
+.card-msg { font-family: var(--f-body); }
+.card-msg .h { font-weight: 600; margin-bottom: 4px; }
+.card-msg .warn { color: #E2B266; }
+
+/* branches */
+.branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.branch { border: 1px solid var(--line-l); display: grid; grid-template-rows: auto 1fr; background: var(--paper); }
+.branch .vis { height: 150px; position: relative; overflow: hidden; }
+.branch .vis .pin { position: absolute; left: 50%; top: 50%; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; background: var(--onyx); display: grid; place-items: center; box-shadow: 0 0 0 8px rgba(17, 18, 20, .15); }
+.branch .vis .pin svg { width: 52%; }
+.branch .body { padding: 20px; display: grid; gap: 12px; align-content: start; }
+.branch h3 { font-size: 20px; }
+.branch .addr { color: var(--mut-l); }
+.status { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; }
+.branch .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.branch .acts .btn { padding: 10px 14px; font-size: 13px; }
+
+/* subscribe */
+.sub { position: relative; overflow: hidden; }
+.sub .pat { position: absolute; inset: 0; }
+.sub .inner { position: relative; display: grid; grid-template-columns: minmax(0, 1.4fr) auto; gap: 24px 48px; align-items: center; padding-block: clamp(48px, 7vw, 88px); }
+.sub h2 { font-size: clamp(26px, 4vw, 52px); line-height: 1.04; color: var(--chalk); }
+.sub p { color: rgba(236, 234, 229, .82); margin-top: 14px; max-width: 52ch; }
+@media (max-width: 760px) { .sub .inner { grid-template-columns: minmax(0, 1fr); } }
+
+/* catalog */
+.crumbs { display: flex; flex-wrap: wrap; gap: 6px; color: var(--mut-l); font-size: 13px; margin-bottom: 14px; }
+.crumbs button { appearance: none; border: 0; background: none; padding: 0; cursor: pointer; color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.cat-title { font-size: clamp(30px, 5vw, 60px); line-height: 1; }
+.subcats { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 22px 0 0; padding-bottom: 4px; }
+.subcats::-webkit-scrollbar { display: none; }
+.pill { appearance: none; border: 1px solid var(--line-l); background: transparent; color: var(--onyx); border-radius: 999px; padding: 9px 14px; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+.pill[aria-pressed="true"] { background: var(--onyx); color: var(--chalk); border-color: var(--onyx); }
+.cat-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 36px; margin-top: 28px; align-items: start; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px; }
+.toolbar .count { color: var(--mut-l); font-size: 13px; margin-right: auto; }
+.toolbar select { appearance: none; border: 1px solid var(--line-l); background: var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23111214' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 12px center; color: var(--onyx); padding: 9px 32px 9px 14px; border-radius: 999px; font: 500 13px var(--f-body); cursor: pointer; }
+.filter-open { display: none; }
+.saved-note { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; background: var(--onyx); color: var(--chalk); padding: 10px 14px; margin-bottom: 18px; font-size: 13px; }
+.saved-note button { appearance: none; border: 0; background: none; color: var(--cognac-hi); font-weight: 600; cursor: pointer; padding: 0; margin-left: auto; }
+.filters { display: grid; gap: 26px; position: sticky; top: 84px; }
+.filters .fh { display: none; }
+.fgroup { display: grid; gap: 10px; }
+.fgroup > .mono { color: var(--mut-l); }
+.sizes-f { display: flex; flex-wrap: wrap; gap: 6px; }
+.sbox { appearance: none; min-width: 44px; height: 40px; padding: 0 10px; border: 1px solid var(--line-l); background: transparent; color: var(--onyx); font: 500 13px var(--f-mono); cursor: pointer; }
+.sbox[aria-pressed="true"] { background: var(--onyx); color: var(--chalk); border-color: var(--onyx); }
+.colors-f { display: flex; flex-wrap: wrap; gap: 8px; }
+.cbox { appearance: none; width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, .15); cursor: pointer; position: relative; }
+.cbox[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--onyx); }
+.range { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 12px; color: var(--mut-l); }
+.inp { width: 100%; border: 1px solid var(--line-l); background: #fff; color: var(--onyx); padding: 11px 12px; font: 500 14px var(--f-body); border-radius: 0; font-variant-numeric: tabular-nums; }
+.inp:focus { outline: 2px solid var(--onyx); outline-offset: -1px; }
+.inp.err { border-color: var(--no); }
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; cursor: pointer; }
+.check input { width: 18px; height: 18px; accent-color: var(--onyx); margin: 1px 0 0; flex: none; }
+.fapply { display: none; }
+.empty { border: 1px dashed var(--line-l); padding: 48px 24px; display: grid; gap: 14px; justify-items: center; text-align: center; }
+.empty h3 { font-size: 22px; }
+.more { display: flex; justify-content: center; margin-top: 36px; }
+.backdrop { position: fixed; inset: 0; background: rgba(8, 9, 10, .55); z-index: 60; backdrop-filter: blur(2px); }
+@media (max-width: 900px) {
+  .cat-layout { grid-template-columns: minmax(0, 1fr); }
+  .filter-open { display: inline-flex; }
+  .filters { position: fixed; left: 0; right: 0; bottom: 0; top: auto; z-index: 70; background: var(--paper); color: var(--onyx); max-height: 86vh; overflow-y: auto; padding: 20px var(--g) calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateY(105%); transition: transform .3s cubic-bezier(.2, .7, .2, 1); border-radius: 18px 18px 0 0; }
+  .filters.open { transform: none; }
+  .filters .fh { display: flex; justify-content: space-between; align-items: center; }
+  .fapply { display: flex; gap: 8px; position: sticky; bottom: 0; background: var(--paper); padding-top: 12px; }
+  .fapply .btn { flex: 1; }
+}
+
+/* product page */
+.pdp { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+@media (max-width: 900px) { .pdp { grid-template-columns: minmax(0, 1fr); } }
+.gallery { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 12px; position: sticky; top: 84px; }
+.thumbs { display: grid; gap: 10px; align-content: start; }
+.thumbs button { appearance: none; border: 1px solid transparent; padding: 0; background: var(--card); aspect-ratio: 5 / 6; cursor: pointer; display: grid; place-items: center; overflow: hidden; }
+.thumbs button[aria-pressed="true"] { border-color: var(--onyx); }
+.thumbs button { position: relative; }
+.thumbs img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.main-img { background: var(--card); aspect-ratio: 5 / 6; display: grid; place-items: center; position: relative; overflow: hidden; }
+.main-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2, .7, .2, 1); }
+.main-img .tags { z-index: 2; }
+@media (max-width: 900px) { .gallery { position: static; grid-template-columns: minmax(0, 1fr); } .thumbs { grid-template-columns: repeat(3, 72px); order: 2; } }
+.pd { display: grid; gap: 22px; }
+.pd h1 { font-size: clamp(26px, 3.4vw, 40px); line-height: 1.08; }
+.pd .price b { font-size: 24px; }
+.pd .price s { font-size: 15px; }
+.opt { display: grid; gap: 10px; }
+.opt-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.opt-h span { font-size: 14px; }
+.opt-h span b { font-weight: 600; }
+.swatches { display: flex; flex-wrap: wrap; gap: 10px; }
+.sw { appearance: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, .15); cursor: pointer; }
+.sw[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--onyx); }
+.sizes { display: grid; grid-template-columns: repeat(auto-fill, minmax(58px, 1fr)); gap: 6px; }
+.size { appearance: none; height: 48px; border: 1px solid var(--line-l); background: #fff; color: var(--onyx); font: 500 14px var(--f-mono); cursor: pointer; position: relative; }
+.size[aria-pressed="true"] { background: var(--onyx); color: var(--chalk); border-color: var(--onyx); }
+.size.na { color: #A9A7A1; background: transparent; background-image: linear-gradient(to top right, transparent calc(50% - .5px), #C9C6BF calc(50% - .5px) calc(50% + .5px), transparent calc(50% + .5px)); }
+.avail { border-top: 1px solid var(--line-l); }
+.avail-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line-l); font-size: 14px; }
+.avail-row small { display: block; color: var(--mut-l); font-size: 12px; }
+.st { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: 13px; white-space: nowrap; }
+.st i { width: 8px; height: 8px; border-radius: 50%; }
+.st.yes { color: var(--ok); } .st.yes i { background: var(--ok); }
+.st.low { color: var(--warn); } .st.low i { background: var(--warn); }
+.st.no { color: var(--mut-l); } .st.no i { background: #BDBAB3; }
+.hint { color: var(--mut-l); font-size: 13px; }
+.buy { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+.buy .btn { padding-block: 17px; }
+.buy .favbig { width: 56px; padding: 0; border-color: var(--line-l); color: var(--onyx); background: transparent; }
+.buy .favbig[aria-pressed="true"] .ico { fill: var(--cognac); stroke: var(--cognac); }
+details { border-top: 1px solid var(--line-l); }
+details:last-of-type { border-bottom: 1px solid var(--line-l); }
+summary { cursor: pointer; padding: 16px 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; }
+summary::after { content: "+"; font: 400 20px/1 var(--f-body); }
+details[open] summary::after { content: "–"; }
+details > div { padding-bottom: 18px; color: var(--mut-l); }
+.tbl { overflow-x: auto; }
+.tbl table { border-collapse: collapse; width: 100%; font: 400 13px var(--f-mono); font-variant-numeric: tabular-nums; color: var(--onyx); }
+.tbl th, .tbl td { padding: 8px 10px; border-bottom: 1px solid var(--line-l); text-align: left; white-space: nowrap; }
+.tbl th { font-weight: 500; color: var(--mut-l); }
+
+/* bookings view */
+.res-list { display: grid; gap: 12px; }
+.res-card { border: 1px solid var(--line-l); background: #fff; padding: 20px; display: grid; gap: 10px; }
+.res-card .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+.res-card h3 { font-size: 18px; }
+.res-card ul { margin: 0; padding-left: 18px; color: var(--mut-l); }
+
+/* sheet */
+.sheet { position: fixed; z-index: 80; top: 0; right: 0; bottom: 0; width: min(480px, 100%); background: var(--paper); color: var(--onyx); display: flex; flex-direction: column; box-shadow: -20px 0 60px rgba(0, 0, 0, .35); animation: slideIn .3s cubic-bezier(.2, .7, .2, 1); }
+@keyframes slideIn { from { transform: translateX(30px); opacity: 0; } }
+.sheet-h { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 20px; border-bottom: 1px solid var(--line-l); }
+.sheet-h h2 { font-size: 18px; }
+.sheet-h .iconbtn { color: var(--onyx); }
+.sheet-h .iconbtn:hover { background: var(--card); }
+.sheet-b { flex: 1; overflow-y: auto; padding: 20px; display: grid; gap: 18px; align-content: start; }
+.sheet-f { padding: 14px 20px calc(14px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line-l); display: flex; gap: 8px; }
+.sheet-f .btn { flex: 1; }
+@media (max-width: 600px) {
+  .sheet { top: auto; width: 100%; max-height: 92vh; border-radius: 18px 18px 0 0; animation-name: slideUp; }
+  @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } }
+}
+.progress { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.progress i { height: 3px; background: var(--line-l); }
+.progress i.on { background: var(--onyx); }
+.opt-card { appearance: none; width: 100%; text-align: left; border: 1px solid var(--line-l); background: #fff; color: var(--onyx); padding: 16px; cursor: pointer; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; }
+.opt-card[aria-pressed="true"] { border-color: var(--onyx); box-shadow: inset 0 0 0 1px var(--onyx); }
+.opt-card b { font-weight: 600; }
+.opt-card small { color: var(--mut-l); grid-column: 1; }
+.line-item { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line-l); }
+.line-item .th { aspect-ratio: 5 / 6; background: var(--card); display: grid; place-items: center; }
+.line-item .th { position: relative; overflow: hidden; }
+.line-item .th img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.line-item b { font-weight: 600; font-size: 14px; display: block; }
+.line-item small { color: var(--mut-l); font-size: 12px; }
+.line-item select { border: 1px solid var(--line-l); background: #fff; padding: 6px; font: 500 13px var(--f-mono); color: var(--onyx); }
+.x { appearance: none; border: 0; background: none; color: var(--mut-l); cursor: pointer; font-size: 12px; text-decoration: underline; padding: 0; }
+.err-msg { color: var(--no); font-size: 13px; }
+.notice { background: #fff; border-left: 3px solid var(--cognac); padding: 12px 14px; font-size: 14px; }
+.notice.bad { border-color: var(--no); }
+.summary { background: #fff; border: 1px solid var(--line-l); padding: 16px; display: grid; gap: 8px; font-size: 14px; }
+.summary .row { display: flex; justify-content: space-between; gap: 12px; }
+.summary .row span:first-child { color: var(--mut-l); }
+.done { text-align: center; display: grid; gap: 14px; justify-items: center; padding-top: 16px; }
+.done .seal { width: 84px; height: 84px; border-radius: 50%; background: var(--onyx); display: grid; place-items: center; }
+.done .seal svg { width: 44%; }
+.done h3 { font-size: 24px; }
+.done .num { font: 500 13px var(--f-mono); letter-spacing: .1em; color: var(--cognac); }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.result { background: var(--onyx); color: var(--chalk); padding: 20px; display: grid; gap: 6px; }
+.result b { font: 500 34px var(--f-display); }
+.result p { color: var(--mut-d); font-size: 14px; }
+
+footer.ft { border-top: 1px solid var(--line-d); background: var(--onyx); }
+.ft .wrap { padding-block: 48px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: end; }
+.ft .logo { width: min(100%, 460px); color: var(--chalk); opacity: .9; }
+.ft .links { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; color: var(--mut-d); justify-content: flex-end; }
+.ft .links button { appearance: none; background: none; border: 0; padding: 0; color: inherit; cursor: pointer; }
+.ft .demo { grid-column: 1 / -1; color: var(--mut-d); border-top: 1px solid var(--line-d); padding-top: 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+@media (max-width: 700px) { .ft .wrap { grid-template-columns: minmax(0, 1fr); } .ft .links { justify-content: flex-start; } }
+
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 100; background: var(--chalk); color: var(--onyx); padding: 12px 18px; font: 500 13px var(--f-body); box-shadow: 0 10px 30px rgba(0, 0, 0, .4); max-width: calc(100% - 32px); }
+.view-pad { padding-block: clamp(28px, 4vw, 48px) clamp(56px, 8vw, 96px); min-height: 70vh; }
+
+/* ===== wow layer ===== */
+body::after { content: ""; position: fixed; inset: -50%; z-index: 120; pointer-events: none; opacity: .04; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); animation: grain 1.2s steps(6) infinite; }
+@keyframes grain { 0% { transform: translate(0, 0); } 20% { transform: translate(-3%, 2%); } 40% { transform: translate(2%, -3%); } 60% { transform: translate(-2%, -1%); } 80% { transform: translate(3%, 3%); } 100% { transform: translate(0, 0); } }
+.sprog { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 50; background: var(--cognac-hi); transform-origin: 0 50%; transform: scaleX(0); pointer-events: none; }
+
+/* cursor */
+.cur { position: fixed; left: 0; top: 0; z-index: 130; width: 36px; height: 36px; margin: -18px 0 0 -18px; border-radius: 50%; border: 1px solid var(--cognac-hi); pointer-events: none; display: grid; place-items: center; transition: width .35s cubic-bezier(.2, .7, .2, 1), height .35s cubic-bezier(.2, .7, .2, 1), margin .35s cubic-bezier(.2, .7, .2, 1), background .3s, border-color .3s, opacity .3s; }
+.cur span { font: 600 10px var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--chalk); opacity: 0; transition: opacity .2s; white-space: nowrap; }
+.cur.view { width: 96px; height: 96px; margin: -48px 0 0 -48px; background: var(--onyx); border-color: var(--onyx); }
+.cur.view span { opacity: 1; }
+.cur.small { width: 10px; height: 10px; margin: -5px 0 0 -5px; background: var(--cognac-hi); }
+.cur.hide { opacity: 0; }
+
+/* page transition */
+.wipe { position: fixed; inset: 0; z-index: 110; background: var(--onyx); display: grid; place-items: center; transform: translateY(101%); pointer-events: none; }
+.wipe svg { width: 72px; opacity: 0; }
+.wipe.run { animation: wipe .72s cubic-bezier(.76, 0, .24, 1) forwards; }
+.wipe.run svg { animation: wipeMark .72s ease forwards; }
+@keyframes wipe { 0% { transform: translateY(101%); } 40%, 52% { transform: translateY(0); } 100% { transform: translateY(-101%); } }
+@keyframes wipeMark { 0%, 28% { opacity: 0; transform: scale(.7); } 42%, 58% { opacity: 1; transform: none; } 78%, 100% { opacity: 0; transform: scale(1.1); } }
+
+/* hero extras */
+.hero-stage::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 34%; z-index: 1; background: linear-gradient(to bottom, rgba(17, 18, 20, 0), var(--onyx)); pointer-events: none; }
+.hero h1 .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .08em; margin-bottom: -.08em; }
+.hero h1 .w > span { display: inline-block; animation: rise 1.1s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(1.2s + var(--i) * 80ms); }
+@keyframes rise { from { transform: translateY(108%) rotate(4deg); } }
+.scroll-cue { position: absolute; right: var(--g); bottom: 18px; z-index: 2; display: flex; align-items: center; gap: 10px; color: var(--mut-d); }
+.scroll-cue i { width: 1px; height: 44px; background: linear-gradient(var(--cognac-hi), transparent); animation: cue 2.2s ease-in-out infinite; transform-origin: top; }
+@keyframes cue { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+@media (max-width: 860px) { .scroll-cue { display: none; } }
+
+/* giant marquee */
+.mq { overflow: hidden; padding-block: clamp(40px, 7vw, 96px); background: var(--onyx); border-bottom: 1px solid var(--line-d); }
+.mq-row { display: flex; width: max-content; font: 500 clamp(56px, 11vw, 172px)/1.02 var(--f-display); letter-spacing: -0.045em; white-space: nowrap; will-change: transform; }
+.mq-row span { display: inline-flex; align-items: center; gap: .32em; padding-right: .32em; }
+.mq-row em { font-style: normal; color: var(--cognac-hi); }
+.mq-row svg { height: .42em; width: auto; flex: none; }
+.mq-row.o { color: transparent; -webkit-text-stroke: 1px rgba(236, 234, 229, .5); }
+.mq-row.o em { color: transparent; -webkit-text-stroke-color: var(--cognac-hi); }
+.mq-row.o svg path { fill: none; stroke: rgba(236, 234, 229, .5); stroke-width: 6; }
+
+/* lookbook */
+.lb { position: relative; background: var(--onyx); border-bottom: 1px solid var(--line-d); }
+.lb-pin { position: sticky; top: 60px; height: calc(100vh - 60px); overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+.lb-track { display: flex; align-items: center; gap: clamp(32px, 5vw, 80px); padding-inline: var(--g); width: max-content; will-change: transform; }
+.lb-intro { flex: none; width: min(560px, 80vw); display: grid; gap: 22px; }
+.lb-intro h2 { font-size: clamp(44px, 6.4vw, 104px); line-height: .94; letter-spacing: -.045em; }
+.lb-intro h2 em { font-style: normal; color: var(--cognac-hi); display: block; }
+.lb-intro p { color: var(--mut-d); max-width: 40ch; font-size: 16px; }
+.lb-panel { flex: none; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(24px, 3vw, 48px); align-items: stretch; }
+.lb-img { position: relative; height: min(72vh, 760px); aspect-ratio: 4 / 5; overflow: hidden; background: var(--graphite); }
+.lb-frame { position: absolute; inset: 0; will-change: transform; transform-origin: 50% 50%; }
+.lb-frame > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.lb-num { position: absolute; left: 18px; bottom: 10px; font: 500 clamp(56px, 7vw, 120px)/1 var(--f-display); color: transparent; -webkit-text-stroke: 1px rgba(236, 234, 229, .75); z-index: 1; pointer-events: none; letter-spacing: -.04em; }
+.hot { position: absolute; z-index: 2; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; border: 0; padding: 0; background: var(--chalk); color: var(--onyx); cursor: pointer; display: grid; place-items: center; box-shadow: 0 6px 20px rgba(0, 0, 0, .35); transition: background .2s, transform .2s; }
+.hot:hover { transform: scale(1.12); }
+.hot::before { content: ""; position: absolute; inset: -7px; border-radius: 50%; border: 1px solid rgba(236, 234, 229, .85); animation: ping 2.4s cubic-bezier(.2, .7, .2, 1) infinite; }
+.hot b { font: 400 20px/1 var(--f-body); transition: transform .3s; margin-top: -2px; }
+.hot[aria-expanded="true"] { background: var(--cognac); color: var(--chalk); }
+.hot[aria-expanded="true"] b { transform: rotate(45deg); }
+@keyframes ping { 0% { transform: scale(.7); opacity: 1; } 100% { transform: scale(1.8); opacity: 0; } }
+.pop { position: absolute; z-index: 3; width: 236px; background: var(--paper); color: var(--onyx); display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 12px; padding: 10px; box-shadow: 0 24px 48px rgba(0, 0, 0, .45); animation: popIn .28s cubic-bezier(.2, .7, .2, 1); cursor: pointer; text-align: left; border: 0; font: inherit; }
+.pop .th, .lb-item .th { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--card); }
+.pop .th img, .lb-item .th img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pop b { display: block; font-weight: 600; font-size: 13px; line-height: 1.3; margin-bottom: 4px; }
+.pop .price b { font-size: 13px; margin: 0; }
+.pop .go { font-size: 12px; color: var(--cognac); font-weight: 600; margin-top: 6px; display: inline-flex; gap: 4px; align-items: center; }
+.pop .go .ico { width: 14px; height: 14px; }
+@keyframes popIn { from { opacity: 0; filter: blur(4px); } }
+.lb-info { width: min(400px, 34vw); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; padding-block: 6px; min-width: 0; }
+.lb-info h3 { font-size: clamp(28px, 3vw, 46px); line-height: 1.02; letter-spacing: -.03em; }
+.lb-info .place { color: var(--mut-d); margin-top: 12px; display: block; }
+.lb-items { display: grid; border-top: 1px solid var(--line-d); }
+.lb-item { appearance: none; background: none; border: 0; border-bottom: 1px solid var(--line-d); color: var(--chalk); display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 10px 0; cursor: pointer; text-align: left; }
+.lb-item > span:nth-child(2) { font-size: 14px; transition: color .2s; }
+.lb-item small { display: block; color: var(--mut-d); font-size: 12px; }
+.lb-item .price { flex-direction: column; align-items: flex-end; gap: 0; text-align: right; }
+.lb-item .price b { font-size: 13px; white-space: nowrap; }
+.lb-item .price s { font-size: 11px; white-space: nowrap; }
+.lb-item .price .pct { display: none; }
+.lb-item:hover > span:nth-child(2) { color: var(--cognac-hi); }
+.lb-total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.lb-total b { font: 500 24px var(--f-display); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.lb-end { flex: none; width: min(520px, 80vw); display: grid; justify-items: start; gap: 28px; }
+.lb-end h3 { font-size: clamp(34px, 4.6vw, 72px); line-height: .98; letter-spacing: -.04em; }
+.lb-bar { position: absolute; left: var(--g); right: var(--g); bottom: 26px; height: 1px; background: var(--line-d); }
+.lb-bar i { position: absolute; inset: 0; background: var(--cognac-hi); transform-origin: 0 50%; transform: scaleX(0); }
+@media (max-width: 860px) {
+  .lb { height: auto !important; }
+  .lb-pin { position: static; height: auto; padding-block: 56px; }
+  .lb-track { width: auto; flex-direction: column; align-items: stretch; gap: 56px; transform: none !important; }
+  .lb-intro, .lb-end { width: 100%; }
+  .lb-panel { grid-template-columns: minmax(0, 1fr); width: 100%; gap: 20px; }
+  .lb-img { height: auto; width: 100%; }
+  .lb-info { width: 100%; }
+  .lb-bar { display: none; }
+  .pop { left: 8px !important; right: 8px; top: auto !important; bottom: 8px; width: auto; transform: none !important; }
+}
+
+/* product card: tilt, sheen, quick size */
+.pmedia { position: relative; transition: transform .6s cubic-bezier(.2, .7, .2, 1); will-change: transform; }
+.pmedia::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1; background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, .3), transparent 45%); opacity: 0; transition: opacity .3s; }
+.pcard:hover .pmedia::after { opacity: 1; }
+.quick { position: absolute; left: 8px; right: 8px; bottom: 8px; z-index: 2; background: rgba(245, 244, 240, .88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 9px; display: grid; gap: 6px; transform: translateY(14px); opacity: 0; transition: transform .35s cubic-bezier(.2, .7, .2, 1), opacity .25s; pointer-events: none; }
+.pcard:hover .quick, .pcard:focus-within .quick { transform: none; opacity: 1; pointer-events: auto; }
+.quick .mono { color: var(--mut-l); font-size: 10px; }
+.quick div { display: flex; flex-wrap: wrap; gap: 4px; }
+.quick button { appearance: none; border: 1px solid var(--line-l); background: #fff; color: var(--onyx); font: 500 12px var(--f-mono); min-width: 34px; height: 30px; padding: 0 6px; cursor: pointer; transition: background .15s, color .15s; }
+.quick button:hover { background: var(--onyx); color: var(--chalk); border-color: var(--onyx); }
+@media (hover: none) { .quick { display: none; } }
+.main-img.zooming img { transition: transform .12s ease-out; }
+
+/* scroll-driven reveals (progressive: browsers without view timelines show everything as is) */
+@supports (animation-timeline: view()) {
+  .rv { animation: rv linear both; animation-timeline: view(); animation-range: entry 0% cover 26%; }
+  @keyframes rv { from { opacity: 0; transform: translateY(64px); } }
+  .rv-clip { animation: rvClip linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
+  @keyframes rvClip { from { clip-path: inset(22% 0 0 0); } }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+</style>
+
+<div class="sprog" id="sprog"></div>
+<header class="hdr">
+  <div class="wrap">
+    <button class="brand" type="button" data-go="home" aria-label="change premium"><span class="logo"></span></button>
+    <nav aria-label="Menu">
+      <button type="button" data-go="catalog" data-i18n="nav_catalog"></button>
+      <button type="button" data-go="new" data-i18n="nav_new"></button>
+      <button type="button" data-go="sale" data-i18n="nav_sale"></button>
+      <button type="button" data-go="branches" data-i18n="nav_branches"></button>
+      <button type="button" data-go="bot" data-i18n="nav_bot"></button>
+    </nav>
+    <div class="tools">
+      <button type="button" class="draft-pill" id="draft-pill" hidden></button>
+      <div class="lang" role="group" aria-label="Til / Язык">
+        <button type="button" id="lang-uz" data-lang="0" aria-pressed="true">UZ</button>
+        <button type="button" id="lang-ru" data-lang="1" aria-pressed="false">RU</button>
+      </div>
+      <button type="button" class="iconbtn" id="go-fav" data-i18n-label="fav"><svg class="ico" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.6-9.2C1 8 3 4.5 6.6 4.5c2.1 0 3.6 1.2 5.4 3.2 1.8-2 3.3-3.2 5.4-3.2 3.6 0 5.6 3.5 4.2 6.8-2.1 4.6-9.6 9.2-9.6 9.2z"/></svg><span class="badge" id="fav-count" hidden></span></button>
+      <button type="button" class="iconbtn" id="go-res" data-i18n-label="bookings"><svg class="ico" viewBox="0 0 24 24"><path d="M10 5a2 2 0 1 1 2 2v2l8.4 6.1a1 1 0 0 1-.6 1.9H4.2a1 1 0 0 1-.6-1.9L12 9"/></svg><span class="badge" id="res-count" hidden></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="hero-stage" id="hero-stage">
+    <div class="hero-grid"></div>
+    <div class="hero-fallback" id="hero-fallback"><span class="logo"></span></div>
+    <canvas id="hero-canvas" aria-label="change premium 3D"></canvas>
+    <div class="scroll-cue mono"><i></i><span data-i18n="scroll"></span></div>
+  </div>
+  <div class="wrap hero-copy">
+    <span class="eyebrow mono" data-i18n="hero_eyebrow"></span>
+    <h1 id="hero-title"></h1>
+    <div class="hero-side">
+      <p data-i18n="hero_sub"></p>
+      <div class="ctas">
+        <button type="button" class="btn btn-chalk mag" data-go="catalog"><span data-i18n="cta_catalog"></span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <button type="button" class="btn btn-ghost" data-go="how" data-i18n="cta_how"></button>
+      </div>
+      <div class="live" id="hero-live"></div>
+    </div>
+  </div>
+</section>
+
+<main id="app">
+  <div id="v-home"></div>
+  <div id="v-catalog" class="light" hidden></div>
+  <div id="v-product" class="light" hidden></div>
+  <div id="v-res" class="light" hidden></div>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <span class="logo" role="img" aria-label="change premium"></span>
+    <div class="links" id="ft-links"></div>
+    <div class="demo mono"><span data-i18n="footer_demo"></span><span>Instagram @change_mens · Telegram @mensshopuz</span></div>
+  </div>
+</footer>
+
+<div class="backdrop" id="backdrop" hidden></div>
+<div id="sheet-root"></div>
+<div class="toast" id="toast" hidden></div>
+<div class="wipe" id="wipe" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/environments/RoomEnvironment.js"></script>
+<script>
+/* ---------- i18n ---------- */
+const T = {
+  nav_catalog: ["Katalog", "Каталог"], nav_new: ["Yangi", "Новинки"], nav_sale: ["Chegirmalar", "Скидки"],
+  nav_branches: ["Filiallar", "Филиалы"], nav_bot: ["Telegram-bot", "Telegram-бот"],
+  fav: ["Sevimlilar", "Избранное"], bookings: ["Bronlarim", "Мои брони"],
+  hero_eyebrow: ["Samarqand · erkaklar kiyimi, poyabzal va ichki kiyim", "Самарканд · мужская одежда, обувь и бельё"],
+  hero_title: ["O‘zgarish <em>shu yerdan</em> boshlanadi", "Перемены начинаются <em>здесь</em>"],
+  hero_sub: ["O‘lchamingizni tanlang, biz kiyimni kerakli filialda kiyib ko‘rish uchun ajratib qo‘yamiz. Oldindan to‘lov yo‘q.", "Выберите размер, и мы отложим вещь на примерку в нужном филиале. Без предоплаты."],
+  cta_catalog: ["Katalogni ochish", "Открыть каталог"], cta_how: ["Bron qanday ishlaydi", "Как работает бронь"],
+  scroll: ["Pastga aylantiring", "Листайте вниз"], cur_view: ["Ko‘rish", "Смотреть"], cur_zoom: ["Yaqinroq", "Ближе"], cur_click: ["Bosing", "Нажмите"],
+  lb_eyebrow: ["Lookbook · Kuz 2026", "Лукбук · осень 2026"], lb_title: ["Samarqand.<em>Kuz 2026.</em>", "Самарканд.<em>Осень 2026.</em>"],
+  lb_sub: ["Uchta obraz shahar ko‘chalarida suratga olingan. Nuqtani bosing va kiyimni ko‘ring.", "Три образа, снятые на улицах города. Нажмите на точку, чтобы открыть вещь."],
+  look: ["Obraz", "Образ"], lb_total: ["Obraz narxi", "Образ целиком"],
+  lb_end_title: ["O‘z obrazingizni yig‘ing", "Соберите свой образ"], lb_end_btn: ["Kolleksiyaga o‘tish", "Перейти к коллекции"],
+  mq: [["change", "premium", "kuz 2026"], ["change", "premium", "осень 2026"]], quick: ["Tez tanlash · o‘lcham", "Быстрый выбор · размер"],
+  ticker: [["Kuz 2026 kolleksiyasi", "Kiyib ko‘rishga bron bepul", "Oldindan to‘lov yo‘q", "Samarqandda 2 filial", "Qoldiqlar har 15 daqiqada yangilanadi"], ["Коллекция осень 2026", "Бронь на примерку бесплатно", "Без предоплаты", "2 филиала в Самарканде", "Остатки обновляются каждые 15 минут"]],
+  how_eyebrow: ["Kiyib ko‘rishga bron", "Бронь на примерку"], how_title: ["Kiyimni oldindan ajratib qo‘ying", "Отложите вещь заранее"],
+  steps: [[["O‘lchamni tanlang", "Qaysi filialda borligini darhol ko‘rasiz."], ["Filialni belgilang", "Sotuvchi kiyimni kelguningizcha ajratib qo‘yadi."], ["Kiyib ko‘ring", "Yoqsa, do‘konda to‘laysiz. Oldindan to‘lov yo‘q."]], [["Выберите размер", "Сразу видно, в каком филиале он есть."], ["Выберите филиал", "Продавец отложит вещи до вашего прихода."], ["Примерьте", "Если подойдёт, оплатите в магазине. Без предоплаты."]]],
+  new_eyebrow: ["Kuz 2026", "Осень 2026"], new_title: ["Yangi kelganlar", "Новинки"], see_all: ["Barchasini ko‘rish", "Смотреть все"],
+  cats_eyebrow: ["Katalog", "Каталог"], cats_title: ["Kategoriyalar", "Категории"], models: ["{n} model", "{n} моделей"],
+  sale_eyebrow: ["Narx tushdi", "Цена снижена"], sale_title: ["Chegirmalar", "Скидки"],
+  bot_eyebrow: ["Telegram-bot", "Telegram-бот"], bot_title: ["Do‘kon Telegram’da", "Магазин в Telegram"],
+  bot_sub: ["Katalog, bron, o‘lchamlaringiz va kerakli o‘lcham paydo bo‘lganda xabar. Sotuvchiga savolni ham shu yerda yozasiz.", "Каталог, бронь, ваши размеры и уведомление, когда появится нужный размер. Вопрос продавцу тоже можно задать здесь."],
+  bot_points: [["Bron holati va eslatmalar", "Sevimlidagi kiyim arzonlashsa, xabar beramiz", "Har juma yangi mahsulotlar to‘plami", "Rasm yuboring, sotuvchi javob beradi"], ["Статус брони и напоминания", "Сообщим, если подешевеет вещь из избранного", "Подборка новинок по пятницам", "Пришлите фото, продавец ответит"]],
+  bot_open: ["Botni ochish", "Открыть бота"],
+  ph_card: ["Mahsulot kartochkasi", "Карточка товара"], ph_menu: ["Bosh menyu", "Главное меню"], ph_group: ["Sotuvchilar guruhi", "Группа продавцов"],
+  br_eyebrow: ["Samarqand", "Самарканд"], br_title: ["Filiallar", "Филиалы"],
+  open_now: ["Hozir ochiq · {t} gacha", "Открыто · до {t}"], closed: ["Yopiq · {t} da ochiladi", "Закрыто · откроется в {t}"],
+  route: ["Yo‘nalish", "Маршрут"], call: ["Qo‘ng‘iroq", "Позвонить"], every_day: ["Har kuni", "Ежедневно"], br_stock: ["Shu filialdagi kiyimlar", "Товары в этом филиале"],
+  sub_title: ["Yangi kolleksiyani birinchi bo‘lib ko‘ring", "Узнавайте о новинках первым"],
+  sub_text: ["Botga obuna bo‘ling: yangi mahsulotlar, chegirmalar va kerakli o‘lcham paydo bo‘lganini aytamiz.", "Подпишитесь в боте: пришлём новинки, скидки и сообщим, когда появится ваш размер."],
+  sub_btn: ["Telegram’da obuna bo‘lish", "Подписаться в Telegram"],
+  footer_demo: ["Prototip. Mahsulotlar, narxlar va qoldiqlar namuna uchun", "Прототип. Товары, цены и остатки для примера"],
+  privacy: ["Maxfiylik siyosati", "Политика конфиденциальности"], size_guide: ["O‘lchamni qanday tanlash", "Как подобрать размер"],
+  home: ["Bosh sahifa", "Главная"], catalog_all: ["Barcha kiyimlar", "Все товары"], all: ["Hammasi", "Все"],
+  filters: ["Filtrlar", "Фильтры"], f_size: ["O‘lcham", "Размер"], f_color: ["Rang", "Цвет"], f_price: ["Narx, so‘m", "Цена, сум"],
+  from: ["dan", "от"], to: ["gacha", "до"], f_brand: ["Brend", "Бренд"], f_branch: ["Filialda bor", "Есть в филиале"], any_branch: ["Istalgan filial", "Любой филиал"],
+  f_sale: ["Faqat chegirmadagilar", "Только со скидкой"], show: ["Ko‘rsatish", "Показать"], reset: ["Tozalash", "Сбросить"],
+  sort_new: ["Avval yangilari", "Сначала новые"], sort_cheap: ["Avval arzonlari", "Сначала дешевле"], sort_exp: ["Avval qimmatlari", "Сначала дороже"], sort_disc: ["Chegirma bo‘yicha", "По скидке"],
+  count: ["{n} ta mahsulot", "Товаров: {n}"], your_sizes: ["Sizning o‘lchamlaringiz ko‘rsatilmoqda: {s}", "Показаны ваши размеры: {s}"],
+  empty: ["Hech narsa topilmadi", "Ничего не найдено"], empty_sub: ["Filtrlarni o‘zgartiring yoki tozalang.", "Измените или сбросьте фильтры."], empty_reset: ["Filtrlarni tozalash", "Сбросить фильтры"],
+  empty_notify: ["Bu o‘lcham paydo bo‘lganda xabar berish", "Сообщить, когда появится этот размер"], more: ["Yana ko‘rsatish", "Показать ещё"],
+  tag_new: ["Yangi", "Новинка"], tag_sale: ["Chegirma", "Скидка"], som: ["so‘m", "сум"],
+  p_color: ["Rang", "Цвет"], p_size: ["O‘lcham", "Размер"], p_helper: ["O‘lchamni aniqlash", "Подобрать размер"],
+  p_avail: ["Filiallarda mavjudligi", "Наличие в филиалах"], st_yes: ["Bor", "Есть"], st_low: ["Kam qoldi", "Осталось мало"], st_no: ["Yo‘q", "Нет"],
+  pick_size_first: ["Mavjudlikni ko‘rish uchun o‘lchamni tanlang", "Выберите размер, чтобы увидеть наличие"],
+  reserve: ["Kiyib ko‘rishga bron qilish", "Забронировать на примерку"], reserve_hint: ["Avval mavjud o‘lchamni tanlang", "Сначала выберите доступный размер"],
+  to_fav: ["Sevimlilarga", "В избранное"], composition: ["Tarkibi", "Состав"], desc: ["Tavsif", "Описание"], chart: ["O‘lchamlar jadvali", "Таблица размеров"],
+  wear_with: ["Bu bilan kiyishadi", "С этим носят"], notify: ["Paydo bo‘lganda xabar berish", "Сообщить, когда появится"],
+  notify_q: ["{s} o‘lchami hozir hech bir filialda yo‘q. Paydo bo‘lishi bilan botda bir marta xabar beramiz.", "Размера {s} сейчас нет ни в одном филиале. Как только появится, бот пришлёт одно сообщение."],
+  res_title: ["Kiyib ko‘rishga bron", "Бронь на примерку"], res_branch: ["Filialni tanlang", "Выберите филиал"],
+  res_branch_note: ["Faqat shu o‘lcham bor filiallar ko‘rsatilgan", "Показаны только филиалы, где есть этот размер"], fav_branch: ["Sevimli filial", "Любимый филиал"],
+  res_items: ["Bronda", "В брони"], res_add: ["Yana mahsulot qo‘shish", "Добавить ещё"], res_contacts: ["Aloqa", "Контакты"],
+  res_name: ["Ismingiz", "Ваше имя"], res_phone: ["Telefon", "Телефон"],
+  res_consent: ["Shaxsiy ma’lumotlarimni qayta ishlashga roziman", "Согласен на обработку персональных данных"],
+  res_marketing: ["Yangi mahsulotlar haqida xabar olishni xohlayman", "Хочу получать новинки"],
+  res_check: ["Tekshiring", "Проверьте"], next: ["Davom etish", "Продолжить"], back: ["Orqaga", "Назад"], confirm: ["Bron qilish", "Забронировать"],
+  until: ["Ushlab turamiz", "Держим до"], branch: ["Filial", "Филиал"], address: ["Manzil", "Адрес"], prepay: ["Oldindan to‘lov", "Предоплата"], none: ["Yo‘q", "Нет"],
+  res_done: ["Bron №{n} qabul qilindi", "Бронь №{n} принята"],
+  res_done_sub: ["Sotuvchi kiyimni ajratib qo‘yganda botda xabar beramiz. {b} filialiga {d} gacha keling.", "Когда продавец отложит вещи, бот пришлёт сообщение. Приходите в {b} до {d}."],
+  res_bot: ["Bron xabarlarini Telegram’da olish", "Получать уведомления о брони в Telegram"], close: ["Yopish", "Закрыть"],
+  err_name: ["Ismingizni kiriting", "Введите имя"], err_phone: ["Raqamni +998 XX XXX XX XX formatida kiriting", "Введите номер в формате +998 XX XXX XX XX"],
+  err_consent: ["Bron qilish uchun rozilik belgisini qo‘ying", "Отметьте согласие, чтобы забронировать"],
+  err_other_branch: ["Bu kiyim {b} filialida yo‘q. Boshqa filial uchun alohida bron qiling.", "Этой вещи нет в филиале {b}. Для другого филиала оформите отдельную бронь."],
+  err_max_items: ["Bitta bronda 5 tagacha kiyim bo‘ladi", "В одной брони до 5 вещей"],
+  err_max_res: ["Sizda 2 ta faol bron bor. Yangisi uchun bittasini bekor qiling.", "У вас 2 активные брони. Отмените одну, чтобы оформить новую."],
+  err_gone: ["{x} hozirgina tugadi. Uni olib tashlang yoki boshqa o‘lcham tanlang.", "{x} только что закончилась. Уберите её или выберите другой размер."],
+  draft_pill: ["Bron · {n}", "Бронь · {n}"], added: ["Bronga qo‘shildi", "Добавлено в бронь"], remove: ["Olib tashlash", "Убрать"], qty: ["Soni", "Кол-во"],
+  my_res: ["Bronlarim", "Мои брони"], my_res_empty: ["Hozircha bron yo‘q", "Пока броней нет"], my_res_sub: ["Kiyimni tanlang va kiyib ko‘rishga bron qiling.", "Выберите вещь и забронируйте примерку."],
+  status_new: ["Yangi · sotuvchi tekshirmoqda", "Новая · продавец проверяет"], cancel: ["Bekor qilish", "Отменить"], cancelled: ["Bron bekor qilindi", "Бронь отменена"],
+  helper_title: ["O‘lchamni aniqlash", "Подбор размера"], h_top: ["Ustki kiyim", "Верх"], h_bottom: ["Shim va kostyum", "Брюки и костюмы"], h_shoe: ["Poyabzal", "Обувь"],
+  height: ["Bo‘y, sm", "Рост, см"], weight: ["Vazn, kg", "Вес, кг"], foot: ["Oyoq uzunligi, sm", "Длина стопы, см"], find: ["Aniqlash", "Подобрать"],
+  fits: ["Sizga mos o‘lcham", "Вам подойдёт"], looser: ["Erkinroq kiyishni yoqtirsangiz: {s}", "Если любите свободнее: {s}"], exact: ["Jadvalga to‘liq mos keladi", "Точно попадает в таблицу"],
+  save_size: ["Mening o‘lchamlarimga saqlash", "Сохранить в мои размеры"], saved: ["Saqlandi. Katalog endi sizning o‘lchamingizni ko‘rsatadi", "Сохранено. Каталог покажет ваши размеры"],
+  helper_note: ["Natija o‘lchamlar jadvali bo‘yicha. Ikkilansangiz, sotuvchidan so‘rang.", "Подбор по таблице размеров. Если сомневаетесь, спросите продавца."],
+  toast_bot: ["Prototipda bot havolasi o‘chirilgan · start={p}", "В прототипе ссылка на бота отключена · start={p}"],
+  fav_added: ["Sevimlilarga qo‘shildi", "Добавлено в избранное"], fav_removed: ["Sevimlilardan olib tashlandi", "Удалено из избранного"],
+  fav_title: ["Sevimlilar", "Избранное"], fav_empty: ["Sevimlilar bo‘sh. Kiyimdagi yurakchani bosing.", "В избранном пусто. Нажмите на сердечко у товара."],
+  new_all: ["Yangi kelganlar", "Новинки"], sale_all: ["Chegirmalar", "Скидки"], one_size: ["Universal", "Универсальный"],
+  price_note: ["Narx", "Цена"]
+};
+const st = { lang: 0, view: "home" };
+const t = (k, v) => { let s = T[k] ? T[k][st.lang] : k; if (v) for (const x in v) s = s.replace("{" + x + "}", v[x]); return s; };
+const L = o => (Array.isArray(o) ? o[st.lang] : o);
+const money = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " " + t("som");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+/* ---------- storage ---------- */
+const store = {
+  get(k, d) { try { const v = localStorage.getItem("cp-" + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem("cp-" + k, JSON.stringify(v)); } catch (e) {} }
+};
+st.lang = store.get("lang", 0);
+let favs = new Set(store.get("favs", []));
+let bookings = store.get("bookings", []);
+let savedSizes = store.get("sizes", {});
+let favBranch = store.get("favBranch", null);
+let draft = null;
+
+/* ---------- data ---------- */
+const BRANCHES = [
+  { id: "citymall", name: ["Siti Moll", "Сити Молл"], addr: ["Samarqand, Siti Moll savdo markazi", "Самарканд, ТЦ Сити Молл"], open: 10, close: 22, color: "#2A2C31" },
+  { id: "shahrukh17", name: ["Shohruh Mirzo, 17", "Шахрух Мирзо, 17"], addr: ["Samarqand, Shohruh Mirzo ko‘chasi, 17", "Самарканд, ул. Шахруха Мирзы, 17"], open: 9, close: 21, color: "#94603A" }
+];
+const CATS = [
+  { id: "kiyim", n: ["Kiyim", "Одежда"], photo: ["CH-5030", 0], subs: [
+    { id: "koylak", n: ["Ko‘ylaklar", "Рубашки"] }, { id: "futbolka", n: ["Futbolka va polo", "Футболки и поло"] },
+    { id: "shim", n: ["Shimlar", "Брюки"] }, { id: "jinsi", n: ["Jinsilar", "Джинсы"] }, { id: "kostyum", n: ["Kostyumlar", "Костюмы"] },
+    { id: "pidjak", n: ["Pidjaklar", "Пиджаки"] }, { id: "sviter", n: ["Sviterlar", "Свитеры"] }, { id: "kurtka", n: ["Kurtka va paltolar", "Куртки и пальто"] }] },
+  { id: "poyabzal", n: ["Poyabzal", "Обувь"], photo: ["CH-6012", 1], subs: [
+    { id: "tufli", n: ["Tuflilar", "Туфли"] }, { id: "krossovka", n: ["Krossovkalar", "Кроссовки"] }] },
+  { id: "ichki", n: ["Ichki kiyim va paypoq", "Бельё и носки"], photo: ["CH-7001", 0], subs: [] },
+  { id: "aksessuar", n: ["Aksessuarlar", "Аксессуары"], photo: ["CH-8020", 1], subs: [
+    { id: "kamar", n: ["Kamarlar", "Ремни"] }, { id: "galstuk", n: ["Galstuklar", "Галстуки"] }] }
+];
+const SIZES = {
+  top: ["S", "M", "L", "XL", "XXL"], suit: ["46", "48", "50", "52", "54", "56"], bottom: ["46", "48", "50", "52", "54"],
+  shoe: ["39", "40", "41", "42", "43", "44", "45"], belt: ["95", "100", "105", "110"], sock: ["39–42", "43–46"], one: ["U"]
+};
+const HELPER_GROUP = { top: "top", suit: "bottom", bottom: "bottom", shoe: "shoe" };
+const FAM = {
+  white: ["Oq", "Белый", "#F2F1EC"], black: ["Qora", "Чёрный", "#18191C"], blue: ["Ko‘k", "Синий", "#26314C"], beige: ["Bej", "Бежевый", "#D2C3A6"],
+  grey: ["Kulrang", "Серый", "#7A7D84"], brown: ["Jigarrang", "Коричневый", "#6B4329"], green: ["Yashil", "Зелёный", "#6F7356"], red: ["Bordo", "Бордовый", "#5A2A2E"]
+};
+const C = (uz, ru, hex, fam) => ({ n: [uz, ru], hex, fam });
+const PRODUCTS = [
+  { sku: "CH-3011", cat: "kiyim", sub: "pidjak", shape: "blazer", brand: "Atelier 17", n: ["Bir qatorli pidjak", "Однобортный пиджак"], price: 1890000, old: 2290000, sg: "suit", days: 1,
+    colors: [C("To‘q ko‘k", "Тёмно-синий", "#1E2638", "blue"), C("Kemel", "Кэмел", "#A27B54", "brown")], comp: ["100% jun", "100% шерсть"],
+    d: ["Yumshoq yelka, ikki shlitsa, yarim astar. Ofis va kechki tadbirlar uchun.", "Мягкое плечо, две шлицы, полуподкладка. Для офиса и вечерних выходов."] },
+  { sku: "CH-1021", cat: "kiyim", sub: "koylak", shape: "shirt", brand: "change", n: ["Oxford ko‘ylak", "Рубашка Oxford"], price: 459000, sg: "top", days: 2,
+    colors: [C("Oq", "Белый", "#F2F1EC", "white"), C("Havorang", "Голубой", "#AFC4DA", "blue")], comp: ["100% paxta", "100% хлопок"],
+    d: ["Zich oxford mato, tugmali yoqa. Pidjak bilan ham, alohida ham kiyiladi.", "Плотный оксфорд, воротник на пуговицах. Носится с пиджаком и без."] },
+  { sku: "CH-2045", cat: "kiyim", sub: "shim", shape: "trousers", brand: "change", n: ["Chinos shim", "Брюки чинос"], price: 489000, sg: "bottom", days: 3,
+    colors: [C("Bej", "Бежевый", "#CDBA97", "beige"), C("Grafit", "Графит", "#3A3C42", "grey")], comp: ["98% paxta, 2% elastan", "98% хлопок, 2% эластан"],
+    d: ["To‘g‘ri bichim, o‘rta belbog‘. Har kuni kiyish uchun.", "Прямой крой, средняя посадка. На каждый день."] },
+  { sku: "CH-4005", cat: "kiyim", sub: "sviter", shape: "sweater", brand: "change", n: ["Merinos sviter", "Свитер из мериноса"], price: 790000, sg: "top", days: 4,
+    colors: [C("Suli", "Овсяный", "#CFC3AE", "beige"), C("Grafit", "Графит", "#34363B", "grey"), C("Bordo", "Бордовый", "#5A2A2E", "red")], comp: ["100% merinos juni", "100% шерсть мериноса"],
+    d: ["Yupqa trikotaj, ko‘ylak ustidan kiyish qulay. Qichimaydi.", "Тонкий трикотаж, удобно носить поверх рубашки. Не колется."] },
+  { sku: "CH-1102", cat: "kiyim", sub: "futbolka", shape: "polo", brand: "change", n: ["Trikotaj polo", "Трикотажное поло"], price: 349000, sg: "top", days: 5,
+    colors: [C("To‘q ko‘k", "Тёмно-синий", "#1F2A44", "blue"), C("Sut rang", "Молочный", "#ECEAE5", "white"), C("Jigarrang", "Коричневый", "#7A4E2D", "brown")], comp: ["95% paxta, 5% elastan", "95% хлопок, 5% эластан"],
+    d: ["Mayin pike trikotaj, ikki tugmali yoqa.", "Мягкий пике, планка на две пуговицы."] },
+  { sku: "CH-3120", cat: "kiyim", sub: "kostyum", shape: "suit", brand: "Atelier 17", n: ["Ikki qismli kostyum", "Костюм-двойка"], price: 3490000, sg: "suit", days: 6,
+    colors: [C("Antratsit", "Антрацит", "#2B2D33", "grey"), C("To‘q ko‘k", "Тёмно-синий", "#1C2337", "blue")], comp: ["98% jun, 2% elastan", "98% шерсть, 2% эластан"],
+    d: ["Pidjak va shim. Shim uzunligi do‘konda bepul moslashtiriladi.", "Пиджак и брюки. Длину брюк подгоним в магазине бесплатно."] },
+  { sku: "CH-6105", cat: "poyabzal", sub: "krossovka", shape: "sneaker", brand: "change", n: ["Teri krossovka", "Кожаные кроссовки"], price: 990000, old: 1190000, sg: "shoe", days: 7,
+    colors: [C("Oq", "Белый", "#EEEDE8", "white"), C("Qora", "Чёрный", "#1B1C1F", "black")], comp: ["Natural teri, rezina taglik", "Натуральная кожа, резиновая подошва"],
+    d: ["Minimalist kesim, yumshoq ichki qism.", "Минималистичный силуэт, мягкая стелька."] },
+  { sku: "CH-5030", cat: "kiyim", sub: "kurtka", shape: "coat", brand: "Atelier 17", n: ["Jun palto", "Шерстяное пальто"], price: 2990000, sg: "top", days: 8,
+    colors: [C("Kemel", "Кэмел", "#A8835A", "brown"), C("Qora", "Чёрный", "#18191C", "black")], comp: ["80% jun, 20% kashemir", "80% шерсть, 20% кашемир"],
+    d: ["Tizzagacha uzunlik, ikki qatorli tugmalar.", "Длина до колена, двубортная застёжка."] },
+  { sku: "CH-1034", cat: "kiyim", sub: "koylak", shape: "shirt", brand: "change", n: ["Zig‘ir ko‘ylak", "Льняная рубашка"], price: 529000, old: 659000, sg: "top", days: 20,
+    colors: [C("Bej", "Бежевый", "#D8CBB3", "beige"), C("Zaytun", "Оливковый", "#7D7F5E", "green")], comp: ["100% zig‘ir", "100% лён"],
+    d: ["Issiq kunlar uchun yengil zig‘ir.", "Лёгкий лён для жарких дней."] },
+  { sku: "CH-2210", cat: "kiyim", sub: "jinsi", shape: "jeans", brand: "Nord Denim", n: ["Straight jinsi", "Джинсы straight"], price: 590000, old: 690000, sg: "bottom", days: 25,
+    colors: [C("Indigo", "Индиго", "#2E3F5C", "blue"), C("Qora", "Чёрный", "#222326", "black")], comp: ["99% paxta, 1% elastan", "99% хлопок, 1% эластан"],
+    d: ["Klassik to‘g‘ri bichim, zich denim.", "Классический прямой крой, плотный деним."] },
+  { sku: "CH-2081", cat: "kiyim", sub: "shim", shape: "trousers", brand: "Atelier 17", n: ["Jun klassik shim", "Шерстяные брюки"], price: 690000, sg: "bottom", days: 30,
+    colors: [C("Kulrang", "Серый", "#6E7178", "grey"), C("Qora", "Чёрный", "#1A1B1E", "black")], comp: ["100% jun", "100% шерсть"],
+    d: ["Strelkali klassik shim, kostyum yoki pidjak bilan.", "Классические брюки со стрелками, к костюму или пиджаку."] },
+  { sku: "CH-6012", cat: "poyabzal", sub: "tufli", shape: "shoe", brand: "change", n: ["Derbi tufli", "Туфли дерби"], price: 1290000, sg: "shoe", days: 34,
+    colors: [C("Qora", "Чёрный", "#141414", "black"), C("Jigarrang", "Коричневый", "#5B3A24", "brown")], comp: ["Natural teri", "Натуральная кожа"],
+    d: ["Klassik derbi, charm taglik va rezina tovon.", "Классические дерби, кожаная подошва и резиновый каблук."] },
+  { sku: "CH-1150", cat: "kiyim", sub: "futbolka", shape: "tee", brand: "change", n: ["Bazaviy futbolka", "Базовая футболка"], price: 189000, sg: "top", days: 40,
+    colors: [C("Oq", "Белый", "#F2F1EC", "white"), C("Qora", "Чёрный", "#1B1C1F", "black"), C("Zaytun", "Оливковый", "#6F7356", "green")], comp: ["100% paxta", "100% хлопок"],
+    d: ["Zich trikotaj, kir yuvishdan keyin shaklini saqlaydi.", "Плотный трикотаж, держит форму после стирки."] },
+  { sku: "CH-8020", cat: "aksessuar", sub: "kamar", shape: "belt", brand: "change", n: ["Teri kamar", "Кожаный ремень"], price: 290000, old: 340000, sg: "belt", days: 44,
+    colors: [C("Qora", "Чёрный", "#18191C", "black"), C("Konyak", "Коньяк", "#8A5631", "brown")], comp: ["Natural teri", "Натуральная кожа"],
+    d: ["3,5 sm kenglik, matlangan to‘qa.", "Ширина 3,5 см, матовая пряжка."] },
+  { sku: "CH-8044", cat: "aksessuar", sub: "galstuk", shape: "tie", brand: "change", n: ["Ipak galstuk", "Шёлковый галстук"], price: 259000, sg: "one", days: 50,
+    colors: [C("To‘q ko‘k", "Тёмно-синий", "#1F2A44", "blue"), C("Bordo", "Бордовый", "#5A2A2E", "red")], comp: ["100% ipak", "100% шёлк"],
+    d: ["Kenglik 7 sm, qo‘lda tikilgan.", "Ширина 7 см, ручная работа."] },
+  { sku: "CH-7001", cat: "ichki", sub: null, shape: "socks", brand: "change", n: ["Paypoq to‘plami, 3 juft", "Набор носков, 3 пары"], price: 89000, sg: "sock", days: 60,
+    colors: [C("Grafit", "Графит", "#3A3C42", "grey"), C("To‘q ko‘k", "Тёмно-синий", "#26314C", "blue")], comp: ["80% paxta, 18% poliamid, 2% elastan", "80% хлопок, 18% полиамид, 2% эластан"],
+    d: ["Mustahkam tovon va barmoq qismi.", "Усиленные пятка и мысок."] }
+];
+PRODUCTS.forEach(p => { p.isNew = p.days <= 14; p.isSale = p.old && p.old > p.price; });
+const bySku = s => PRODUCTS.find(p => p.sku === s);
+const catOf = id => CATS.find(c => c.id === id);
+const subOf = (c, id) => (catOf(c)?.subs || []).find(s => s.id === id);
+const branchOf = id => BRANCHES.find(b => b.id === id);
+
+/* stock: seeded, then minus active bookings (TZ 1.5) */
+function hash(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0) / 4294967296; }
+function qty(p, ci, size, b) {
+  const r = hash(p.sku + "|" + ci + "|" + size + "|" + b);
+  const edge = ["XXL", "56", "45", "39", "110"].includes(size);
+  if (r < (edge ? .62 : .26)) return 0;
+  if (r < (edge ? .8 : .44)) return 1;
+  if (r < .56) return 2;
+  return 3 + Math.floor(r * 5);
+}
+function reserved(p, ci, size, b) {
+  return bookings.filter(x => x.status === "new" && x.branch === b).reduce((s, x) => s + x.items.filter(i => i.sku === p.sku && i.ci === ci && i.size === size).reduce((a, i) => a + i.qty, 0), 0);
+}
+const avail = (p, ci, size, b) => Math.max(0, qty(p, ci, size, b) - reserved(p, ci, size, b));
+const availAny = (p, ci, size, onlyB) => (onlyB ? [onlyB] : BRANCHES.map(b => b.id)).some(b => avail(p, ci, size, b) > 0);
+const level = n => (n >= 3 ? "yes" : n > 0 ? "low" : "no");
+const sizeLabel = s => (s === "U" ? t("one_size") : s);
+
+/* ---------- product photos (generated catalog series) ---------- */
+const PHOTO_DATA = {"CH-1021-0":"img/CH-1021-0.webp","CH-1021-1":"img/CH-1021-1.webp","CH-1034-0":"img/CH-1034-0.webp","CH-1034-1":"img/CH-1034-1.webp","CH-1102-0":"img/CH-1102-0.webp","CH-1102-1":"img/CH-1102-1.webp","CH-1102-2":"img/CH-1102-2.webp","CH-1150-0":"img/CH-1150-0.webp","CH-1150-1":"img/CH-1150-1.webp","CH-1150-2":"img/CH-1150-2.webp","CH-2045-0":"img/CH-2045-0.webp","CH-2045-1":"img/CH-2045-1.webp","CH-2081-0":"img/CH-2081-0.webp","CH-2081-1":"img/CH-2081-1.webp","CH-2210-0":"img/CH-2210-0.webp","CH-2210-1":"img/CH-2210-1.webp","CH-3011-0":"img/CH-3011-0.webp","CH-3011-1":"img/CH-3011-1.webp","CH-3120-0":"img/CH-3120-0.webp","CH-3120-1":"img/CH-3120-1.webp","CH-4005-0":"img/CH-4005-0.webp","CH-4005-1":"img/CH-4005-1.webp","CH-4005-2":"img/CH-4005-2.webp","CH-5030-0":"img/CH-5030-0.webp","CH-5030-1":"img/CH-5030-1.webp","CH-6012-0":"img/CH-6012-0.webp","CH-6012-1":"img/CH-6012-1.webp","CH-6105-0":"img/CH-6105-0.webp","CH-6105-1":"img/CH-6105-1.webp","CH-7001-0":"img/CH-7001-0.webp","CH-7001-1":"img/CH-7001-1.webp","CH-8020-0":"img/CH-8020-0.webp","CH-8020-1":"img/CH-8020-1.webp","CH-8044-0":"img/CH-8044-0.webp","CH-8044-1":"img/CH-8044-1.webp","LOOK-1":"img/LOOK-1.webp","LOOK-2":"img/LOOK-2.webp","LOOK-3":"img/LOOK-3.webp"};
+const PHOTO_URL = {};
+for (const k in PHOTO_DATA) {
+  if (PHOTO_DATA[k].endsWith(".webp")) { PHOTO_URL[k] = PHOTO_DATA[k]; continue; } /* hosted build: plain file paths */
+  try {
+    const bin = atob(PHOTO_DATA[k]), u8 = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+    PHOTO_URL[k] = URL.createObjectURL(new Blob([u8], { type: "image/webp" }));
+  } catch (e) { PHOTO_URL[k] = "data:image/webp;base64," + PHOTO_DATA[k]; }
+}
+const VIEWS = ["none", "scale(1.75) translateY(14%)", "scale(2.6) translateY(-2%)"];
+function photo(p, ci, opts = {}) {
+  const lazy = opts.eager ? "" : ' loading="lazy"';
+  const tf = opts.view ? ` style="transform:${opts.view}"` : "";
+  return `<img src="${PHOTO_URL[p.sku + "-" + ci]}" alt="${opts.alt ? esc(L(p.n)) + ", " + esc(L(p.colors[ci].n)).toLowerCase() : ""}" width="800" height="1000" decoding="async"${lazy}${tf}${opts.cls ? ` class="${opts.cls}"` : ""}>`;
+}
+const CMARK = c => `<svg viewBox="0 0 300 184" aria-hidden="true"><path d="M0 0H300V48H48V136H300V184H0Z" fill="${c}"/></svg>`;
+const ICO = {
+  heart: '<svg class="ico" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.6-9.2C1 8 3 4.5 6.6 4.5c2.1 0 3.6 1.2 5.4 3.2 1.8-2 3.3-3.2 5.4-3.2 3.6 0 5.6 3.5 4.2 6.8-2.1 4.6-9.6 9.2-9.6 9.2z"/></svg>',
+  arrow: '<svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  close: '<svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  filter: '<svg class="ico" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></svg>',
+  pin: '<svg class="ico" viewBox="0 0 24 24"><path d="M12 21s-6-5.5-6-11a6 6 0 1 1 12 0c0 5.5-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>',
+  phone: '<svg class="ico" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>',
+  tg: '<svg class="ico" viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 4 2-15zM9 13l9-6"/></svg>',
+  ruler: '<svg class="ico" viewBox="0 0 24 24"><path d="M3 15l12-12 6 6-12 12zM7 11l2 2M10 8l2 2M13 5l2 2"/></svg>'
+};
+
+/* ---------- time (Samarkand) ---------- */
+function nowSmk() {
+  const p = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Samarkand", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }).formatToParts(new Date());
+  const g = k => +p.find(x => x.type === k).value;
+  return { y: g("year"), mo: g("month"), d: g("day"), h: g("hour") % 24, mi: g("minute") };
+}
+const hh = h => String(h).padStart(2, "0") + ":00";
+function openState(b) {
+  const n = nowSmk(), m = n.h + n.mi / 60;
+  return m >= b.open && m < b.close ? { open: true, text: t("open_now", { t: hh(b.close) }) } : { open: false, text: t("closed", { t: hh(b.open) }) };
+}
+/* TZ 3.1: until branch closing on the next working day, but not less than 24h */
+function expiry(b) {
+  const n = nowSmk();
+  const base = Date.UTC(n.y, n.mo - 1, n.d, n.h, n.mi);
+  let e = Date.UTC(n.y, n.mo - 1, n.d + 1, b.close, 0);
+  if (e - base < 24 * 3600e3) e = Date.UTC(n.y, n.mo - 1, n.d + 2, b.close, 0);
+  const d = new Date(e);
+  return String(d.getUTCDate()).padStart(2, "0") + "." + String(d.getUTCMonth() + 1).padStart(2, "0") + ", " + hh(d.getUTCHours());
+}
+
+/* ---------- ui helpers ---------- */
+const $ = s => document.querySelector(s);
+let toastTimer;
+function toast(msg) { const el = $("#toast"); el.textContent = msg; el.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => (el.hidden = true), 2600); }
+const botLink = p => toast(t("toast_bot", { p }));
+function pctOff(p) { return Math.round((p.old - p.price) / p.old * 100); }
+function priceHTML(p) { return `<div class="price"><b>${money(p.price)}</b>${p.isSale ? `<s>${money(p.old)}</s><span class="pct">−${pctOff(p)}%</span>` : ""}</div>`; }
+function availableSizes(p, b) { const out = new Set(); p.colors.forEach((c, ci) => SIZES[p.sg].forEach(s => { if (availAny(p, ci, s, b)) out.add(s); })); return SIZES[p.sg].filter(s => out.has(s)); }
+function cardHTML(p) {
+  const sz = availableSizes(p, filters.branch);
+  const alt = p.colors[1] ? photo(p, 1, { cls: "alt" }) : "";
+  return `<article class="pcard rv">
+    <div class="pmedia">
+      <button type="button" class="pimg" data-open="${p.sku}" aria-label="${esc(L(p.n))}">${photo(p, 0, { alt: true })}${alt}</button>
+      <div class="tags">${p.isNew ? `<span class="tag">${t("tag_new")}</span>` : ""}${p.isSale ? `<span class="tag sale">${t("tag_sale")}</span>` : ""}</div>
+      <button type="button" class="favbtn" data-fav="${p.sku}" aria-pressed="${favs.has(p.sku)}" aria-label="${t("to_fav")}">${ICO.heart}</button>
+      ${sz.length && p.sg !== "one" ? `<div class="quick"><span class="mono">${t("quick")}</span><div>${sz.map(s => `<button type="button" data-quick="${p.sku}|${s}">${sizeLabel(s)}</button>`).join("")}</div></div>` : ""}
+    </div>
+    <div class="pinfo"><span class="brand mono">${esc(p.brand)}</span><button type="button" class="name" data-open="${p.sku}">${esc(L(p.n))}</button>${priceHTML(p)}
+      <div class="chips">${sz.slice(0, 6).map(s => `<span>${sizeLabel(s)}</span>`).join("")}${sz.length > 6 ? `<span>+${sz.length - 6}</span>` : ""}</div></div>
+  </article>`;
+}
+function updateBadges() {
+  const fc = $("#fav-count"), rc = $("#res-count"), act = bookings.filter(b => b.status === "new").length;
+  fc.hidden = !favs.size; fc.textContent = favs.size; rc.hidden = !act; rc.textContent = act;
+  const dp = $("#draft-pill"); dp.hidden = !draft || !draft.items.length; if (draft) dp.textContent = t("draft_pill", { n: draft.items.length });
+}
+function toggleFav(sku) {
+  if (favs.has(sku)) { favs.delete(sku); toast(t("fav_removed")); } else { favs.add(sku); toast(t("fav_added")); }
+  store.set("favs", [...favs]);
+  document.querySelectorAll(`[data-fav="${sku}"]`).forEach(b => b.setAttribute("aria-pressed", favs.has(sku)));
+  updateBadges();
+  if (st.view === "catalog" && filters.mode === "fav") renderCatalog();
+}
+
+/* ---------- static i18n ---------- */
+function applyStatic() {
+  document.documentElement.lang = st.lang ? "ru" : "uz";
+  document.querySelectorAll("[data-i18n]").forEach(el => (el.textContent = t(el.dataset.i18n)));
+  document.querySelectorAll("[data-i18n-label]").forEach(el => el.setAttribute("aria-label", t(el.dataset.i18nLabel)));
+  $("#hero-title").innerHTML = t("hero_title"); splitWords($("#hero-title"));
+  document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.lang === st.lang)));
+  $("#hero-live").innerHTML = BRANCHES.map(b => { const o = openState(b); return `<span><i class="dot ${o.open ? "open" : ""}"></i>${esc(L(b.name))} · ${o.text}</span>`; }).join("");
+  $("#ft-links").innerHTML = `<button type="button" data-go="catalog">${t("nav_catalog")}</button><button type="button" data-go="branches">${t("nav_branches")}</button><button type="button" data-helper="top">${t("size_guide")}</button><button type="button" data-go="privacy">${t("privacy")}</button>`;
+  updateBadges();
+}
+
+/* ---------- lookbook: shoppable campaign photos ---------- */
+const LOOKS = [
+  { img: "LOOK-1", n: ["Kemel va oltin soat", "Кэмел и золотой час"], place: ["Madrasa hovlisi · kechqurun", "Двор медресе · вечер"], items: [["CH-5030", 0, 63, 40], ["CH-4005", 0, 49, 28], ["CH-2081", 0, 52, 68], ["CH-6012", 0, 50, 92]] },
+  { img: "LOOK-2", n: ["Kechki shahar", "Вечерний город"], place: ["Eski shahar · ko‘k soat", "Старый город · синий час"], items: [["CH-3120", 1, 40, 46], ["CH-1021", 0, 56, 20], ["CH-8044", 1, 49, 31], ["CH-6012", 0, 44, 92]] },
+  { img: "LOOK-3", n: ["Kunduzgi ravoq", "Дневная аркада"], place: ["Registon · peshin", "Регистан · полдень"], items: [["CH-1102", 0, 56, 27], ["CH-8020", 0, 54, 42], ["CH-2045", 0, 46, 64], ["CH-6105", 0, 52, 92]] }
+];
+function lookbookHTML() {
+  return `<section class="lb" id="lookbook"><div class="lb-pin"><div class="lb-track">
+    <div class="lb-intro"><span class="mono" style="color:var(--cognac-hi)">${t("lb_eyebrow")}</span><h2>${t("lb_title")}</h2><p>${t("lb_sub")}</p></div>
+    ${LOOKS.map((lk, li) => {
+      const items = lk.items.map(([sku, ci]) => ({ p: bySku(sku), ci }));
+      const total = items.reduce((s, x) => s + x.p.price, 0);
+      return `<article class="lb-panel">
+        <div class="lb-img"><div class="lb-frame"><img src="${PHOTO_URL[lk.img]}" alt="${esc(L(lk.n))}" width="1000" height="1250" loading="lazy" decoding="async">
+          ${lk.items.map(([sku, ci, x, y], ii) => `<button type="button" class="hot" data-hot="${li}|${ii}" aria-expanded="false" aria-label="${esc(L(bySku(sku).n))}" style="left:${x}%;top:${y}%"><b>+</b></button>`).join("")}</div>
+          <span class="lb-num">0${li + 1}</span></div>
+        <div class="lb-info"><div><span class="mono" style="color:var(--cognac-hi)">${t("look")} 0${li + 1} / 0${LOOKS.length}</span><h3 style="margin-top:14px">${L(lk.n)}</h3><span class="place mono">${L(lk.place)}</span></div>
+          <div class="lb-items">${items.map(({ p, ci }) => `<button type="button" class="lb-item" data-open="${p.sku}" data-ci-open="${ci}"><span class="th">${photo(p, ci)}</span><span>${esc(L(p.n))}<small>${L(p.colors[ci].n)}</small></span>${priceHTML(p)}</button>`).join("")}</div>
+          <div class="lb-total"><span class="mono" style="color:var(--mut-d)">${t("lb_total")}</span><b>${money(total)}</b></div></div>
+      </article>`;
+    }).join("")}
+    <div class="lb-end"><span class="mono" style="color:var(--cognac-hi)">${t("lb_eyebrow")}</span><h3>${t("lb_end_title")}</h3><button type="button" class="btn btn-chalk mag" data-go="catalog">${t("lb_end_btn")} ${ICO.arrow}</button></div>
+  </div><div class="lb-bar"><i></i></div></div></section>`;
+}
+function closePops() { document.querySelectorAll(".hot[aria-expanded='true']").forEach(h => h.setAttribute("aria-expanded", "false")); document.querySelectorAll(".pop").forEach(p => p.remove()); }
+function toggleHot(btn) {
+  const wasOpen = btn.getAttribute("aria-expanded") === "true";
+  closePops(); if (wasOpen) return;
+  const [li, ii] = btn.dataset.hot.split("|").map(Number), [sku, ci, x, y] = LOOKS[li].items[ii], p = bySku(sku);
+  btn.setAttribute("aria-expanded", "true");
+  const tx = x > 55 ? "calc(-100% - 24px)" : "24px", ty = y > 74 ? "-92%" : y < 20 ? "-10%" : "-50%";
+  btn.parentElement.insertAdjacentHTML("beforeend", `<button type="button" class="pop" data-open="${sku}" data-ci-open="${ci}" style="left:${x}%;top:${y}%;transform:translate(${tx},${ty})"><span class="th">${photo(p, ci, { eager: true })}</span><span><b>${esc(L(p.n))}</b>${priceHTML(p)}<span class="go">${t("cur_view")} ${ICO.arrow}</span></span></button>`);
+}
+function marqueeHTML() {
+  const unit = T.mq[st.lang].map((w, i) => `<span>${i === 1 ? `<em>${w}</em>` : w}${CMARK("currentColor")}</span>`).join("");
+  return `<div class="mq" aria-hidden="true"><div class="mq-row">${unit.repeat(4)}</div><div class="mq-row o">${unit.repeat(4)}</div></div>`;
+}
+function splitWords(el) {
+  let i = 0;
+  const walk = node => [...node.childNodes].forEach(n => {
+    if (n.nodeType !== 3) return walk(n);
+    const frag = document.createDocumentFragment();
+    n.textContent.split(/(\s+)/).forEach(part => {
+      if (!part) return;
+      if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+      const w = document.createElement("span"), s = document.createElement("span");
+      w.className = "w"; s.style.setProperty("--i", i++); s.textContent = part; w.appendChild(s); frag.appendChild(w);
+    });
+    n.replaceWith(frag);
+  });
+  walk(el);
+}
+
+/* ---------- home ---------- */
+function renderHome() {
+  const newest = [...PRODUCTS].sort((a, b) => a.days - b.days).slice(0, 8);
+  const sale = PRODUCTS.filter(p => p.isSale);
+  const tick = T.ticker[st.lang];
+  const blazer = bySku("CH-3011");
+  $("#v-home").innerHTML = `
+  <div class="ticker" aria-hidden="true"><div class="ticker-track">${[...tick, ...tick, ...tick, ...tick].map(x => `<span>${x}</span>`).join("")}</div></div>
+
+  ${lookbookHTML()}
+  ${marqueeHTML()}
+
+  <section class="sec light" id="how"><div class="wrap">
+    <div class="sec-head rv"><div><span class="mono">${t("how_eyebrow")}</span><h2>${t("how_title")}</h2></div></div>
+    <div class="steps">${T.steps[st.lang].map((s, i) => `<div class="step rv"><span class="n">0${i + 1}</span><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join("")}</div>
+  </div></section>
+
+  <section class="sec light" style="padding-top:0"><div class="wrap">
+    <div class="sec-head rv"><div><span class="mono">${t("new_eyebrow")}</span><h2>${t("new_title")}</h2></div><button type="button" class="link" data-go="new">${t("see_all")} ${ICO.arrow}</button></div>
+    <div class="pgrid">${newest.map(cardHTML).join("")}</div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="sec-head rv"><div><span class="mono">${t("cats_eyebrow")}</span><h2>${t("cats_title")}</h2></div></div>
+    <div class="cats">${CATS.map(c => `<button type="button" class="cat rv-clip" data-cat="${c.id}">
+      ${photo(bySku(c.photo[0]), c.photo[1], { cls: "g" })}
+      <span class="mono">${t("models", { n: PRODUCTS.filter(p => p.cat === c.id).length })}</span>
+      <h3>${L(c.n)}</h3><span class="arr">${ICO.arrow}</span></button>`).join("")}</div>
+  </div></section>
+
+  ${sale.length ? `<section class="sec light"><div class="wrap">
+    <div class="sec-head"><div><span class="mono">${t("sale_eyebrow")}</span><h2>${t("sale_title")}</h2></div><button type="button" class="link" data-go="sale">${t("see_all")} ${ICO.arrow}</button></div>
+    <div class="hscroll">${sale.map(cardHTML).join("")}</div>
+  </div></section>` : ""}
+
+  <section class="sec" id="bot"><div class="wrap bot">
+    <div>
+      <div class="sec-head" style="margin-bottom:0"><div><span class="mono" style="color:var(--cognac-hi)">${t("bot_eyebrow")}</span><h2>${t("bot_title")}</h2></div></div>
+      <p style="color:var(--mut-d);margin-top:16px;max-width:46ch">${t("bot_sub")}</p>
+      <ul>${T.bot_points[st.lang].map(x => `<li>${x}</li>`).join("")}</ul>
+      <button type="button" class="btn btn-chalk mag" data-bot="subscribe_new">${ICO.tg}<span>${t("bot_open")}</span></button>
+    </div>
+    <div class="phones rv">${phonesHTML(blazer)}</div>
+  </div></section>
+
+  <section class="sec light" id="branches"><div class="wrap">
+    <div class="sec-head"><div><span class="mono">${t("br_eyebrow")}</span><h2>${t("br_title")}</h2></div></div>
+    <div class="branches">${BRANCHES.map(b => { const o = openState(b); return `<article class="branch rv">
+      <div class="vis" data-pattern="${b.id === "citymall" ? "frame" : "spin"}" data-bg="${b.id === "citymall" ? "#E3E0D9" : "#DCD6CC"}" data-fg="${b.id === "citymall" ? "#D6D2CA" : "#CFC7BA"}"><span class="pin">${CMARK("#ECEAE5")}</span></div>
+      <div class="body"><h3>${L(b.name)}</h3><span class="addr">${L(b.addr)}</span>
+        <span class="status"><i class="dot ${o.open ? "open" : ""}"></i>${o.text}</span>
+        <span class="mono" style="color:var(--mut-l)">${t("every_day")} · ${hh(b.open)}–${hh(b.close)}</span>
+        <div class="acts"><button type="button" class="btn btn-onyx" data-branch-cat="${b.id}">${t("br_stock")}</button><button type="button" class="btn btn-line" data-toast="route">${ICO.pin}${t("route")}</button><button type="button" class="btn btn-line" data-toast="call">${ICO.phone}${t("call")}</button></div>
+      </div></article>`; }).join("")}</div>
+  </div></section>
+
+  <section class="sub" style="background:#8A5631"><div class="pat" data-pattern="spin" data-bg="#8A5631" data-fg="#97603A" data-scale=".34"></div>
+    <div class="wrap inner rv"><div><h2>${t("sub_title")}</h2><p>${t("sub_text")}</p></div>
+    <button type="button" class="btn btn-chalk mag" data-bot="subscribe_new">${ICO.tg}<span>${t("sub_btn")}</span></button></div>
+  </section>`;
+  paintPatterns($("#v-home"));
+  if (window.fx) requestAnimationFrame(fx.measure);
+}
+function phonesHTML(p) {
+  const uz = st.lang === 0;
+  const top = (name, sub) => `<div class="tg-top"><span class="tg-ava">${CMARK("#111214")}</span><div><b>${name}</b><small>${sub}</small></div></div>`;
+  const card = `<figure><div class="phone"><div class="screen">${top("change premium", "bot")}
+    <div class="tg-body">
+      <div class="msg"><div class="ph">${photo(p, 0)}</div><b>${esc(L(p.n))}</b><br>${money(p.price)} <s>${money(p.old)}</s><br>${uz ? "Rang" : "Цвет"}: ${L(p.colors[0].n)}</div>
+      <div class="kb"><div class="r"><span class="sel">● ${L(p.colors[0].n)}</span><span>● ${L(p.colors[1].n)}</span></div>
+        <div class="r"><span>46</span><span>48</span><span class="sel">50</span><span>52</span></div>
+        <div class="r"><span>${uz ? "Bron qilish" : "Забронировать"}</span></div>
+        <div class="r"><span>♡ ${t("to_fav")}</span><span>${uz ? "O‘lcham haqida" : "О размере"}</span></div></div>
+      <div class="msg me">50 · ${L(BRANCHES[0].name)}</div>
+      <div class="msg">✅ ${uz ? "Bron №418 qabul qilindi" : "Бронь №418 принята"}<br>${L(BRANCHES[0].name)} · ${uz ? "11.10, 22:00 gacha" : "до 11.10, 22:00"}</div>
+    </div></div></div><figcaption class="mono">${t("ph_card")}</figcaption></figure>`;
+  const menuItems = uz ? ["Katalog", "Yangi", "Chegirmalar", "Bronlarim", "O‘lchamlarim", "Obunalar", "Filiallar", "Sotuvchi bilan aloqa"] : ["Каталог", "Новинки", "Скидки", "Мои брони", "Мои размеры", "Подписки", "Филиалы", "Связаться с продавцом"];
+  const menu = `<figure><div class="phone"><div class="screen">${top("change premium", "bot")}
+    <div class="tg-body">
+      <div class="msg me">/start</div>
+      <div class="msg">${uz ? "Assalomu alaykum, Dilshod! change premium do‘koniga xush kelibsiz. Saqlangan o‘lchamlaringiz: ko‘ylak M, poyabzal 42." : "Здравствуйте, Дильшод! Это change premium. Ваши размеры: рубашка M, обувь 42."}</div>
+      <div class="msg">🔔 ${uz ? "Derbi tufli 42 o‘lchami Siti Mollda paydo bo‘ldi." : "Туфли дерби 42 появились в Сити Молле."}</div>
+      <div class="kb"><div class="r"><span>${uz ? "Bron qilish" : "Забронировать"}</span></div></div>
+    </div>
+    <div class="menu-kb">${menuItems.map(x => `<span>${x}</span>`).join("")}</div></div></div><figcaption class="mono">${t("ph_menu")}</figcaption></figure>`;
+  const group = `<figure><div class="phone"><div class="screen">${top(uz ? "Siti Moll · sotuvchilar" : "Сити Молл · продавцы", uz ? "guruh, 6 a’zo" : "группа, 6 участников")}
+    <div class="tg-body">
+      <div class="msg card-msg"><div class="h">🛍 ${uz ? "Bron №418 · Siti Moll" : "Бронь №418 · Сити Молл"}</div>
+        ${uz ? "Dilshod" : "Дильшод"}, +998 90 ••• •• 67 ${uz ? "(1-bron)" : "(1-я бронь)"}<br>
+        1. ${uz ? "Bir qatorli pidjak, to‘q ko‘k, 50" : "Пиджак однобортный, тёмно-синий, 50"} · CH-3011<br>
+        2. ${uz ? "Oxford ko‘ylak, oq, M" : "Рубашка Oxford, белая, M"} · CH-1021<br>
+        ${uz ? "Muddat: 11.10, 22:00" : "До: 11.10, 22:00"}</div>
+      <div class="kb"><div class="r"><span>${uz ? "Ajratdim" : "Отложил"}</span><span>${uz ? "Mavjud emas" : "Нет в наличии"}</span></div><div class="r"><span>${uz ? "Qo‘ng‘iroq" : "Позвонить"}</span></div></div>
+      <div class="msg card-msg"><span class="warn">⏰ ${uz ? "Bron №421 20 daqiqadan beri ko‘rib chiqilmagan" : "Бронь №421 не обработана 20 минут"}</span></div>
+    </div></div></div><figcaption class="mono">${t("ph_group")}</figcaption></figure>`;
+  return card + menu + group;
+}
+
+/* ---------- patterns from the brand book ---------- */
+const cL = (x, y) => `<path d="M${x} ${y}h300v48h-252v88h252v48h-300z"/>`;
+const cR = (x, y) => `<path d="M${x} ${y}h300v184h-300v-48h252v-88h-252z"/>`;
+function tileSVG(v, fg, bg) {
+  let w, h, body;
+  if (v === "frame") { w = 660; h = 428; body = cL(0, 0) + cR(330, 0) + cR(0, 214) + cL(330, 214); }
+  else { w = 300; h = 300; const c = `<path d="M12 12h126v34h-92v58h92v34h-126z"/>`; body = [0, 90, 180, 270].map(r => `<g transform="rotate(${r} 150 150)">${c}</g>`).join(""); }
+  return { w, h, svg: `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect width="${w}" height="${h}" fill="${bg}"/><g fill="${fg}">${body}</g></svg>` };
+}
+function paintPatterns(root) {
+  root.querySelectorAll("[data-pattern]").forEach(el => {
+    const tl = tileSVG(el.dataset.pattern, el.dataset.fg, el.dataset.bg), k = +(el.dataset.scale || .16);
+    el.style.backgroundColor = el.dataset.bg;
+    el.style.backgroundImage = `url("data:image/svg+xml,${encodeURIComponent(tl.svg)}")`;
+    el.style.backgroundSize = `${tl.w * k}px ${tl.h * k}px`;
+  });
+}
+
+/* ---------- catalog ---------- */
+let filters;
+function resetFilters(extra = {}) {
+  filters = Object.assign({ mode: "cat", cat: null, sub: null, sizes: new Set(), colors: new Set(), brands: new Set(), branch: "", sale: false, pmin: "", pmax: "", sort: "new", page: 1, useSaved: true }, extra);
+}
+resetFilters();
+function savedFor(list) {
+  const groups = new Set(list.map(p => HELPER_GROUP[p.sg]).filter(Boolean));
+  const out = []; groups.forEach(g => { if (savedSizes[g]) out.push(...[savedSizes[g]]); });
+  return out;
+}
+function baseList() {
+  let list = PRODUCTS;
+  if (filters.mode === "new") list = list.filter(p => p.isNew);
+  if (filters.mode === "sale") list = list.filter(p => p.isSale);
+  if (filters.mode === "fav") list = list.filter(p => favs.has(p.sku));
+  if (filters.cat) list = list.filter(p => p.cat === filters.cat);
+  if (filters.sub) list = list.filter(p => p.sub === filters.sub);
+  return list;
+}
+function effectiveSizes(list) {
+  if (filters.sizes.size) return { sizes: filters.sizes, auto: false };
+  if (filters.useSaved && filters.mode !== "fav") { const s = savedFor(list); if (s.length) return { sizes: new Set(s), auto: true }; }
+  return { sizes: new Set(), auto: false };
+}
+function filtered() {
+  const base = baseList();
+  const eff = effectiveSizes(base);
+  let list = base.filter(p => {
+    if (filters.sale && !p.isSale) return false;
+    if (filters.brands.size && !filters.brands.has(p.brand)) return false;
+    if (filters.colors.size && !p.colors.some(c => filters.colors.has(c.fam))) return false;
+    if (filters.pmin && p.price < +filters.pmin) return false;
+    if (filters.pmax && p.price > +filters.pmax) return false;
+    const cis = p.colors.map((c, i) => i).filter(i => !filters.colors.size || filters.colors.has(p.colors[i].fam));
+    const sizes = eff.sizes.size ? SIZES[p.sg].filter(s => eff.sizes.has(s)) : SIZES[p.sg];
+    if (eff.sizes.size && !sizes.length) return false;
+    return cis.some(ci => sizes.some(s => availAny(p, ci, s, filters.branch)));
+  });
+  const sorts = { new: (a, b) => a.days - b.days, cheap: (a, b) => a.price - b.price, exp: (a, b) => b.price - a.price, disc: (a, b) => (b.isSale ? pctOff(b) : 0) - (a.isSale ? pctOff(a) : 0) };
+  return { list: list.sort(sorts[filters.sort]), eff, base };
+}
+function titleFor() {
+  if (filters.mode === "new") return t("new_all");
+  if (filters.mode === "sale") return t("sale_all");
+  if (filters.mode === "fav") return t("fav_title");
+  if (filters.sub) return L(subOf(filters.cat, filters.sub).n);
+  if (filters.cat) return L(catOf(filters.cat).n);
+  if (filters.branch) return L(branchOf(filters.branch).name);
+  return t("catalog_all");
+}
+function renderCatalog() {
+  const { list, eff, base } = filtered();
+  const shown = list.slice(0, filters.page * 24);
+  const sizeOpts = []; base.forEach(p => SIZES[p.sg].forEach(s => { if (!sizeOpts.includes(s)) sizeOpts.push(s); }));
+  const order = [...SIZES.top, ...SIZES.suit, ...SIZES.shoe, ...SIZES.belt, ...SIZES.sock, "U"];
+  sizeOpts.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+  const brands = [...new Set(base.map(p => p.brand))];
+  const fams = Object.keys(FAM).filter(f => base.some(p => p.colors.some(c => c.fam === f)));
+  const cat = filters.cat ? catOf(filters.cat) : null;
+  const activeSizes = eff.sizes;
+  $("#v-catalog").innerHTML = `<div class="wrap view-pad">
+    <div class="crumbs"><button type="button" data-go="home">${t("home")}</button><span>/</span><button type="button" data-go="catalog">${t("nav_catalog")}</button>${cat ? `<span>/</span><button type="button" data-cat="${cat.id}">${L(cat.n)}</button>` : ""}</div>
+    <h1 class="cat-title">${titleFor()}</h1>
+    ${filters.mode === "cat" ? `<div class="subcats">
+      ${!filters.cat ? `<button type="button" class="pill" aria-pressed="true">${t("all")}</button>${CATS.map(c => `<button type="button" class="pill" data-cat="${c.id}" aria-pressed="false">${L(c.n)}</button>`).join("")}`
+      : `<button type="button" class="pill" data-cat="${cat.id}" aria-pressed="${!filters.sub}">${t("all")}</button>${cat.subs.map(s => `<button type="button" class="pill" data-sub="${s.id}" aria-pressed="${filters.sub === s.id}">${L(s.n)}</button>`).join("")}`}
+    </div>` : ""}
+    <div class="cat-layout">
+      <aside class="filters" id="filters" aria-label="${t("filters")}">
+        <div class="fh"><h2 style="font-size:18px">${t("filters")}</h2><button type="button" class="iconbtn" data-close-filters style="color:var(--onyx)" aria-label="${t("close")}">${ICO.close}</button></div>
+        <div class="fgroup"><span class="mono">${t("f_size")}</span><div class="sizes-f">${sizeOpts.map(s => `<button type="button" class="sbox" data-fsize="${s}" aria-pressed="${activeSizes.has(s)}">${sizeLabel(s)}</button>`).join("")}</div></div>
+        <div class="fgroup"><span class="mono">${t("f_color")}</span><div class="colors-f">${fams.map(f => `<button type="button" class="cbox" data-fcolor="${f}" aria-pressed="${filters.colors.has(f)}" style="background:${FAM[f][2]}" title="${FAM[f][st.lang]}" aria-label="${FAM[f][st.lang]}"></button>`).join("")}</div></div>
+        <div class="fgroup"><span class="mono">${t("f_price")}</span><div class="range">
+          <div class="field"><label for="pmin">${t("from")}</label><input class="inp" id="pmin" inputmode="numeric" value="${filters.pmin}" placeholder="0"></div>
+          <div class="field"><label for="pmax">${t("to")}</label><input class="inp" id="pmax" inputmode="numeric" value="${filters.pmax}" placeholder="4 000 000"></div></div></div>
+        <div class="fgroup"><span class="mono">${t("f_brand")}</span>${brands.map(b => `<label class="check"><input type="checkbox" data-fbrand="${esc(b)}" ${filters.brands.has(b) ? "checked" : ""}>${esc(b)}</label>`).join("")}</div>
+        <div class="fgroup"><span class="mono">${t("f_branch")}</span>
+          <label class="check"><input type="radio" name="fbr" value="" ${!filters.branch ? "checked" : ""}>${t("any_branch")}</label>
+          ${BRANCHES.map(b => `<label class="check"><input type="radio" name="fbr" value="${b.id}" ${filters.branch === b.id ? "checked" : ""}>${L(b.name)}</label>`).join("")}</div>
+        <label class="check"><input type="checkbox" id="fsale" ${filters.sale ? "checked" : ""}>${t("f_sale")}</label>
+        <div class="fapply"><button type="button" class="btn btn-line" data-reset>${t("reset")}</button><button type="button" class="btn btn-onyx" data-close-filters>${t("show")} · ${list.length}</button></div>
+      </aside>
+      <div>
+        <div class="toolbar"><span class="count">${t("count", { n: list.length })}</span>
+          <button type="button" class="btn btn-line filter-open" data-open-filters style="padding:9px 14px">${ICO.filter}${t("filters")}</button>
+          <select id="sort" aria-label="Sort">${["new", "cheap", "exp", "disc"].map(k => `<option value="${k}" ${filters.sort === k ? "selected" : ""}>${t("sort_" + k)}</option>`).join("")}</select></div>
+        ${eff.auto ? `<div class="saved-note">${ICO.ruler}<span>${t("your_sizes", { s: [...eff.sizes].join(", ") })}</span><button type="button" data-unsaved>${t("reset")}</button></div>` : ""}
+        ${shown.length ? `<div class="pgrid">${shown.map(cardHTML).join("")}</div>${list.length > shown.length ? `<div class="more"><button type="button" class="btn btn-line" data-more>${t("more")}</button></div>` : ""}`
+        : `<div class="empty"><h3>${filters.mode === "fav" ? t("fav_title") : t("empty")}</h3><p class="hint">${filters.mode === "fav" ? t("fav_empty") : t("empty_sub")}</p>
+          ${filters.mode !== "fav" ? `<button type="button" class="btn btn-onyx" data-reset>${t("empty_reset")}</button>` : ""}
+          ${activeSizes.size && filters.mode !== "fav" ? `<button type="button" class="btn btn-line" data-bot="new_in_category">${ICO.tg}${t("empty_notify")}</button>` : ""}</div>`}
+      </div>
+    </div></div>`;
+  const sel = $("#sort"); sel.onchange = () => { filters.sort = sel.value; renderCatalog(); };
+  ["pmin", "pmax"].forEach(id => { const el = document.getElementById(id); el.onchange = () => { filters[id] = el.value.replace(/\D/g, ""); renderCatalog(); }; });
+  document.querySelectorAll("[data-fbrand]").forEach(el => el.onchange = () => { el.checked ? filters.brands.add(el.dataset.fbrand) : filters.brands.delete(el.dataset.fbrand); keepFilters(); });
+  document.querySelectorAll('input[name="fbr"]').forEach(el => el.onchange = () => { filters.branch = el.value; keepFilters(); });
+  $("#fsale").onchange = e => { filters.sale = e.target.checked; keepFilters(); };
+}
+function keepFilters() { const open = $("#filters")?.classList.contains("open"); renderCatalog(); if (open) openFilters(); }
+function openFilters() { $("#filters").classList.add("open"); $("#backdrop").hidden = false; }
+function closeFilters() { $("#filters")?.classList.remove("open"); if (!$("#sheet-root").innerHTML) $("#backdrop").hidden = true; }
+
+/* ---------- product ---------- */
+const pv = { sku: null, ci: 0, size: null, img: 0 };
+function chartHTML(sg) {
+  const rows = {
+    top: [["INT", "RU", L(["Bo‘y", "Рост"]), L(["Ko‘krak", "Грудь"])], ["S", "44–46", "164–172", "88–92"], ["M", "48", "170–178", "96"], ["L", "50–52", "175–184", "100–104"], ["XL", "54", "180–190", "108"], ["XXL", "56", "184–196", "112–116"]],
+    suit: [["RU", "EU", L(["Bel", "Талия"]), L(["Ko‘krak", "Грудь"])], ["46", "36", "76", "92"], ["48", "38", "80", "96"], ["50", "40", "84", "100"], ["52", "42", "88", "104"], ["54", "44", "94", "108"], ["56", "46", "100", "112"]],
+    bottom: [["RU", "EU", L(["Bel", "Талия"]), L(["Son", "Бёдра"])], ["46", "36", "76", "94"], ["48", "38", "80", "98"], ["50", "40", "84", "102"], ["52", "42", "88", "106"], ["54", "44", "94", "110"]],
+    shoe: [["EU", "RU", "UK", L(["Oyoq, sm", "Стопа, см"])], ["39", "38", "5.5", "25.0"], ["40", "39", "6.5", "25.7"], ["41", "40", "7", "26.3"], ["42", "41", "8", "27.0"], ["43", "42", "9", "27.7"], ["44", "43", "9.5", "28.3"], ["45", "44", "10.5", "29.0"]]
+  }[sg];
+  if (!rows) return `<p>${t("one_size")}</p>`;
+  return `<div class="tbl"><table><thead><tr>${rows[0].map(h => `<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.slice(1).map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+function renderProduct() {
+  const p = bySku(pv.sku), c = p.colors[pv.ci], sizes = SIZES[p.sg];
+  if (p.sg === "one" && !pv.size) pv.size = "U";
+  const canReserve = pv.size && availAny(p, pv.ci, pv.size);
+  const others = PRODUCTS.filter(x => x.cat !== p.cat || x.sub !== p.sub).filter(x => x.sku !== p.sku).sort((a, b) => hash(p.sku + a.sku) - hash(p.sku + b.sku)).slice(0, 4);
+  const cat = catOf(p.cat), sub = subOf(p.cat, p.sub);
+  $("#v-product").innerHTML = `<div class="wrap view-pad">
+    <div class="crumbs"><button type="button" data-go="home">${t("home")}</button><span>/</span><button type="button" data-cat="${cat.id}">${L(cat.n)}</button>${sub ? `<span>/</span><button type="button" data-cat="${cat.id}" data-sub2="${sub.id}">${L(sub.n)}</button>` : ""}</div>
+    <div class="pdp">
+      <div class="gallery">
+        <div class="thumbs">${VIEWS.map((v, i) => `<button type="button" data-img="${i}" aria-pressed="${pv.img === i}" aria-label="${i + 1}">${photo(p, pv.ci, { view: v, eager: true })}</button>`).join("")}</div>
+        <div class="main-img"><div class="tags">${p.isNew ? `<span class="tag">${t("tag_new")}</span>` : ""}${p.isSale ? `<span class="tag sale">−${pctOff(p)}%</span>` : ""}</div>${photo(p, pv.ci, { view: VIEWS[pv.img], eager: true, alt: true })}</div>
+      </div>
+      <div class="pd">
+        <div style="display:grid;gap:10px"><span class="mono" style="color:var(--mut-l)">${esc(p.brand)} · ${p.sku}</span><h1>${esc(L(p.n))}</h1>${priceHTML(p)}</div>
+        <div class="opt"><div class="opt-h"><span>${t("p_color")}: <b>${L(c.n)}</b></span></div>
+          <div class="swatches">${p.colors.map((x, i) => `<button type="button" class="sw" data-ci="${i}" aria-pressed="${i === pv.ci}" style="background:${x.hex}" aria-label="${L(x.n)}" title="${L(x.n)}"></button>`).join("")}</div></div>
+        <div class="opt"><div class="opt-h"><span>${t("p_size")}${pv.size ? `: <b>${sizeLabel(pv.size)}</b>` : ""}</span>${HELPER_GROUP[p.sg] ? `<button type="button" class="link" data-helper="${HELPER_GROUP[p.sg]}">${ICO.ruler}${t("p_helper")}</button>` : ""}</div>
+          <div class="sizes">${sizes.map(s => { const ok = availAny(p, pv.ci, s); return `<button type="button" class="size ${ok ? "" : "na"}" data-size="${s}" aria-pressed="${pv.size === s}" aria-label="${sizeLabel(s)}${ok ? "" : " · " + t("st_no")}">${sizeLabel(s)}</button>`; }).join("")}</div></div>
+        <div class="opt"><div class="opt-h"><span><b>${t("p_avail")}</b></span></div>
+          ${pv.size ? `<div class="avail">${BRANCHES.map(b => { const n = avail(p, pv.ci, pv.size, b.id), lv = level(n); return `<div class="avail-row"><div>${L(b.name)}<small>${L(b.addr)}</small></div><span class="st ${lv}"><i></i>${t("st_" + lv)}</span></div>`; }).join("")}</div>`
+          : `<p class="hint">${t("pick_size_first")}</p>`}
+          ${pv.size && !canReserve ? `<div class="notice">${t("notify_q", { s: sizeLabel(pv.size) })}<div style="margin-top:10px"><button type="button" class="btn btn-onyx" data-bot="back_in_stock">${ICO.tg}${t("notify")}</button></div></div>` : ""}
+        </div>
+        <div class="buy"><button type="button" class="btn btn-onyx" data-reserve ${canReserve ? "" : "disabled"}>${t("reserve")}</button>
+          <button type="button" class="btn favbig" data-fav="${p.sku}" aria-pressed="${favs.has(p.sku)}" aria-label="${t("to_fav")}">${ICO.heart}</button></div>
+        ${!canReserve && !pv.size ? `<p class="hint" style="margin-top:-12px">${t("reserve_hint")}</p>` : ""}
+        <div>
+          <details open><summary>${t("desc")}</summary><div>${esc(L(p.d))}</div></details>
+          <details><summary>${t("composition")}</summary><div>${esc(L(p.comp))}</div></details>
+          <details><summary>${t("chart")}</summary><div>${chartHTML(p.sg)}</div></details>
+        </div>
+      </div>
+    </div>
+    <section style="margin-top:clamp(56px,8vw,96px)"><div class="sec-head"><h2>${t("wear_with")}</h2></div><div class="pgrid">${others.map(cardHTML).join("")}</div></section>
+  </div>`;
+}
+
+/* ---------- bookings ---------- */
+function renderRes() {
+  const list = bookings.filter(b => b.status === "new");
+  $("#v-res").innerHTML = `<div class="wrap view-pad"><h1 class="cat-title" style="margin-bottom:28px">${t("my_res")}</h1>
+    ${list.length ? `<div class="res-list">${list.map(b => { const br = branchOf(b.branch); return `<article class="res-card">
+      <div class="top"><h3>№${b.id} · ${L(br.name)}</h3><span class="st low"><i></i>${t("status_new")}</span></div>
+      <ul>${b.items.map(i => { const p = bySku(i.sku); return `<li>${esc(L(p.n))}, ${L(p.colors[i.ci].n).toLowerCase()}, ${sizeLabel(i.size)}${i.qty > 1 ? " × " + i.qty : ""}</li>`; }).join("")}</ul>
+      <span class="mono" style="color:var(--mut-l)">${t("until")}: ${b.until}</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn btn-line" data-cancel="${b.id}">${t("cancel")}</button><button type="button" class="btn btn-line" data-bot="res_${b.id}">${ICO.tg}Telegram</button></div>
+    </article>`; }).join("")}</div>`
+    : `<div class="empty"><h3>${t("my_res_empty")}</h3><p class="hint">${t("my_res_sub")}</p><button type="button" class="btn btn-onyx" data-go="catalog">${t("cta_catalog")}</button></div>`}
+  </div>`;
+}
+
+/* ---------- sheet ---------- */
+function openSheet(title, body, foot) {
+  $("#sheet-root").innerHTML = `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <div class="sheet-h"><h2 id="sheet-title">${title}</h2><button type="button" class="iconbtn" data-close-sheet aria-label="${t("close")}">${ICO.close}</button></div>
+    <div class="sheet-b">${body}</div>${foot ? `<div class="sheet-f">${foot}</div>` : ""}</div>`;
+  $("#backdrop").hidden = false;
+  setTimeout(() => $("#sheet-root .sheet-b button, #sheet-root .sheet-b input")?.focus({ preventScroll: true }), 60);
+}
+function closeSheet() { $("#sheet-root").innerHTML = ""; if (!$("#filters")?.classList.contains("open")) $("#backdrop").hidden = true; }
+
+/* reservation flow (TZ 3.2) */
+let rf = null;
+function startReserve() {
+  const p = bySku(pv.sku);
+  if (bookings.filter(b => b.status === "new").length >= 2) { toast(t("err_max_res")); return; }
+  const item = { sku: p.sku, ci: pv.ci, size: pv.size, qty: 1 };
+  if (draft && draft.items.length) {
+    if (draft.items.length >= 5) { toast(t("err_max_items")); return; }
+    if (avail(p, pv.ci, pv.size, draft.branch) <= 0) { toast(t("err_other_branch", { b: L(branchOf(draft.branch).name) })); return; }
+    const same = draft.items.find(i => i.sku === item.sku && i.ci === item.ci && i.size === item.size);
+    if (same) same.qty = Math.min(2, same.qty + 1); else draft.items.push(item);
+    rf = { step: 2, errors: {}, gone: [] };
+    updateBadges(); toast(t("added")); renderReserve(); return;
+  }
+  const options = BRANCHES.filter(b => avail(p, pv.ci, pv.size, b.id) > 0).sort((a, b) => (b.id === favBranch) - (a.id === favBranch));
+  draft = { branch: options[0].id, items: [item], name: "", phone: "+998 ", consent: false, marketing: false };
+  rf = { step: options.length > 1 ? 1 : 2, errors: {}, gone: [], options: options.map(b => b.id) };
+  updateBadges(); renderReserve();
+}
+function lineItem(i, editable) {
+  const p = bySku(i.sku), gone = rf.gone.includes(i);
+  return `<div class="line-item"><span class="th">${photo(p, i.ci, { eager: true })}</span>
+    <div><b>${esc(L(p.n))}</b><small>${L(p.colors[i.ci].n)} · ${sizeLabel(i.size)} · ${money(p.price)}</small>${gone ? `<div class="err-msg">${t("err_gone", { x: esc(L(p.n)) })}</div>` : ""}
+    ${editable ? `<div><button type="button" class="x" data-rm="${draft.items.indexOf(i)}">${t("remove")}</button></div>` : ""}</div>
+    ${editable ? `<select data-qty="${draft.items.indexOf(i)}" aria-label="${t("qty")}"><option ${i.qty === 1 ? "selected" : ""}>1</option><option ${i.qty === 2 ? "selected" : ""}>2</option></select>` : `<span class="mono">× ${i.qty}</span>`}</div>`;
+}
+function renderReserve() {
+  if (!draft && !(rf && rf.step === 5)) return;
+  const s = rf.step, br = draft ? branchOf(draft.branch) : null;
+  const prog = `<div class="progress">${[1, 2, 3, 4].map(n => `<i class="${n <= s ? "on" : ""}"></i>`).join("")}</div>`;
+  let body = prog, foot = "";
+  if (s === 1) {
+    const p = bySku(draft.items[0].sku), it = draft.items[0];
+    body += `<h3 style="font-size:20px">${t("res_branch")}</h3><p class="hint">${t("res_branch_note")}</p>
+      ${(rf.options || BRANCHES.map(b => b.id)).map(id => { const b = branchOf(id), n = avail(p, it.ci, it.size, id), lv = level(n), o = openState(b); return `<button type="button" class="opt-card" data-pick-branch="${id}" aria-pressed="${draft.branch === id}">
+        <b>${L(b.name)}${favBranch === id ? ` · <span class="mono" style="color:var(--cognac)">${t("fav_branch")}</span>` : ""}</b><span class="st ${lv}"><i></i>${t("st_" + lv)}</span>
+        <small>${L(b.addr)} · ${o.text}</small></button>`; }).join("")}`;
+    foot = `<button type="button" class="btn btn-onyx" data-step="2">${t("next")}</button>`;
+  } else if (s === 2) {
+    body += `<h3 style="font-size:20px">${t("res_items")} · ${L(br.name)}</h3><div>${draft.items.map(i => lineItem(i, true)).join("")}</div>
+      ${draft.items.length < 5 ? `<button type="button" class="btn btn-line" data-add-more>+ ${t("res_add")}</button>` : `<p class="hint">${t("err_max_items")}</p>`}`;
+    foot = `<button type="button" class="btn btn-onyx" data-step="3" ${draft.items.length ? "" : "disabled"}>${t("next")}</button>`;
+  } else if (s === 3) {
+    const e = rf.errors;
+    body += `<h3 style="font-size:20px">${t("res_contacts")}</h3>
+      <div class="field"><label for="r-name">${t("res_name")}</label><input class="inp ${e.name ? "err" : ""}" id="r-name" autocomplete="given-name" value="${esc(draft.name)}">${e.name ? `<span class="err-msg">${t("err_name")}</span>` : ""}</div>
+      <div class="field"><label for="r-phone">${t("res_phone")}</label><input class="inp ${e.phone ? "err" : ""}" id="r-phone" inputmode="tel" autocomplete="tel" value="${esc(draft.phone)}" placeholder="+998 90 123 45 67">${e.phone ? `<span class="err-msg">${t("err_phone")}</span>` : ""}</div>
+      <label class="check"><input type="checkbox" id="r-consent" ${draft.consent ? "checked" : ""}><span>${t("res_consent")} · <u>${t("privacy")}</u></span></label>${e.consent ? `<span class="err-msg">${t("err_consent")}</span>` : ""}
+      <label class="check"><input type="checkbox" id="r-mkt" ${draft.marketing ? "checked" : ""}><span>${t("res_marketing")}</span></label>`;
+    foot = `<button type="button" class="btn btn-line" data-step="2">${t("back")}</button><button type="button" class="btn btn-onyx" data-validate>${t("next")}</button>`;
+  } else if (s === 4) {
+    body += `<h3 style="font-size:20px">${t("res_check")}</h3><div>${draft.items.map(i => lineItem(i, false)).join("")}</div>
+      <div class="summary"><div class="row"><span>${t("branch")}</span><b>${L(br.name)}</b></div><div class="row"><span>${t("address")}</span><span>${L(br.addr)}</span></div>
+      <div class="row"><span>${t("until")}</span><b>${expiry(br)}</b></div><div class="row"><span>${t("prepay")}</span><span>${t("none")}</span></div>
+      <div class="row"><span>${esc(draft.name)}</span><span>${esc(draft.phone)}</span></div></div>
+      ${rf.gone.length ? `<div class="notice bad">${rf.gone.map(i => t("err_gone", { x: esc(L(bySku(i.sku).n)) })).join("<br>")}</div>` : ""}`;
+    foot = `<button type="button" class="btn btn-line" data-step="3">${t("back")}</button><button type="button" class="btn btn-onyx" data-submit>${t("confirm")}</button>`;
+  } else if (s === 5) {
+    const b = rf.done;
+    body = `<div class="done"><span class="seal">${CMARK("#ECEAE5")}</span><span class="num">№${b.id}</span><h3>${t("res_done", { n: b.id })}</h3>
+      <p class="hint">${t("res_done_sub", { b: L(branchOf(b.branch).name), d: b.until })}</p>
+      <button type="button" class="btn btn-onyx" data-bot="res_${b.id}">${ICO.tg}${t("res_bot")}</button></div>`;
+    foot = `<button type="button" class="btn btn-line" data-close-sheet>${t("close")}</button>`;
+  }
+  st.sheet = "res"; openSheet(t("res_title"), body, foot);
+}
+function collectContacts() {
+  const n = $("#r-name"); if (!n) return;
+  draft.name = n.value.trim(); draft.phone = $("#r-phone").value; draft.consent = $("#r-consent").checked; draft.marketing = $("#r-mkt").checked;
+}
+function validateContacts() {
+  collectContacts();
+  const digits = draft.phone.replace(/\D/g, "");
+  rf.errors = { name: !draft.name, phone: !/^998\d{9}$/.test(digits), consent: !draft.consent };
+  if (!rf.errors.name && !rf.errors.phone && !rf.errors.consent) { const d = digits; draft.phone = `+998 ${d.slice(3, 5)} ${d.slice(5, 8)} ${d.slice(8, 10)} ${d.slice(10, 12)}`; rf.step = 4; }
+  renderReserve();
+}
+function submitReserve() {
+  rf.gone = draft.items.filter(i => avail(bySku(i.sku), i.ci, i.size, draft.branch) < i.qty);
+  if (rf.gone.length) { rf.step = 2; renderReserve(); return; }
+  const br = branchOf(draft.branch);
+  const b = { id: 400 + Math.floor(hash(String(Date.now())) * 599), branch: draft.branch, items: draft.items.map(i => ({ ...i })), status: "new", until: expiry(br), source: "site", created: Date.now() };
+  bookings.push(b); store.set("bookings", bookings); favBranch = draft.branch; store.set("favBranch", favBranch);
+  rf = { step: 5, done: b, gone: [], errors: {} }; draft = null;
+  updateBadges(); renderReserve();
+  if (st.view === "product") renderProduct();
+}
+
+/* size helper (TZ 7) */
+const HCHART = {
+  top: [["S", 164, 172, 55, 65], ["M", 170, 178, 63, 74], ["L", 175, 184, 72, 84], ["XL", 180, 190, 82, 95], ["XXL", 184, 196, 93, 110]],
+  bottom: [["46", 0, 0, 58, 66], ["48", 0, 0, 64, 74], ["50", 0, 0, 72, 82], ["52", 0, 0, 80, 90], ["54", 0, 0, 88, 98], ["56", 0, 0, 96, 108]],
+  shoe: [["39", 25.0], ["40", 25.7], ["41", 26.3], ["42", 27.0], ["43", 27.7], ["44", 28.3], ["45", 29.0]]
+};
+let hs = { g: "top", h: "", w: "", foot: "", res: null };
+function openHelper(g) { hs = { g: g || "top", h: hs.h, w: hs.w, foot: hs.foot, res: null }; renderHelper(); }
+function renderHelper() {
+  const g = hs.g;
+  let body = `<div class="tabs">${["top", "bottom", "shoe"].map(k => `<button type="button" class="pill" data-hg="${k}" aria-pressed="${g === k}">${t("h_" + k)}</button>`).join("")}</div>`;
+  if (g === "shoe") body += `<div class="field"><label for="h-foot">${t("foot")}</label><input class="inp" id="h-foot" inputmode="decimal" value="${hs.foot}" placeholder="27"></div>`;
+  else body += `<div class="range"><div class="field"><label for="h-h">${t("height")}</label><input class="inp" id="h-h" inputmode="numeric" value="${hs.h}" placeholder="178"></div><div class="field"><label for="h-w">${t("weight")}</label><input class="inp" id="h-w" inputmode="numeric" value="${hs.w}" placeholder="76"></div></div>`;
+  body += `<button type="button" class="btn btn-onyx" data-hfind>${t("find")}</button>`;
+  if (hs.res) body += `<div class="result"><span class="mono" style="color:var(--mut-d)">${t("fits")}</span><b>${hs.res.a}</b><p>${hs.res.b ? t("looser", { s: hs.res.b }) : t("exact")}</p></div>
+    <button type="button" class="btn btn-line" data-hsave>${t("save_size")}</button>`;
+  body += `<p class="hint">${t("helper_note")}</p>`;
+  st.sheet = "helper"; openSheet(t("helper_title"), body, "");
+}
+function runHelper() {
+  const g = hs.g;
+  if (g === "shoe") {
+    hs.foot = ($("#h-foot").value || "").replace(",", "."); const f = +hs.foot; if (!f) return;
+    const sorted = HCHART.shoe.map(r => [r[0], Math.abs(r[1] - f), r[1]]).sort((a, b) => a[1] - b[1]);
+    const a = sorted[0], b = sorted[1];
+    hs.res = { a: a[0], b: a[1] > .2 && b[1] - a[1] < .35 && +b[0] > +a[0] ? b[0] : null };
+  } else {
+    hs.h = $("#h-h").value.replace(/\D/g, ""); hs.w = $("#h-w").value.replace(/\D/g, ""); const h = +hs.h, w = +hs.w; if (!w) return;
+    const score = r => { const wc = (r[3] + r[4]) / 2, ws = (r[4] - r[3]) / 2; let s = Math.abs(w - wc) / ws; if (r[1] && h) { const hc = (r[1] + r[2]) / 2, hsd = (r[2] - r[1]) / 2; s += Math.abs(h - hc) / hsd * .8; } return s; };
+    const rows = HCHART[g].map((r, i) => ({ r, i, s: score(r) })).sort((a, b) => a.s - b.s);
+    const a = rows[0], nb = rows[1];
+    hs.res = { a: a.r[0], b: nb && nb.i === a.i + 1 && nb.s - a.s < .6 ? nb.r[0] : null };
+  }
+  renderHelper();
+}
+
+/* ---------- routing ---------- */
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let showTimer;
+function applyView(view, opts) {
+  st.view = view;
+  const home = view === "home";
+  $("#hero").hidden = !home; $("#v-home").hidden = !home;
+  $("#v-catalog").hidden = view !== "catalog"; $("#v-product").hidden = view !== "product"; $("#v-res").hidden = view !== "res";
+  hero.setActive(home);
+  document.querySelectorAll(".hdr nav button").forEach(b => b.classList.toggle("on", view === "catalog" && b.dataset.go === ({ new: "new", sale: "sale", cat: "catalog" })[filters.mode]));
+  if (!opts.keepScroll) window.scrollTo(0, 0);
+  if (home && window.fx) requestAnimationFrame(fx.measure);
+  if (opts.then) opts.then();
+}
+/* view swap hides behind an onyx wipe carrying the brand mark */
+function show(view, opts = {}) {
+  clearTimeout(showTimer);
+  if (REDUCE || view === st.view) return applyView(view, opts);
+  const w = $("#wipe"); w.classList.remove("run"); void w.offsetWidth; w.classList.add("run");
+  showTimer = setTimeout(() => applyView(view, opts), 300);
+}
+function go(where) {
+  closeSheet(); closeFilters();
+  if (where === "home") { show("home"); return; }
+  if (["how", "bot", "branches"].includes(where)) {
+    const jump = () => document.getElementById(where)?.scrollIntoView({ behavior: REDUCE ? "auto" : "smooth" });
+    if (st.view !== "home") show("home", { then: () => setTimeout(jump, 60) }); else jump();
+    return;
+  }
+  if (where === "privacy") { toast(t("privacy") + " · /maxfiylik"); return; }
+  if (where === "catalog") resetFilters();
+  if (where === "new") resetFilters({ mode: "new" });
+  if (where === "sale") resetFilters({ mode: "sale" });
+  renderCatalog(); show("catalog");
+}
+function openProduct(sku, size, ci) {
+  closeSheet(); closePops();
+  const p = bySku(sku);
+  pv.sku = sku; pv.ci = ci || 0; pv.img = 0;
+  if (size) { const c = p.colors.findIndex((x, i) => availAny(p, i, size, filters.branch)); pv.ci = c < 0 ? 0 : c; pv.size = size; }
+  else { const g = HELPER_GROUP[p.sg], saved = g && savedSizes[g]; pv.size = saved && SIZES[p.sg].includes(saved) ? saved : null; }
+  renderProduct();
+  if (st.view === "product") window.scrollTo({ top: 0, behavior: REDUCE ? "auto" : "smooth" });
+  show("product");
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click", e => {
+  if (!e.target.closest(".hot, .pop")) closePops();
+  const el = e.target.closest("button, [data-go]");
+  if (!el) { if (e.target.id === "backdrop") { closeSheet(); closeFilters(); } return; }
+  const d = el.dataset;
+  if (d.hot) return toggleHot(el);
+  if (d.quick) { const [sku, s] = d.quick.split("|"); return openProduct(sku, s); }
+  if (d.open && d.ciOpen !== undefined) return openProduct(d.open, null, +d.ciOpen);
+  if (d.go) return go(d.go);
+  if (d.lang !== undefined) { st.lang = +d.lang; store.set("lang", st.lang); applyStatic(); renderHome(); if (st.view === "catalog") renderCatalog(); if (st.view === "product") renderProduct(); if (st.view === "res") renderRes(); if ($("#sheet-root").innerHTML) { if (st.sheet === "res" && rf) renderReserve(); else if (st.sheet === "helper") renderHelper(); } return; }
+  if (d.open) return openProduct(d.open);
+  if (d.fav) return toggleFav(d.fav);
+  if (d.cat) { const sub = d.sub2 || null; resetFilters({ cat: d.cat, sub }); renderCatalog(); show("catalog"); return; }
+  if (d.sub) { filters.sub = d.sub; filters.page = 1; renderCatalog(); return; }
+  if (d.branchCat) { resetFilters({ branch: d.branchCat }); renderCatalog(); show("catalog"); return; }
+  if (d.fsize) { const eff = effectiveSizes(baseList()); if (!filters.sizes.size && eff.auto) eff.sizes.forEach(s => filters.sizes.add(s)); filters.sizes.has(d.fsize) ? filters.sizes.delete(d.fsize) : filters.sizes.add(d.fsize); filters.useSaved = false; filters.page = 1; keepFilters(); return; }
+  if (d.fcolor) { filters.colors.has(d.fcolor) ? filters.colors.delete(d.fcolor) : filters.colors.add(d.fcolor); filters.page = 1; keepFilters(); return; }
+  if (d.reset !== undefined) { const keep = { mode: filters.mode, cat: filters.cat, sub: filters.sub }; resetFilters(keep); filters.useSaved = false; keepFilters(); return; }
+  if (d.unsaved !== undefined) { filters.useSaved = false; renderCatalog(); return; }
+  if (d.more !== undefined) { filters.page++; renderCatalog(); return; }
+  if (d.openFilters !== undefined) return openFilters();
+  if (d.closeFilters !== undefined) return closeFilters();
+  if (d.img) { pv.img = +d.img; renderProduct(); return; }
+  if (d.ci) { pv.ci = +d.ci; renderProduct(); return; }
+  if (d.size) { pv.size = d.size; renderProduct(); return; }
+  if (d.reserve !== undefined) return startReserve();
+  if (d.closeSheet !== undefined) return closeSheet();
+  if (d.pickBranch) { draft.branch = d.pickBranch; renderReserve(); return; }
+  if (d.step) { if (rf.step === 3) collectContacts(); rf.step = +d.step; renderReserve(); return; }
+  if (d.rm) { draft.items.splice(+d.rm, 1); rf.gone = []; updateBadges(); if (!draft.items.length) { draft = null; closeSheet(); updateBadges(); return; } renderReserve(); return; }
+  if (d.addMore !== undefined) { const b = draft.branch; closeSheet(); resetFilters({ branch: b }); renderCatalog(); show("catalog"); return; }
+  if (d.validate !== undefined) return validateContacts();
+  if (d.submit !== undefined) return submitReserve();
+  if (d.cancel) { const b = bookings.find(x => String(x.id) === d.cancel); if (b) b.status = "cancelled"; store.set("bookings", bookings); updateBadges(); renderRes(); toast(t("cancelled")); return; }
+  if (d.bot) return botLink(d.bot);
+  if (d.toast) return toast(d.toast === "route" ? t("route") + " · 2GIS / Google / Yandex" : t("call") + " · +998 •• ••• •• ••");
+  if (d.helper) return openHelper(d.helper);
+  if (d.hg) { hs.g = d.hg; hs.res = null; renderHelper(); return; }
+  if (d.hfind !== undefined) return runHelper();
+  if (d.hsave !== undefined) { savedSizes[hs.g] = hs.res.a; store.set("sizes", savedSizes); toast(t("saved")); closeSheet(); if (st.view === "product") { const p = bySku(pv.sku); if (HELPER_GROUP[p.sg] === hs.g && SIZES[p.sg].includes(hs.res.a)) pv.size = hs.res.a; renderProduct(); } if (st.view === "catalog") { filters.useSaved = true; renderCatalog(); } return; }
+});
+$("#go-fav").addEventListener("click", () => { resetFilters({ mode: "fav" }); renderCatalog(); show("catalog"); });
+$("#go-res").addEventListener("click", () => { renderRes(); show("res"); });
+$("#draft-pill").addEventListener("click", () => { if (draft) { rf = rf && rf.step < 5 ? rf : { step: 2, errors: {}, gone: [] }; if (rf.step === 1) rf.step = 2; renderReserve(); } });
+document.addEventListener("keydown", e => { if (e.key === "Escape") { closeSheet(); closeFilters(); } });
+document.addEventListener("input", e => {
+  if (e.target.id === "r-phone") { let v = e.target.value.replace(/\D/g, ""); if (!v.startsWith("998")) v = "998" + v; const d = v.slice(3, 12); e.target.value = "+998 " + [d.slice(0, 2), d.slice(2, 5), d.slice(5, 7), d.slice(7, 9)].filter(Boolean).join(" "); }
+  if (e.target.id === "h-h" || e.target.id === "h-w" || e.target.id === "h-foot") { hs[{ "h-h": "h", "h-w": "w", "h-foot": "foot" }[e.target.id]] = e.target.value; }
+});
+document.addEventListener("keydown", e => { if (e.key === "Enter" && ["h-h", "h-w", "h-foot"].includes(e.target.id)) runHelper(); });
+
+/* ---------- 3D hero: the wordmark assembles from its own strokes ---------- */
+const RECTS = [[328,0,48,320],[0,136,300,48],[376,136,260,48],[664,136,312,48],[1004,136,312,48],[1344,136,312,48],[1688,136,312,48],[0,184,48,136],[588,184,48,136],[928,184,48,136],[1004,184,48,136],[1264,184,52,136],[1344,184,48,136],[1608,184,48,232],[1688,184,52,136],[1952,184,48,64],[1740,200,212,48],[664,208,264,48],[664,256,52,64],[48,272,252,48],[716,272,212,48],[1392,272,216,48],[1740,272,260,48],[1344,364,264,52]];
+const hero = (() => {
+  const api = { setActive() {} };
+  const canvas = $("#hero-canvas"), stage = $("#hero-stage");
+  if (!window.THREE) return api;
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" }); } catch (e) { return api; }
+  if (!renderer.getContext()) return api;
+  $("#hero-fallback").hidden = true;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(28, 1, .1, 400);
+  if (THREE.RoomEnvironment) { const pm = new THREE.PMREMGenerator(renderer); scene.environment = pm.fromScene(new THREE.RoomEnvironment(), .04).texture; }
+  scene.add(new THREE.AmbientLight(0xffffff, .25));
+  const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(-6, 8, 12); scene.add(key);
+  const rim = new THREE.DirectionalLight(0xB57A4C, 1.6); rim.position.set(10, -4, -6); scene.add(rim);
+  const warm = new THREE.PointLight(0xC88850, 2.2, 40, 2); warm.position.set(0, 0, 8); scene.add(warm);
+  const sweep = new THREE.PointLight(0xFFF4E6, 0, 18, 2); sweep.position.set(-14, 1, 3.2); scene.add(sweep);
+
+  const S = .01, D = .56;
+  const group = new THREE.Group(); scene.add(group);
+  const front = new THREE.MeshStandardMaterial({ color: 0xECEAE5, roughness: .38, metalness: .05, envMapIntensity: .6 });
+  const side = new THREE.MeshStandardMaterial({ color: 0x94603A, roughness: .28, metalness: .9, envMapIntensity: 1.2 });
+  const mats = [side, side, side, side, front, side];
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const scatter = (tx, ty) => ({ x: tx + rnd(-9, 9), y: ty + rnd(-6, 6), z: rnd(-26, 6), rx: rnd(-3, 3), ry: rnd(-3, 3), rz: rnd(-2, 2) });
+  const pieces = RECTS.map(([x, y, w, h]) => {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(w * S, h * S, D), mats);
+    const tx = (x + w / 2 - 1000) * S, ty = -(y + h / 2 - 209) * S;
+    m.userData = { tx, ty, sp: scatter(tx, ty), delay: (x / 2000) * .7 + rnd(0, .3), burst: rnd(-1, 1), spin: rnd(-1, 1) };
+    group.add(m); return m;
+  });
+  /* polished-floor reflection: mirrored ghosts share geometry and copy transforms every frame */
+  const FLOOR = -2.32;
+  const mirror = new THREE.Group(); mirror.position.y = FLOOR * 2; mirror.scale.y = -1; group.add(mirror);
+  const gFront = new THREE.MeshStandardMaterial({ color: 0xECEAE5, roughness: .55, metalness: 0, transparent: true, opacity: .13, side: THREE.DoubleSide, depthWrite: false });
+  const gSide = new THREE.MeshStandardMaterial({ color: 0x94603A, roughness: .35, metalness: .85, transparent: true, opacity: .2, side: THREE.DoubleSide, depthWrite: false });
+  const gMats = [gSide, gSide, gSide, gSide, gFront, gSide];
+  const ghosts = pieces.map(m => { const g = new THREE.Mesh(m.geometry, gMats); mirror.add(g); return g; });
+  /* PREMIUM: cut from the master logo so it stays exact */
+  let premium;
+  const img = new Image();
+  img.onload = () => {
+    const cv = document.createElement("canvas"); cv.width = 1024; cv.height = 96;
+    const cx = cv.getContext("2d"); cx.drawImage(img, 440, 340, 900, 78, 0, 4, 1024, 88.75);
+    const tex = new THREE.CanvasTexture(cv); tex.encoding = THREE.sRGBEncoding; tex.anisotropy = 4;
+    premium = new THREE.Mesh(new THREE.PlaneGeometry(900 * S, 900 * S * 96 / 1024), new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0, color: 0xECEAE5, depthWrite: false }));
+    premium.position.set((890 - 1000) * S, -(379 - 209) * S - .02, D / 2 + .005);
+    group.add(premium);
+  };
+  img.src = getComputedStyle(document.documentElement).getPropertyValue("--logo").trim().replace(/^url\(["']?/, "").replace(/["']?\)$/, "");
+
+  /* dust */
+  const N = 260, pos = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) { pos[i * 3] = rnd(-16, 16); pos[i * 3 + 1] = rnd(-8, 8); pos[i * 3 + 2] = rnd(-14, 4); }
+  const dg = new THREE.BufferGeometry(); dg.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+  const dust = new THREE.Points(dg, new THREE.PointsMaterial({ color: 0xD9B08A, size: .035, transparent: true, opacity: .45, depthWrite: false }));
+  scene.add(dust);
+
+  let W = 1, H = 1, active = true, visible = true, raf = 0, t0 = performance.now(), mx = 0, my = 0, cmx = 0, cmy = 0, scroll = 0, cs = 0, camZ = 30, introT0 = t0;
+  function fit() {
+    const r = stage.getBoundingClientRect(); W = Math.max(1, r.width); H = Math.max(1, r.height);
+    renderer.setSize(W, H, false); camera.aspect = W / H;
+    const fill = W < 700 ? .9 : .66, half = 21.5 / 2 / fill;
+    const dist = half / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) / camera.aspect;
+    const distH = (4.18 / .58) / 2 / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+    camZ = Math.max(dist, distH); camera.updateProjectionMatrix();
+  }
+  /* click: blow the word apart and let it reassemble */
+  canvas.addEventListener("click", () => {
+    if (reduce) return;
+    pieces.forEach(m => { const u = m.userData; u.sp = { x: m.position.x + rnd(-7, 7), y: m.position.y + rnd(-5, 5), z: rnd(-18, 8), rx: rnd(-4, 4), ry: rnd(-4, 4), rz: rnd(-3, 3) }; u.delay = rnd(0, .45); });
+    t0 = performance.now() - 150;
+  });
+  new ResizeObserver(fit).observe(stage); fit();
+  addEventListener("pointermove", e => { mx = e.clientX / innerWidth * 2 - 1; my = e.clientY / innerHeight * 2 - 1; }, { passive: true });
+  addEventListener("scroll", () => { scroll = Math.min(1, Math.max(0, scrollY / Math.max(1, stage.offsetHeight))); }, { passive: true });
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; loop(); }).observe(stage);
+  const ease = x => 1 - Math.pow(1 - x, 4);
+  const back = x => { const c = 1.4; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+  function frame(now) {
+    raf = 0;
+    const tt = (now - t0) / 1000;
+    cmx += (mx - cmx) * .05; cmy += (my - cmy) * .05; cs += (scroll - cs) * .08;
+    pieces.forEach(m => {
+      const u = m.userData, k = reduce ? 1 : Math.min(1, Math.max(0, (tt - .15 - u.delay) / 1.5)), e = ease(k), b = back(k);
+      const blow = cs * 1.0;
+      m.position.set(u.sp.x + (u.tx - u.sp.x) * e, u.sp.y + (u.ty - u.sp.y) * e + u.burst * blow * 1.2, u.sp.z + (0 - u.sp.z) * b + u.burst * blow * 7);
+      m.rotation.set(u.sp.rx * (1 - e) + u.spin * blow * .9, u.sp.ry * (1 - e) + u.burst * blow * .6, u.sp.rz * (1 - e));
+    });
+    ghosts.forEach((g, i) => { g.position.copy(pieces[i].position); g.rotation.copy(pieces[i].rotation); });
+    gFront.opacity = .13 * (1 - Math.min(1, cs * 1.6)); gSide.opacity = .2 * (1 - Math.min(1, cs * 1.6));
+    /* camera dollies in during the first seconds */
+    const it = reduce ? 1 : ease(Math.min(1, (now - introT0) / 2800));
+    camera.position.set(-3.2 * (1 - it), -.45 + .9 * (1 - it), camZ * (1 + .5 * (1 - it)));
+    camera.lookAt(0, -.45, 0);
+    /* a light sweeps across the faces every 7 seconds */
+    const ph = (tt - 2.6) % 7 / 2.2;
+    if (!reduce && tt > 2.6 && ph <= 1) { sweep.position.x = -14 + 28 * ph; sweep.intensity = Math.sin(ph * Math.PI) * 3.4; } else sweep.intensity = 0;
+    const settle = reduce ? 1 : Math.min(1, Math.max(0, (tt - 1.9) / .8));
+    if (premium) premium.material.opacity = settle * (1 - cs * 1.4);
+    const idle = reduce ? 0 : Math.sin(tt * .5);
+    group.rotation.y = cmx * .32 + idle * .06 * settle;
+    group.rotation.x = cmy * .16 - cs * .35 + .05;
+    group.position.y = (reduce ? 0 : Math.sin(tt * .8) * .06) + cs * 1.4;
+    warm.position.set(cmx * 9, -cmy * 4, 7);
+    dust.rotation.y = tt * .015; dust.position.y = Math.sin(tt * .2) * .3;
+    renderer.render(scene, camera);
+    if (!reduce || tt < .2) loop();
+  }
+  function loop() { if (!raf && active && visible) raf = requestAnimationFrame(frame); }
+  api.setActive = on => { active = on; if (on) { fit(); loop(); } };
+  loop();
+  return api;
+})();
+
+/* ---------- scroll engine: pinned lookbook, kinetic marquee, progress line ---------- */
+const fx = window.fx = (() => {
+  let lb = null, track = null, bar = null, frames = [], rows = [], maxX = 0, top = 0, ticking = false, lastY = scrollY, vel = 0;
+  const sprog = $("#sprog");
+  function measure() {
+    lb = $("#lookbook"); rows = [...document.querySelectorAll(".mq-row")];
+    if (!lb) return;
+    track = lb.querySelector(".lb-track"); bar = lb.querySelector(".lb-bar i"); frames = [...lb.querySelectorAll(".lb-frame")];
+    const pin = lb.querySelector(".lb-pin");
+    if (innerWidth > 860 && !REDUCE) {
+      lb.style.height = ""; maxX = Math.max(0, track.scrollWidth - innerWidth);
+      lb.style.height = pin.offsetHeight + maxX + "px";
+    } else { maxX = 0; lb.style.height = ""; track.style.transform = ""; }
+    top = lb.getBoundingClientRect().top + scrollY - 60;
+    update();
+  }
+  function update() {
+    ticking = false;
+    const y = scrollY;
+    vel += (y - lastY - vel) * .25; lastY = y;
+    sprog.style.transform = `scaleX(${Math.min(1, y / Math.max(1, document.documentElement.scrollHeight - innerHeight))})`;
+    if (st.view !== "home") return;
+    if (lb && maxX) {
+      const p = Math.min(1, Math.max(0, (y - top) / maxX));
+      track.style.transform = `translate3d(${(-p * maxX).toFixed(1)}px,0,0)`;
+      if (bar) bar.style.transform = `scaleX(${p})`;
+      frames.forEach(f => { const r = f.parentElement.getBoundingClientRect(), c = (r.left + r.width / 2 - innerWidth / 2) / innerWidth; f.style.transform = `scale(1.12) translateX(${(c * -7).toFixed(2)}%)`; });
+    }
+    if (!REDUCE) {
+      const skew = Math.max(-10, Math.min(10, vel * -.25));
+      rows.forEach((r, i) => { const half = r.scrollWidth / 2, off = (y * .45) % half; r.style.transform = `translate3d(${(i % 2 ? off - half : -off).toFixed(1)}px,0,0) skewX(${skew.toFixed(2)}deg)`; });
+      if (Math.abs(vel) > .2) { ticking = true; requestAnimationFrame(update); }
+    }
+  }
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener("resize", () => requestAnimationFrame(measure));
+  document.fonts?.ready.then(() => measure());
+  return { measure };
+})();
+
+/* ---------- pointer layer: cursor, magnetic buttons, card tilt, fabric loupe ---------- */
+(() => {
+  if (!matchMedia("(pointer: fine)").matches || REDUCE) return;
+  const cur = document.createElement("div"); cur.className = "cur"; cur.innerHTML = "<span></span>"; document.body.appendChild(cur);
+  const lbl = cur.firstChild;
+  let x = -100, y = -100, cx = x, cy = y, mag = null, tilt = null;
+  const setMode = (m, text) => { cur.className = "cur" + (m ? " " + m : ""); if (text !== undefined) lbl.textContent = text; };
+  addEventListener("pointermove", e => {
+    x = e.clientX; y = e.clientY;
+    const tg = e.target;
+    if (tg.closest(".hot, .pop")) setMode("hide");
+    else if (tg.closest("#hero-canvas")) setMode("view", t("cur_click"));
+    else if (tg.closest(".main-img")) setMode("view", t("cur_zoom"));
+    else if (tg.closest(".pimg, .cat, .lb-frame, .lb-item")) setMode("view", t("cur_view"));
+    else if (tg.closest("button, a, select, input, label, summary")) setMode("small");
+    else setMode("");
+    /* magnetic */
+    const m = tg.closest(".mag");
+    if (mag && mag !== m) { mag.style.transform = ""; mag = null; }
+    if (m) { const r = m.getBoundingClientRect(); m.style.transform = `translate(${(x - r.left - r.width / 2) * .25}px, ${(y - r.top - r.height / 2) * .35}px)`; mag = m; }
+    /* tilt */
+    const pm = tg.closest(".pmedia");
+    if (tilt && tilt !== pm) { tilt.style.transform = ""; tilt = null; }
+    if (pm) {
+      const r = pm.getBoundingClientRect(), dx = (x - r.left) / r.width - .5, dy = (y - r.top) / r.height - .5;
+      pm.style.transform = `perspective(900px) rotateX(${(-dy * 7).toFixed(2)}deg) rotateY(${(dx * 9).toFixed(2)}deg) translateZ(0)`;
+      pm.style.setProperty("--mx", (dx + .5) * 100 + "%"); pm.style.setProperty("--my", (dy + .5) * 100 + "%"); tilt = pm;
+    }
+    /* loupe on the product photo */
+    const mi = tg.closest(".main-img");
+    if (mi && pv.img === 0) {
+      const r = mi.getBoundingClientRect(), im = mi.querySelector("img");
+      mi.classList.add("zooming"); im.style.transformOrigin = `${((x - r.left) / r.width * 100).toFixed(1)}% ${((y - r.top) / r.height * 100).toFixed(1)}%`; im.style.transform = "scale(2.2)";
+    }
+  }, { passive: true });
+  document.addEventListener("pointerout", e => {
+    const mi = e.target.closest?.(".main-img");
+    if (mi && !mi.contains(e.relatedTarget)) { const im = mi.querySelector("img"); mi.classList.remove("zooming"); im.style.transform = VIEWS[pv.img] === "none" ? "" : VIEWS[pv.img]; im.style.transformOrigin = ""; }
+    if (!e.relatedTarget) setMode("hide");
+  });
+  (function tick() { cx += (x - cx) * .22; cy += (y - cy) * .22; cur.style.transform = `translate3d(${cx.toFixed(1)}px,${cy.toFixed(1)}px,0)`; requestAnimationFrame(tick); })();
+})();
+
+/* ---------- boot ---------- */
+$("#wipe").innerHTML = CMARK("#ECEAE5");
+applyStatic();
+renderHome();
+setInterval(() => { if (st.view === "home") { $("#hero-live").innerHTML = BRANCHES.map(b => { const o = openState(b); return `<span><i class="dot ${o.open ? "open" : ""}"></i>${esc(L(b.name))} · ${o.text}</span>`; }).join(""); } }, 60000);
+</script>
+
+</body>
+</html>

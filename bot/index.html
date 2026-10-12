@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111214">
+<meta name="robots" content="noindex">
+<meta name="description" content="Demo: katalog, bron va bildirishnomalar Telegram’da. Демо Telegram-бота: бронь, наличие, уведомления.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="change premium · Telegram-bot demo">
+<meta property="og:description" content="Demo: katalog, bron va bildirishnomalar Telegram’da. Демо Telegram-бота: бронь, наличие, уведомления.">
+<meta property="og:image" content="https://ffff84.github.io/change-premium-demo/og-bot.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<title>change premium Bot Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500&family=Onest:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: presenter's desk. Left the remote (scenarios), centre the customer's phone, right the seller's phone (branch group + channel). Single dark look on purpose: it reads as Telegram night mode. */
+:root {
+  --onyx: #0F1012;
+  --desk: #141518;
+  --panel: #1A1C20;
+  --line: #2A2C31;
+  --chalk: #ECEAE5;
+  --mut: #9A9DA3;
+  --cognac: #94603A;
+  --cognac-hi: #C08453;
+  --bub-bot: #212328;
+  --bub-me: #6A4328;
+  --btn: rgba(255, 255, 255, .08);
+  --ok: #5FB884;
+  --f-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --f-body: "Onest", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --logo: url("data:image/webp;base64,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");
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body { background: var(--onyx); color: var(--chalk); font: 400 14px/1.45 var(--f-body); -webkit-font-smoothing: antialiased; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--cognac-hi); outline-offset: 2px; }
+.mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+.logo { display: block; aspect-ratio: 2000 / 418; background: currentColor; -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; }
+
+.desk { min-height: 100%; display: grid; grid-template-columns: minmax(260px, 320px) minmax(340px, 410px) minmax(320px, 390px); justify-content: center; align-items: start; gap: 28px; padding: 24px 16px; }
+@media (max-width: 1180px) { .desk { grid-template-columns: minmax(260px, 300px) minmax(340px, 410px); } .col-seller { grid-column: 2; } }
+@media (max-width: 760px) { .desk { grid-template-columns: minmax(0, 1fr); padding: 12px 12px 16px; gap: 0; } .col { display: none; } .col.on { display: block; } .col-seller { grid-column: auto; } }
+
+/* mobile switcher */
+.switch { display: none; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--onyx); padding: 10px 12px; gap: 6px; border-bottom: 1px solid var(--line); }
+.switch button { flex: 1; appearance: none; border: 1px solid var(--line); background: transparent; color: var(--mut); border-radius: 999px; padding: 9px 6px; font-weight: 600; font-size: 13px; cursor: pointer; position: relative; }
+.switch button[aria-pressed="true"] { background: var(--chalk); color: var(--onyx); border-color: var(--chalk); }
+.switch button i { position: absolute; top: 4px; right: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--cognac-hi); }
+@media (max-width: 760px) { .switch { display: flex; } }
+
+/* remote */
+.remote { position: sticky; top: 24px; display: grid; gap: 20px; }
+.remote .brand { color: var(--chalk); width: 150px; }
+.remote h1 { font: 500 20px/1.2 var(--f-display); margin: 0; letter-spacing: -.02em; text-wrap: balance; }
+.remote p.lead { color: var(--mut); margin: 0; }
+.grp { display: grid; gap: 6px; }
+.grp > .mono { color: var(--cognac-hi); margin-bottom: 2px; }
+.ev { appearance: none; text-align: left; border: 1px solid var(--line); background: var(--panel); border-radius: 12px; padding: 10px 12px; cursor: pointer; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; transition: border-color .2s, background .2s; }
+.ev:hover { border-color: var(--cognac); background: #1F2125; }
+.ev b { font-weight: 600; font-size: 13px; }
+.ev small { color: var(--mut); font-size: 12px; grid-column: 1; }
+.ev .ref { grid-row: 1 / span 2; grid-column: 2; align-self: center; font: 500 10px var(--f-mono); color: var(--mut); border: 1px solid var(--line); border-radius: 6px; padding: 3px 6px; white-space: nowrap; }
+.ev.reset { border-style: dashed; }
+.note { font-size: 12px; color: var(--mut); border-top: 1px solid var(--line); padding-top: 14px; }
+@media (max-width: 1180px) and (min-width: 761px) { .col-remote { grid-row: span 2; } }
+
+/* phone */
+.phone { background: #08090A; border-radius: 42px; padding: 10px; box-shadow: 0 0 0 1px #26282C, 0 40px 80px -30px rgba(0, 0, 0, .9); }
+.screen { border-radius: 33px; overflow: hidden; height: min(820px, calc(100vh - 68px)); min-height: 560px; display: flex; flex-direction: column; background: #101114; position: relative; }
+@media (max-width: 760px) { .phone { border-radius: 0; padding: 0; box-shadow: none; background: none; } .screen { border-radius: 16px; height: calc(100vh - 86px); min-height: 480px; border: 1px solid var(--line); } }
+.cap { text-align: center; color: var(--mut); margin-top: 12px; }
+@media (max-width: 760px) { .cap { display: none; } }
+.status { display: flex; justify-content: space-between; padding: 10px 26px 0; font: 600 12px var(--f-body); color: var(--chalk); }
+@media (max-width: 760px) { .status { display: none; } }
+.top { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #17181C; border-bottom: 1px solid #23252A; }
+.top .back { color: var(--cognac-hi); font-size: 22px; line-height: 1; width: 18px; }
+.ava { width: 38px; height: 38px; border-radius: 50%; background: var(--chalk); display: grid; place-items: center; flex: none; }
+.ava svg { width: 56%; }
+.ava.chan { background: var(--cognac); }
+.top b { display: block; font-weight: 600; font-size: 14px; }
+.top small { color: var(--mut); font-size: 12px; }
+.top small.typing { color: var(--cognac-hi); }
+.tabs2 { display: flex; gap: 4px; padding: 8px 10px; background: #17181C; border-bottom: 1px solid #23252A; }
+.tabs2 button { flex: 1; appearance: none; border: 0; border-radius: 8px; padding: 7px; background: transparent; color: var(--mut); font-weight: 600; font-size: 12px; cursor: pointer; position: relative; }
+.tabs2 button[aria-pressed="true"] { background: var(--btn); color: var(--chalk); }
+.tabs2 button i { position: absolute; top: 5px; right: 8px; width: 7px; height: 7px; border-radius: 50%; background: var(--cognac-hi); }
+
+/* chat */
+.chat { flex: 1; overflow-y: auto; padding: 12px 10px 8px; display: flex; flex-direction: column; gap: 6px; scroll-behavior: smooth; overscroll-behavior: contain; }
+.chat::-webkit-scrollbar { width: 4px; } .chat::-webkit-scrollbar-thumb { background: #2C2E33; border-radius: 4px; }
+.day { align-self: center; background: rgba(0, 0, 0, .35); color: var(--mut); font-size: 11px; padding: 3px 10px; border-radius: 10px; margin: 4px 0; }
+.row { display: flex; flex-direction: column; max-width: 86%; animation: pop .22s cubic-bezier(.2, .7, .2, 1); }
+.row.bot { align-self: flex-start; } .row.me { align-self: flex-end; align-items: flex-end; }
+@keyframes pop { from { opacity: 0; transform: translateY(8px) scale(.98); } }
+.bub { background: var(--bub-bot); border-radius: 16px 16px 16px 5px; padding: 7px 10px 6px; position: relative; overflow: hidden; min-width: 80px; }
+.me .bub { background: var(--bub-me); border-radius: 16px 16px 5px 16px; }
+.bub.ph { padding: 0; }
+.bub.ph .tx { padding: 7px 10px 0; }
+.bub.ph .tm { padding: 0 10px 6px; }
+.bub img.photo { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: #E2DFD9; }
+.album { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.album img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; background: #E2DFD9; }
+.tx { white-space: pre-line; word-wrap: break-word; }
+.tx b { font-weight: 600; }
+.tx s { color: var(--mut); }
+.me .tx s { color: rgba(236, 234, 229, .6); }
+.tm { display: block; text-align: right; font-size: 10.5px; color: rgba(236, 234, 229, .45); margin-top: 2px; font-variant-numeric: tabular-nums; }
+.me .tm { color: rgba(236, 234, 229, .65); }
+.tm .ok { color: #9BD3B0; }
+.ikb { display: grid; gap: 4px; margin-top: 4px; }
+.ikb .r { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; }
+.ikb button { appearance: none; border: 0; background: var(--btn); color: var(--chalk); border-radius: 9px; padding: 8px 6px; font-size: 12.5px; font-weight: 500; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: background .15s, transform .1s; }
+.ikb button:hover { background: rgba(255, 255, 255, .14); }
+.ikb button:active { transform: scale(.97); }
+.ikb button.sel { background: rgba(192, 132, 83, .42); }
+.ikb button.dim { color: rgba(236, 234, 229, .35); }
+.contact { display: flex; gap: 10px; align-items: center; padding: 4px 2px; }
+.contact i { width: 40px; height: 40px; border-radius: 50%; background: var(--cognac-hi); display: grid; place-items: center; font-style: normal; font-weight: 600; }
+.loc { display: block; height: 130px; margin: -7px -10px 6px; position: relative; background:
+  linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px) 0 0 / 22px 22px,
+  linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px) 0 0 / 22px 22px,
+  linear-gradient(135deg, #2A3B33, #24302E 60%, #2E2A26); }
+.loc::before { content: ""; position: absolute; left: -10%; right: -10%; top: 58%; height: 10px; background: rgba(236, 234, 229, .12); transform: rotate(-8deg); }
+.loc::after { content: ""; position: absolute; left: 46%; top: -10%; bottom: -10%; width: 8px; background: rgba(236, 234, 229, .1); transform: rotate(12deg); }
+.loc span { position: absolute; left: 50%; top: 50%; width: 30px; height: 30px; margin: -30px 0 0 -15px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--cognac-hi); z-index: 1; box-shadow: 0 4px 10px rgba(0, 0, 0, .4); }
+.typing-row .bub { display: flex; gap: 4px; padding: 12px 14px; min-width: 0; }
+.typing-row .bub i { width: 7px; height: 7px; border-radius: 50%; background: var(--mut); animation: blink 1s infinite; }
+.typing-row .bub i:nth-child(2) { animation-delay: .15s; } .typing-row .bub i:nth-child(3) { animation-delay: .3s; }
+@keyframes blink { 0%, 80%, 100% { opacity: .3; } 40% { opacity: 1; } }
+.ctoast { position: absolute; left: 50%; top: 120px; transform: translateX(-50%); z-index: 4; background: rgba(30, 32, 36, .96); color: var(--chalk); padding: 9px 14px; border-radius: 12px; font-size: 13px; box-shadow: 0 10px 30px rgba(0, 0, 0, .5); max-width: 86%; text-align: center; animation: pop .2s ease; }
+.flash { animation: flash 1.2s ease; }
+@keyframes flash { 0% { box-shadow: 0 0 0 0 rgba(192, 132, 83, .8); } 100% { box-shadow: 0 0 0 14px rgba(192, 132, 83, 0); } }
+
+/* reply keyboard + input */
+.rkb { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 6px 8px 2px; background: #17181C; border-top: 1px solid #23252A; }
+.rkb button { appearance: none; border: 0; border-radius: 10px; background: #26282D; color: var(--chalk); padding: 10px 6px; font-weight: 500; font-size: 13px; cursor: pointer; }
+.rkb button:hover { background: #2E3036; }
+.rkb button.wide { grid-column: 1 / -1; }
+.rkb button.contact-btn { background: var(--cognac); }
+.input { display: flex; align-items: center; gap: 8px; padding: 8px 10px calc(10px + env(safe-area-inset-bottom, 0px)); background: #17181C; }
+.input .att { appearance: none; border: 0; background: none; color: var(--mut); width: 34px; height: 34px; display: grid; place-items: center; cursor: pointer; border-radius: 50%; }
+.input .att:hover { color: var(--chalk); }
+.input input { flex: 1; min-width: 0; border: 0; background: #23252A; color: var(--chalk); border-radius: 18px; padding: 10px 14px; font: 400 14px var(--f-body); }
+.input input::placeholder { color: #6E7177; }
+.input input:focus { outline: 1px solid var(--cognac); }
+.input .send { appearance: none; border: 0; width: 38px; height: 38px; border-radius: 50%; background: var(--cognac); color: var(--chalk); display: grid; place-items: center; cursor: pointer; flex: none; }
+.ico { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.seller-hint { padding: 10px 14px calc(12px + env(safe-area-inset-bottom, 0px)); background: #17181C; color: var(--mut); font-size: 12px; text-align: center; border-top: 1px solid #23252A; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+</style>
+
+<div class="switch" role="group" aria-label="Ekran">
+  <button type="button" id="sw-bot" data-col="bot" aria-pressed="true">Bot</button>
+  <button type="button" id="sw-seller" data-col="seller" aria-pressed="false">Продавец<i hidden></i></button>
+  <button type="button" id="sw-remote" data-col="remote" aria-pressed="false">Сценарии</button>
+</div>
+
+<div class="desk">
+  <aside class="col col-remote" id="col-remote">
+    <div class="remote">
+      <span class="logo brand" role="img" aria-label="change premium"></span>
+      <h1>Демо Telegram-бота</h1>
+      <p class="lead">Нажимайте кнопки в чате, как покупатель. Справа видно, что в это время получают продавцы филиала. Кнопки ниже запускают события, которые в жизни приходят сами.</p>
+
+      <div class="grp"><span class="mono">Покупатель</span>
+        <button type="button" class="ev" data-ev="start"><b>Начать с /start</b><small>Язык, номер, главное меню</small><span class="ref">ТЗ 6.1</span></button>
+        <button type="button" class="ev" data-ev="deeplink"><b>Переход с сайта</b><small>«Сообщить в Telegram» на карточке товара</small><span class="ref">start=p_</span></button>
+      </div>
+      <div class="grp"><span class="mono">Уведомления покупателю</span>
+        <button type="button" class="ev" data-ev="stock"><b>Появился нужный размер</b><small>Одно сообщение, подписка выключается</small><span class="ref">ТЗ 5.2</span></button>
+        <button type="button" class="ev" data-ev="price"><b>Подешевела вещь из избранного</b><small>Скидка от 10%</small><span class="ref">ТЗ 5.2</span></button>
+        <button type="button" class="ev" data-ev="remind"><b>Бронь скоро закончится</b><small>За 3 часа: продлить или отменить</small><span class="ref">ТЗ 3.5</span></button>
+        <button type="button" class="ev" data-ev="expire"><b>Бронь истекла</b><small>Вещи вернулись в продажу</small><span class="ref">ТЗ 3.3</span></button>
+        <button type="button" class="ev" data-ev="rate"><b>Оценка после покупки</b><small>4–5 → отзыв на картах, 1–3 → жалоба админу</small><span class="ref">ТЗ 8</span></button>
+        <button type="button" class="ev" data-ev="weekly"><b>Пятничная подборка новинок</b><small>Только размеры покупателя</small><span class="ref">ТЗ 5.2</span></button>
+      </div>
+      <div class="grp"><span class="mono">Продавцы и канал</span>
+        <button type="button" class="ev" data-ev="sla"><b>Бронь не обработана 20 минут</b><small>Напоминание в группу филиала</small><span class="ref">ТЗ 3.4</span></button>
+        <button type="button" class="ev" data-ev="post"><b>Новинка в канал</b><small>Автопост с кнопкой брони</small><span class="ref">ТЗ 5.4</span></button>
+        <button type="button" class="ev" data-ev="soldout"><b>Размеры закончились</b><small>Пост в канале обновится сам</small><span class="ref">ТЗ 5.4</span></button>
+      </div>
+      <button type="button" class="ev reset" data-ev="reset"><b>Сбросить демо</b><small>Начать показ заново</small><span class="ref">↺</span></button>
+      <p class="note">Демо работает в браузере, без сервера. Товары, цены и остатки примерные, номер телефона вымышлен. Настоящий бот работает по тем же сценариям.</p>
+    </div>
+  </aside>
+
+  <section class="col col-bot on" id="col-bot">
+    <div class="phone"><div class="screen" id="screen-bot">
+      <div class="status"><span id="clock1">14:05</span><span>5G ▮▮▮</span></div>
+      <div class="top"><span class="back">‹</span><span class="ava" id="ava-bot"></span><div><b>change premium</b><small id="bot-sub">bot</small></div></div>
+      <div class="chat" id="chat-bot" aria-live="polite"></div>
+      <div class="rkb" id="rkb" hidden></div>
+      <form class="input" id="input-form" autocomplete="off">
+        <button type="button" class="att" id="attach" aria-label="Rasm yuborish"><svg class="ico" viewBox="0 0 24 24"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7.1-7.1l8.6-8.6a3.4 3.4 0 0 1 4.8 4.8l-8.6 8.6a1.7 1.7 0 0 1-2.4-2.4l8-8"/></svg></button>
+        <input id="msg-input" type="text" placeholder="Xabar" aria-label="Xabar">
+        <button type="submit" class="send" aria-label="Yuborish"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
+    </div></div>
+    <p class="cap mono">Покупатель · Дильшод</p>
+  </section>
+
+  <section class="col col-seller" id="col-seller">
+    <div class="phone"><div class="screen">
+      <div class="status"><span id="clock2">14:05</span><span>5G ▮▮▮</span></div>
+      <div class="tabs2" role="group" aria-label="Seller screens">
+        <button type="button" id="tab-group" data-tab="group" aria-pressed="true">Группа филиала<i hidden></i></button>
+        <button type="button" id="tab-chan" data-tab="chan" aria-pressed="false">Канал<i hidden></i></button>
+      </div>
+      <div id="pane-group" style="display:flex;flex-direction:column;flex:1;min-height:0">
+        <div class="top"><span class="ava" id="ava-group"></span><div><b id="group-title">Siti Moll · sotuvchilar</b><small id="group-sub">guruh · 6 a’zo</small></div></div>
+        <div class="chat" id="chat-group" aria-live="polite"></div>
+        <div class="seller-hint" id="seller-hint">Сюда приходят брони и вопросы покупателей</div>
+      </div>
+      <div id="pane-chan" style="display:none;flex-direction:column;flex:1;min-height:0">
+        <div class="top"><span class="ava chan" id="ava-chan"></span><div><b>change premium</b><small id="chan-sub">kanal</small></div></div>
+        <div class="chat" id="chat-chan" aria-live="polite"></div>
+        <div class="seller-hint">Бот сам публикует новинки и обновляет посты</div>
+      </div>
+    </div></div>
+    <p class="cap mono">Продавцы · Сити Молл</p>
+  </section>
+</div>
+
+<script>
+/* ---------- assets ---------- */
+const PHOTO_DATA = {"CH-1021-0":"../img/CH-1021-0.webp","CH-1021-1":"../img/CH-1021-1.webp","CH-1034-0":"../img/CH-1034-0.webp","CH-1034-1":"../img/CH-1034-1.webp","CH-1102-0":"../img/CH-1102-0.webp","CH-1102-1":"../img/CH-1102-1.webp","CH-1102-2":"../img/CH-1102-2.webp","CH-1150-0":"../img/CH-1150-0.webp","CH-1150-1":"../img/CH-1150-1.webp","CH-1150-2":"../img/CH-1150-2.webp","CH-2045-0":"../img/CH-2045-0.webp","CH-2045-1":"../img/CH-2045-1.webp","CH-2081-0":"../img/CH-2081-0.webp","CH-2081-1":"../img/CH-2081-1.webp","CH-2210-0":"../img/CH-2210-0.webp","CH-2210-1":"../img/CH-2210-1.webp","CH-3011-0":"../img/CH-3011-0.webp","CH-3011-1":"../img/CH-3011-1.webp","CH-3120-0":"../img/CH-3120-0.webp","CH-3120-1":"../img/CH-3120-1.webp","CH-4005-0":"../img/CH-4005-0.webp","CH-4005-1":"../img/CH-4005-1.webp","CH-4005-2":"../img/CH-4005-2.webp","CH-5030-0":"../img/CH-5030-0.webp","CH-5030-1":"../img/CH-5030-1.webp","CH-6012-0":"../img/CH-6012-0.webp","CH-6012-1":"../img/CH-6012-1.webp","CH-6105-0":"../img/CH-6105-0.webp","CH-6105-1":"../img/CH-6105-1.webp","CH-7001-0":"../img/CH-7001-0.webp","CH-7001-1":"../img/CH-7001-1.webp","CH-8020-0":"../img/CH-8020-0.webp","CH-8020-1":"../img/CH-8020-1.webp","CH-8044-0":"../img/CH-8044-0.webp","CH-8044-1":"../img/CH-8044-1.webp","LOOK-1":"../img/LOOK-1.webp","LOOK-2":"../img/LOOK-2.webp","LOOK-3":"../img/LOOK-3.webp"};
+const PH = {};
+for (const k in PHOTO_DATA) {
+  if (PHOTO_DATA[k].endsWith(".webp")) { PH[k] = PHOTO_DATA[k]; continue; } /* hosted build: plain file paths */
+  try { const b = atob(PHOTO_DATA[k]), u = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); PH[k] = URL.createObjectURL(new Blob([u], { type: "image/webp" })); }
+  catch (e) { PH[k] = "data:image/webp;base64," + PHOTO_DATA[k]; }
+}
+const CMARK = c => `<svg viewBox="0 0 300 184" aria-hidden="true"><path d="M0 0H300V48H48V136H300V184H0Z" fill="${c}"/></svg>`;
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const sleep = ms => new Promise(r => setTimeout(r, REDUCE ? 0 : ms));
+
+/* ---------- data (same catalogue as the site prototype) ---------- */
+const BRANCHES = [
+  { id: "citymall", name: ["Siti Moll", "Сити Молл"], addr: ["Samarqand, Siti Moll savdo markazi", "Самарканд, ТЦ Сити Молл"], open: 10, close: 22 },
+  { id: "shahrukh17", name: ["Shohruh Mirzo, 17", "Шахрух Мирзо, 17"], addr: ["Samarqand, Shohruh Mirzo ko‘chasi, 17", "Самарканд, ул. Шахруха Мирзы, 17"], open: 9, close: 21 }
+];
+const CATS = [
+  { id: "kiyim", n: ["👔 Kiyim", "👔 Одежда"], subs: [["koylak", "Ko‘ylaklar", "Рубашки"], ["futbolka", "Futbolka va polo", "Футболки и поло"], ["shim", "Shimlar", "Брюки"], ["jinsi", "Jinsilar", "Джинсы"], ["kostyum", "Kostyumlar", "Костюмы"], ["pidjak", "Pidjaklar", "Пиджаки"], ["sviter", "Sviterlar", "Свитеры"], ["kurtka", "Kurtka va palto", "Куртки и пальто"]] },
+  { id: "poyabzal", n: ["👞 Poyabzal", "👞 Обувь"], subs: [["tufli", "Tuflilar", "Туфли"], ["krossovka", "Krossovkalar", "Кроссовки"]] },
+  { id: "ichki", n: ["🧦 Ichki kiyim va paypoq", "🧦 Бельё и носки"], subs: [] },
+  { id: "aksessuar", n: ["👜 Aksessuarlar", "👜 Аксессуары"], subs: [["kamar", "Kamarlar", "Ремни"], ["galstuk", "Galstuklar", "Галстуки"]] }
+];
+const SIZES = { top: ["S", "M", "L", "XL", "XXL"], suit: ["46", "48", "50", "52", "54", "56"], bottom: ["46", "48", "50", "52", "54"], shoe: ["39", "40", "41", "42", "43", "44", "45"], belt: ["95", "100", "105", "110"], sock: ["39–42", "43–46"], one: ["U"] };
+const GROUP_OF = { top: "top", suit: "bottom", bottom: "bottom", shoe: "shoe" };
+const C = (uz, ru) => [uz, ru];
+const P = [
+  { sku: "CH-3011", cat: "kiyim", sub: "pidjak", n: C("Bir qatorli pidjak", "Однобортный пиджак"), price: 1890000, old: 2290000, sg: "suit", days: 1, colors: [C("To‘q ko‘k", "Тёмно-синий"), C("Kemel", "Кэмел")], comp: C("100% jun", "100% шерсть") },
+  { sku: "CH-1021", cat: "kiyim", sub: "koylak", n: C("Oxford ko‘ylak", "Рубашка Oxford"), price: 459000, sg: "top", days: 2, colors: [C("Oq", "Белый"), C("Havorang", "Голубой")], comp: C("100% paxta", "100% хлопок") },
+  { sku: "CH-2045", cat: "kiyim", sub: "shim", n: C("Chinos shim", "Брюки чинос"), price: 489000, sg: "bottom", days: 3, colors: [C("Bej", "Бежевый"), C("Grafit", "Графит")], comp: C("98% paxta, 2% elastan", "98% хлопок, 2% эластан") },
+  { sku: "CH-4005", cat: "kiyim", sub: "sviter", n: C("Merinos sviter", "Свитер из мериноса"), price: 790000, sg: "top", days: 4, colors: [C("Suli", "Овсяный"), C("Grafit", "Графит"), C("Bordo", "Бордовый")], comp: C("100% merinos juni", "100% шерсть мериноса") },
+  { sku: "CH-1102", cat: "kiyim", sub: "futbolka", n: C("Trikotaj polo", "Трикотажное поло"), price: 349000, sg: "top", days: 5, colors: [C("To‘q ko‘k", "Тёмно-синий"), C("Sut rang", "Молочный"), C("Jigarrang", "Коричневый")], comp: C("95% paxta, 5% elastan", "95% хлопок, 5% эластан") },
+  { sku: "CH-3120", cat: "kiyim", sub: "kostyum", n: C("Ikki qismli kostyum", "Костюм-двойка"), price: 3490000, sg: "suit", days: 6, colors: [C("Antratsit", "Антрацит"), C("To‘q ko‘k", "Тёмно-синий")], comp: C("98% jun, 2% elastan", "98% шерсть, 2% эластан") },
+  { sku: "CH-6105", cat: "poyabzal", sub: "krossovka", n: C("Teri krossovka", "Кожаные кроссовки"), price: 990000, old: 1190000, sg: "shoe", days: 7, colors: [C("Oq", "Белый"), C("Qora", "Чёрный")], comp: C("Natural teri", "Натуральная кожа") },
+  { sku: "CH-5030", cat: "kiyim", sub: "kurtka", n: C("Jun palto", "Шерстяное пальто"), price: 2990000, sg: "top", days: 8, colors: [C("Kemel", "Кэмел"), C("Qora", "Чёрный")], comp: C("80% jun, 20% kashemir", "80% шерсть, 20% кашемир") },
+  { sku: "CH-1034", cat: "kiyim", sub: "koylak", n: C("Zig‘ir ko‘ylak", "Льняная рубашка"), price: 529000, old: 659000, sg: "top", days: 20, colors: [C("Bej", "Бежевый"), C("Zaytun", "Оливковый")], comp: C("100% zig‘ir", "100% лён") },
+  { sku: "CH-2210", cat: "kiyim", sub: "jinsi", n: C("Straight jinsi", "Джинсы straight"), price: 590000, old: 690000, sg: "bottom", days: 25, colors: [C("Indigo", "Индиго"), C("Qora", "Чёрный")], comp: C("99% paxta, 1% elastan", "99% хлопок, 1% эластан") },
+  { sku: "CH-2081", cat: "kiyim", sub: "shim", n: C("Jun klassik shim", "Шерстяные брюки"), price: 690000, sg: "bottom", days: 30, colors: [C("Kulrang", "Серый"), C("Qora", "Чёрный")], comp: C("100% jun", "100% шерсть") },
+  { sku: "CH-6012", cat: "poyabzal", sub: "tufli", n: C("Derbi tufli", "Туфли дерби"), price: 1290000, sg: "shoe", days: 34, colors: [C("Qora", "Чёрный"), C("Jigarrang", "Коричневый")], comp: C("Natural teri", "Натуральная кожа") },
+  { sku: "CH-1150", cat: "kiyim", sub: "futbolka", n: C("Bazaviy futbolka", "Базовая футболка"), price: 189000, sg: "top", days: 40, colors: [C("Oq", "Белый"), C("Qora", "Чёрный"), C("Zaytun", "Оливковый")], comp: C("100% paxta", "100% хлопок") },
+  { sku: "CH-8020", cat: "aksessuar", sub: "kamar", n: C("Teri kamar", "Кожаный ремень"), price: 290000, old: 340000, sg: "belt", days: 44, colors: [C("Qora", "Чёрный"), C("Konyak", "Коньяк")], comp: C("Natural teri", "Натуральная кожа") },
+  { sku: "CH-8044", cat: "aksessuar", sub: "galstuk", n: C("Ipak galstuk", "Шёлковый галстук"), price: 259000, sg: "one", days: 50, colors: [C("To‘q ko‘k", "Тёмно-синий"), C("Bordo", "Бордовый")], comp: C("100% ipak", "100% шёлк") },
+  { sku: "CH-7001", cat: "ichki", sub: null, n: C("Paypoq to‘plami, 3 juft", "Набор носков, 3 пары"), price: 89000, sg: "sock", days: 60, colors: [C("Grafit", "Графит"), C("To‘q ko‘k", "Тёмно-синий")], comp: C("80% paxta", "80% хлопок") }
+];
+const bySku = s => P.find(p => p.sku === s);
+const branchOf = id => BRANCHES.find(b => b.id === id);
+function hash(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0) / 4294967296; }
+const stockOverride = {};
+function qty(p, ci, size, b) {
+  const key = p.sku + "|" + ci + "|" + size + "|" + b;
+  if (key in stockOverride) return stockOverride[key];
+  const r = hash(key), edge = ["XXL", "56", "45", "39", "110"].includes(size);
+  if (r < (edge ? .62 : .26)) return 0; if (r < (edge ? .8 : .44)) return 1; if (r < .56) return 2; return 3 + Math.floor(r * 5);
+}
+const held = (p, ci, size, b) => S.bookings.filter(x => ["new", "hold"].includes(x.status) && x.branch === b).reduce((s, x) => s + x.items.filter(i => i.sku === p.sku && i.ci === ci && i.size === size).length, 0);
+const avail = (p, ci, size, b) => Math.max(0, qty(p, ci, size, b) - held(p, ci, size, b));
+const anyAvail = (p, ci, size) => BRANCHES.some(b => avail(p, ci, size, b.id) > 0);
+const sizeLabel = s => (s === "U" ? L(["Universal", "Универсальный"]) : s);
+const money = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " " + L(["so‘m", "сум"]);
+const pct = p => Math.round((p.old - p.price) / p.old * 100);
+
+/* ---------- state ---------- */
+let S;
+function fresh() {
+  return { lang: null, phone: null, name: "Dilshod", awaiting: null, after: null, cart: null, bookings: [], favs: new Set(["CH-3011"]), sizes: { top: "M", shoe: "42" }, subs: { new: true, weekly: true, price: true }, seq: 418, sellerBranch: "citymall", pendingStart: null, h: null, listAll: false, lastPost: null };
+}
+S = fresh();
+const L = a => a[S.lang === 1 ? 1 : 0];
+const T = (uz, ru) => (S.lang === 1 ? ru : uz);
+
+/* ---------- time ---------- */
+function nowSmk() {
+  const p = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Samarkand", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }).formatToParts(new Date());
+  const g = k => +p.find(x => x.type === k).value;
+  return { y: g("year"), mo: g("month"), d: g("day"), h: g("hour") % 24, mi: g("minute") };
+}
+const clock = () => { const n = nowSmk(); return String(n.h).padStart(2, "0") + ":" + String(n.mi).padStart(2, "0"); };
+const hh = h => String(h).padStart(2, "0") + ":00";
+const isOpen = b => { const n = nowSmk(), m = n.h + n.mi / 60; return m >= b.open && m < b.close; };
+function expiry(b, extraDays = 0) {
+  const n = nowSmk(), base = Date.UTC(n.y, n.mo - 1, n.d, n.h, n.mi);
+  let e = Date.UTC(n.y, n.mo - 1, n.d + 1 + extraDays, b.close, 0);
+  if (e - base < 24 * 3600e3) e = Date.UTC(n.y, n.mo - 1, n.d + 2 + extraDays, b.close, 0);
+  const d = new Date(e);
+  return String(d.getUTCDate()).padStart(2, "0") + "." + String(d.getUTCMonth() + 1).padStart(2, "0") + ", " + hh(d.getUTCHours());
+}
+
+/* ---------- chat engine ---------- */
+class Chat {
+  constructor(el, name, opts = {}) { this.el = el; this.name = name; this.msgs = new Map(); this.id = 0; this.q = Promise.resolve(); this.opts = opts; }
+  clear() { this.el.innerHTML = `<div class="day">${T("Bugun", "Сегодня")}</div>`; this.msgs.clear(); this.q = Promise.resolve(); }
+  html(m) {
+    let media = "";
+    if (m.photo) media = `<img class="photo" src="${PH[m.photo]}" alt="">`;
+    if (m.album) media = `<div class="album">${m.album.map(k => `<img src="${PH[k]}" alt="">`).join("")}</div>`;
+    const loc = m.loc ? `<span class="loc"><span></span></span>` : "";
+    const contact = m.contact ? `<div class="contact"><i>D</i><div><b>${esc(m.contact.name)}</b><br>${esc(m.contact.phone)}</div></div>` : "";
+    const tm = `<span class="tm">${m.edited ? T("tahrirlangan ", "изм. ") : ""}${m.time}${m.side === "me" ? ' <span class="ok">✓✓</span>' : ""}</span>`;
+    const kb = m.kb && m.kb.length ? `<div class="ikb">${m.kb.map(r => `<div class="r">${r.map(b => `<button type="button" class="${b.cls || ""}" data-cb="${esc(b.cb)}" data-chat="${this.name}" data-mid="${m.id}">${b.t}</button>`).join("")}</div>`).join("")}</div>` : "";
+    return `<div class="bub ${media ? "ph" : ""}">${media}${contact}<div class="tx">${loc}${m.text || ""}</div>${tm}</div>${kb}`;
+  }
+  add(side, o) {
+    const id = ++this.id, m = { id, side, time: clock(), ...o };
+    this.msgs.set(id, m);
+    const node = document.createElement("div"); node.className = "row " + side; node.dataset.id = id; node.innerHTML = this.html(m);
+    this.el.appendChild(node); this.el.scrollTop = this.el.scrollHeight;
+    if (this.opts.onNew && side === "bot") this.opts.onNew();
+    return id;
+  }
+  edit(id, o) {
+    const m = this.msgs.get(id); if (!m) return; Object.assign(m, o, { edited: true });
+    const node = this.el.querySelector(`[data-id="${id}"]`); if (node) node.innerHTML = this.html(m);
+  }
+  say(o, delay = 600) {
+    const job = this.q.then(async () => {
+      const row = document.createElement("div"); row.className = "row bot typing-row"; row.innerHTML = '<div class="bub"><i></i><i></i><i></i></div>';
+      if (delay && !REDUCE) { this.el.appendChild(row); this.el.scrollTop = this.el.scrollHeight; if (this.opts.typing) this.opts.typing(true); }
+      await sleep(delay); row.remove(); if (this.opts.typing) this.opts.typing(false);
+      return this.add("bot", o);
+    });
+    this.q = job.catch(err => console.error(err));
+    return job;
+  }
+  me(o) { return this.add("me", typeof o === "string" ? { text: esc(o) } : o); }
+}
+/* keep each chat pinned to its newest message when the reply keyboard or the window resizes it */
+document.querySelectorAll(".chat").forEach(el => new ResizeObserver(() => { el.style.scrollBehavior = "auto"; el.scrollTop = el.scrollHeight; el.style.scrollBehavior = ""; }).observe(el));
+const botChat = new Chat($("#chat-bot"), "bot", { typing: on => { const s = $("#bot-sub"); s.textContent = on ? T("yozmoqda…", "печатает…") : "bot"; s.classList.toggle("typing", on); } });
+const groupChat = new Chat($("#chat-group"), "group", { onNew: () => notifySeller("group") });
+const chanChat = new Chat($("#chat-chan"), "chan", { onNew: () => notifySeller("chan") });
+function ctoast(screen, text) {
+  const host = screen === "bot" ? $("#screen-bot") : $("#col-seller .screen");
+  host.querySelector(".ctoast")?.remove();
+  const t = document.createElement("div"); t.className = "ctoast"; t.textContent = text; host.appendChild(t);
+  setTimeout(() => t.remove(), 2200);
+}
+
+/* ---------- reply keyboard ---------- */
+function setReply(rows) {
+  const el = $("#rkb");
+  if (!rows) { el.hidden = true; el.innerHTML = ""; return; }
+  el.hidden = false;
+  el.innerHTML = rows.map(b => `<button type="button" class="${b.wide ? "wide " : ""}${b.contact ? "contact-btn" : ""}" data-reply="${esc(b.t)}" ${b.contact ? 'data-contact="1"' : ""}>${b.t}</button>`).join("");
+}
+const MENU = () => [
+  { t: T("🛍 Katalog", "🛍 Каталог") }, { t: T("✨ Yangi", "✨ Новинки") },
+  { t: T("🏷 Chegirmalar", "🏷 Скидки") }, { t: T("🧾 Bronlarim", "🧾 Мои брони") },
+  { t: T("📏 O‘lchamlarim", "📏 Мои размеры") }, { t: T("🔔 Obunalar", "🔔 Подписки") },
+  { t: T("📍 Filiallar", "📍 Филиалы") }, { t: T("💬 Sotuvchi bilan aloqa", "💬 Связаться с продавцом") }
+];
+const menuReply = () => setReply(MENU());
+function setPlaceholder(t) { $("#msg-input").placeholder = t || T("Xabar", "Сообщение"); }
+
+/* ---------- bot flows ---------- */
+async function start(param) {
+  botChat.me("/start" + (param ? " " + param : ""));
+  if (S.lang === null) {
+    S.pendingStart = param || null;
+    await botChat.say({ text: "Assalomu alaykum! Tilni tanlang.\nЗдравствуйте! Выберите язык.", kb: [[{ t: "🇺🇿 O‘zbekcha", cb: "lang:0" }, { t: "🇷🇺 Русский", cb: "lang:1" }]] });
+    return;
+  }
+  if (param) return deep(param);
+  await welcome();
+}
+async function welcome() {
+  await botChat.say({ text: T("<b>change premium</b> do‘koniga xush kelibsiz!\nBu yerda katalogni ko‘rasiz, o‘lchamingizni kiyib ko‘rishga bron qilasiz va kerakli o‘lcham paydo bo‘lganda xabar olasiz.", "Добро пожаловать в <b>change premium</b>!\nЗдесь можно смотреть каталог, бронировать примерку своего размера и получать уведомления, когда он появится.") });
+  if (!S.phone) {
+    await botChat.say({ text: T("Bron va bonuslar uchun telefon raqamingizni yuboring. Buni keyinroq ham qilish mumkin.", "Пришлите номер телефона, чтобы бронировать и копить бонусы. Можно сделать позже.") }, 700);
+    setReply([{ t: T("📱 Raqamni yuborish", "📱 Отправить номер"), contact: true, wide: true }, { t: T("O‘tkazib yuborish", "Пропустить"), wide: true }]);
+  } else { await mainMenu(); }
+}
+async function mainMenu(text) {
+  await botChat.say({ text: text || T("Bo‘limni tanlang 👇", "Выберите раздел 👇") }, 400);
+  menuReply();
+}
+async function deep(param) {
+  if (param.startsWith("p_")) { menuReply(); return productCard(param.slice(2)); }
+  if (param === "subscribe_new") { menuReply(); return showSubs(); }
+}
+async function shareContact() {
+  setReply(null);
+  botChat.me({ contact: { name: "Dilshod", phone: "+998 90 123 45 67" }, text: "" });
+  S.phone = "+998 90 123 45 67";
+  await botChat.say({ text: T("Rahmat, Dilshod! Raqamingiz saytdagi profilingiz bilan bog‘landi: bronlar, sevimlilar va o‘lchamlar endi shu yerda.", "Спасибо, Дильшод! Номер связан с профилем на сайте: брони, избранное и размеры теперь здесь.") });
+  if (S.after) { const f = S.after; S.after = null; menuReply(); return f(); }
+  await mainMenu();
+}
+
+/* catalogue */
+async function showCats(note) {
+  await botChat.say({ text: (note ? note + "\n\n" : "") + T("Kategoriyani tanlang:", "Выберите категорию:"), kb: [[{ t: L(CATS[0].n), cb: "cat:kiyim" }, { t: L(CATS[1].n), cb: "cat:poyabzal" }], [{ t: L(CATS[2].n), cb: "cat:ichki" }, { t: L(CATS[3].n), cb: "cat:aksessuar" }]] }, 450);
+}
+function catKb(id) {
+  const c = CATS.find(x => x.id === id), rows = [];
+  for (let i = 0; i < c.subs.length; i += 2) rows.push(c.subs.slice(i, i + 2).map(s => ({ t: T(s[1], s[2]), cb: `list:sub:${s[0]}:0` })));
+  rows.push([{ t: T("Hammasi", "Все"), cb: `list:cat:${id}:0` }, { t: T("⬅️ Orqaga", "⬅️ Назад"), cb: "cats" }]);
+  return rows;
+}
+function filterList(kind, val) {
+  let list = P;
+  if (kind === "cat") list = P.filter(p => p.cat === val);
+  if (kind === "sub") list = P.filter(p => p.sub === val);
+  if (kind === "new") list = P.filter(p => p.days <= 14);
+  if (kind === "sale") list = P.filter(p => p.old);
+  if (kind === "branch") list = P.filter(p => SIZES[p.sg].some(s => p.colors.some((c, ci) => avail(p, ci, s, val) > 0)));
+  list = [...list].sort((a, b) => a.days - b.days);
+  const saved = !S.listAll && kind !== "sale";
+  if (saved) list = list.filter(p => { const g = GROUP_OF[p.sg], s = g && S.sizes[g]; return !s || !SIZES[p.sg].includes(s) || p.colors.some((c, ci) => anyAvail(p, ci, s)); });
+  return list;
+}
+function sizesAvail(p) { return SIZES[p.sg].filter(s => p.colors.some((c, ci) => anyAvail(p, ci, s))); }
+function shortCaption(p) {
+  return `<b>${esc(L(p.n))}</b>\n${money(p.price)}${p.old ? ` <s>${money(p.old)}</s> −${pct(p)}%` : ""}\n${T("O‘lchamlar", "Размеры")}: ${sizesAvail(p).map(sizeLabel).join(" · ") || "—"}`;
+}
+async function showList(kind, val, offset) {
+  const list = filterList(kind, val), page = list.slice(offset, offset + 5);
+  const savedTxt = Object.entries(S.sizes).filter(([, v]) => v).map(([, v]) => v).join(", ");
+  if (!list.length) { await botChat.say({ text: T("Hozircha bu bo‘limda hech narsa yo‘q.", "Пока в этом разделе пусто."), kb: [[{ t: T("⬅️ Kategoriyalar", "⬅️ Категории"), cb: "cats" }]] }); return; }
+  if (offset === 0 && !S.listAll && savedTxt && kind !== "sale") await botChat.say({ text: T(`Sizning o‘lchamlaringiz bor kiyimlar ko‘rsatilmoqda: ${savedTxt}`, `Показываю вещи ваших размеров: ${savedTxt}`) }, 400);
+  for (const p of page) await botChat.say({ photo: p.sku + "-0", text: shortCaption(p), kb: [[{ t: T("Batafsil · Bron", "Подробнее · Бронь"), cb: "p:" + p.sku }]] }, 300);
+  const more = offset + 5 < list.length;
+  const kb = [];
+  if (more) kb.push([{ t: T(`Yana 5 ta (${list.length - offset - 5})`, `Ещё 5 (${list.length - offset - 5})`), cb: `list:${kind}:${val}:${offset + 5}` }]);
+  if (!S.listAll && kind !== "sale") kb.push([{ t: T("Barcha o‘lchamlarni ko‘rsatish", "Показать все размеры"), cb: `all:${kind}:${val}` }]);
+  kb.push([{ t: T("⬅️ Kategoriyalar", "⬅️ Категории"), cb: "cats" }]);
+  await botChat.say({ text: T(`${Math.min(offset + 5, list.length)} / ${list.length} ko‘rsatildi`, `Показано ${Math.min(offset + 5, list.length)} из ${list.length}`), kb }, 300);
+}
+
+/* product card: one message, edited in place as the customer picks colour and size */
+function productMsg(sku, ci, size) {
+  const p = bySku(sku);
+  if (p.sg === "one") size = "U";
+  let text = `<b>${esc(L(p.n))}</b>\n${money(p.price)}${p.old ? ` <s>${money(p.old)}</s> −${pct(p)}%` : ""}\n${T("Rang", "Цвет")}: ${L(p.colors[ci])} · ${L(p.comp)}`;
+  if (size) {
+    text += `\n\n<b>${T("O‘lcham", "Размер")} ${sizeLabel(size)}</b>`;
+    BRANCHES.forEach(b => { const n = avail(p, ci, size, b.id); text += `\n${n >= 3 ? "🟢" : n > 0 ? "🟡" : "⚪️"} ${L(b.name)} · ${n >= 3 ? T("bor", "есть") : n > 0 ? T("kam qoldi", "осталось мало") : T("yo‘q", "нет")}`; });
+  } else text += `\n\n${T("O‘lchamni tanlang 👇", "Выберите размер 👇")}`;
+  const kb = [p.colors.map((c, i) => ({ t: (i === ci ? "✓ " : "") + L(c), cb: `pc:${sku}:${i}`, cls: i === ci ? "sel" : "" }))];
+  if (p.sg !== "one") {
+    const sz = SIZES[p.sg];
+    for (let i = 0; i < sz.length; i += 4) kb.push(sz.slice(i, i + 4).map(s => { const ok = anyAvail(p, ci, s); return { t: (s === size ? "✓ " : ok ? "" : "✕ ") + sizeLabel(s), cb: ok ? `ps:${sku}:${ci}:${s}` : `na:${sku}:${ci}:${s}`, cls: s === size ? "sel" : ok ? "" : "dim" }; }));
+  }
+  const can = size && anyAvail(p, ci, size);
+  kb.push([{ t: can ? T("🛍 Kiyib ko‘rishga bron", "🛍 Забронировать примерку") : T("Avval o‘lchamni tanlang", "Сначала выберите размер"), cb: can ? `pr:${sku}:${ci}:${size}` : "pick" }]);
+  kb.push([{ t: S.favs.has(sku) ? T("♥ Sevimlilarda", "♥ В избранном") : T("♡ Sevimlilarga", "♡ В избранное"), cb: `fav:${sku}:${ci}:${size || ""}` }, { t: T("🔔 O‘lcham haqida", "🔔 Сообщить о размере"), cb: `ntf:${sku}:${ci}` }]);
+  return { photo: `${sku}-${ci}`, text, kb, pc: { sku, ci, size } };
+}
+const productCard = (sku, ci = 0) => { const p = bySku(sku), g = GROUP_OF[p.sg], s = g && S.sizes[g] && SIZES[p.sg].includes(S.sizes[g]) && anyAvail(p, ci, S.sizes[g]) ? S.sizes[g] : null; return botChat.say(productMsg(sku, ci, s), 500); };
+
+/* reservation (TZ 3.2) */
+async function reserve(sku, ci, size) {
+  if (!S.phone) {
+    S.after = () => reserve(sku, ci, size);
+    await botChat.say({ text: T("Bron qilish uchun telefon raqamingiz kerak. Pastdagi tugmani bosing.", "Для брони нужен номер телефона. Нажмите кнопку ниже.") });
+    setReply([{ t: T("📱 Raqamni yuborish", "📱 Отправить номер"), contact: true, wide: true }]);
+    return;
+  }
+  if (S.bookings.filter(b => ["new", "hold"].includes(b.status)).length >= 2) {
+    await botChat.say({ text: T("Sizda 2 ta faol bron bor. Yangisini qilish uchun bittasini bekor qiling.", "У вас 2 активные брони. Отмените одну, чтобы оформить новую."), kb: [[{ t: T("🧾 Bronlarim", "🧾 Мои брони"), cb: "my" }]] });
+    return;
+  }
+  const p = bySku(sku), item = { sku, ci, size };
+  if (S.cart) {
+    if (S.cart.items.length >= 5) { await botChat.say({ text: T("Bitta bronda 5 tagacha kiyim bo‘ladi.", "В одной брони до 5 вещей.") }); return; }
+    if (avail(p, ci, size, S.cart.branch) <= 0) { await botChat.say({ text: T(`Bu kiyim ${L(branchOf(S.cart.branch).name)} filialida yo‘q. Boshqa filial uchun alohida bron qiling.`, `Этой вещи нет в филиале ${L(branchOf(S.cart.branch).name)}. Для другого филиала оформите отдельную бронь.`) }); return; }
+    S.cart.items.push(item); return cartAdded(item);
+  }
+  const opts = BRANCHES.filter(b => avail(p, ci, size, b.id) > 0);
+  S.pick = item;
+  await botChat.say({ text: T("Qaysi filialda kiyib ko‘rasiz?\nFaqat shu o‘lcham bor filiallar:", "В каком филиале примерите?\nТолько филиалы, где есть этот размер:"), kb: opts.map(b => { const n = avail(p, ci, size, b.id); return [{ t: `${L(b.name)} · ${n >= 3 ? T("bor", "есть") : T("kam qoldi", "мало")}`, cb: "rb:" + b.id }]; }) }, 450);
+}
+async function cartAdded(item) {
+  const p = bySku(item.sku), b = branchOf(S.cart.branch);
+  await botChat.say({ text: T(`✅ Bronga qo‘shildi: <b>${esc(L(p.n))}</b>, ${L(p.colors[item.ci]).toLowerCase()}, ${sizeLabel(item.size)}\nBronda: ${S.cart.items.length} ta · ${L(b.name)}`, `✅ Добавлено в бронь: <b>${esc(L(p.n))}</b>, ${L(p.colors[item.ci]).toLowerCase()}, ${sizeLabel(item.size)}\nВ брони: ${S.cart.items.length} · ${L(b.name)}`), kb: [[{ t: T("➕ Yana qo‘shish", "➕ Добавить ещё"), cb: "cart:more" }, { t: T("✅ Rasmiylashtirish", "✅ Оформить"), cb: "cart:done" }]] }, 450);
+}
+function itemLine(i, n) { const p = bySku(i.sku); return `${n}. ${esc(L(p.n))}, ${L(p.colors[i.ci]).toLowerCase()}, ${sizeLabel(i.size)} · ${p.sku}`; }
+async function cartSummary() {
+  const b = branchOf(S.cart.branch);
+  S.cart.until = expiry(b);
+  await botChat.say({ text: `<b>${T("Bronni tekshiring", "Проверьте бронь")}</b>\n${S.cart.items.map((i, n) => itemLine(i, n + 1)).join("\n")}\n\n${T("Filial", "Филиал")}: ${L(b.name)}\n${L(b.addr)}\n${T("Ushlab turamiz", "Держим до")}: <b>${S.cart.until}</b>\n${T("Oldindan to‘lov: yo‘q", "Предоплата: нет")}\n${T("Telefon", "Телефон")}: ${S.phone}`, kb: [[{ t: T("✅ Tasdiqlash", "✅ Подтвердить"), cb: "res:ok" }, { t: T("❌ Bekor qilish", "❌ Отменить"), cb: "res:no" }]] }, 500);
+}
+async function confirmRes(mid) {
+  const gone = S.cart.items.filter(i => avail(bySku(i.sku), i.ci, i.size, S.cart.branch) <= 0);
+  if (gone.length) { await botChat.say({ text: T("Kechirasiz, kimdir sizdan oldin ulgurdi: ", "Извините, кто-то успел раньше: ") + gone.map(i => L(bySku(i.sku).n)).join(", ") + T(". Boshqa o‘lcham yoki filial tanlang.", ". Выберите другой размер или филиал.") }); return; }
+  botChat.edit(mid, { kb: [], text: botChat.msgs.get(mid).text + `\n\n✅ ${T("Tasdiqlandi", "Подтверждено")}` });
+  const bk = { id: ++S.seq, branch: S.cart.branch, items: S.cart.items, status: "new", until: S.cart.until, ext: false, first: !S.bookings.length };
+  S.bookings.push(bk); S.cart = null;
+  await botChat.say({ text: T(`🧾 <b>Bron №${bk.id} qabul qilindi!</b>\nSotuvchi kiyimni ajratib qo‘yganda shu yerda xabar beraman. ${L(branchOf(bk.branch).name)} filialiga ${bk.until} gacha keling.`, `🧾 <b>Бронь №${bk.id} принята!</b>\nКогда продавец отложит вещи, я напишу здесь. Приходите в ${L(branchOf(bk.branch).name)} до ${bk.until}.`) });
+  menuReply();
+  sellerCard(bk);
+}
+
+/* seller side */
+function sellerCardText(bk) {
+  const b = branchOf(bk.branch);
+  return `🛍 <b>${T("Bron", "Бронь")} №${bk.id} · ${L(b.name)}</b>\n${T("Dilshod", "Дильшод")}, ${S.phone || "+998 90 123 45 67"} (${bk.first ? T("1-bron", "1-я бронь") : T("doimiy mijoz", "постоянный клиент")})\n${bk.items.map((i, n) => itemLine(i, n + 1)).join("\n")}\n${T("Muddat", "До")}: ${bk.until}`;
+}
+async function sellerCard(bk) {
+  $("#group-title").textContent = `${L(branchOf(bk.branch).name)} · ${T("sotuvchilar", "продавцы")}`;
+  await sleep(400);
+  bk.sellerMid = await groupChat.say({ text: sellerCardText(bk), kb: [[{ t: T("✅ Ajratdim", "✅ Отложил"), cb: "s:hold:" + bk.id }, { t: T("❌ Mavjud emas", "❌ Нет в наличии"), cb: "s:none:" + bk.id }], [{ t: T("📞 Qo‘ng‘iroq", "📞 Позвонить"), cb: "s:call:" + bk.id }]] }, 500);
+}
+function notifySeller(tab) {
+  const narrow = matchMedia("(max-width: 760px)").matches;
+  if (narrow && !$("#col-seller").classList.contains("on")) $("#sw-seller i").hidden = false;
+  const active = $("#tab-" + (tab === "group" ? "group" : "chan")).getAttribute("aria-pressed") === "true";
+  if (!active) $("#tab-" + (tab === "group" ? "group" : "chan") + " i").hidden = false;
+  const ph = $("#col-seller .phone"); ph.classList.remove("flash"); void ph.offsetWidth; ph.classList.add("flash");
+}
+
+/* sizes, subscriptions, branches */
+function sizesText() {
+  return `📏 <b>${T("Saqlangan o‘lchamlaringiz", "Ваши размеры")}</b>\n${T("Ko‘ylak va ustki kiyim", "Рубашки и верх")}: ${S.sizes.top || "—"}\n${T("Shim va kostyum", "Брюки и костюмы")}: ${S.sizes.bottom || "—"}\n${T("Poyabzal", "Обувь")}: ${S.sizes.shoe || "—"}\n\n${T("Katalogda shu o‘lchamlar avtomatik ko‘rsatiladi.", "Каталог сам показывает вещи этих размеров.")}`;
+}
+const sizesKb = () => [[{ t: T("Ustki kiyim", "Верх"), cb: "sz:top" }, { t: T("Shim", "Брюки"), cb: "sz:bottom" }, { t: T("Poyabzal", "Обувь"), cb: "sz:shoe" }], [{ t: T("📐 O‘lchamni aniqlash", "📐 Подобрать размер"), cb: "szh" }]];
+const showSizes = () => botChat.say({ text: sizesText(), kb: sizesKb() }, 400);
+function subsMsg() {
+  const ch = v => (v ? "✅" : "⬜️");
+  return { text: `🔔 <b>${T("Obunalar", "Подписки")}</b>\n${T("Nimani olishni tanlang. Bron xabarlari har doim keladi.", "Выберите, что присылать. Сообщения о брони приходят всегда.")}`, kb: [
+    [{ t: `${ch(S.subs.new)} ${T("Yangi mahsulotlar · har kuni 19:00", "Новинки · каждый день в 19:00")}`, cb: "sub:new" }],
+    [{ t: `${ch(S.subs.weekly)} ${T("Haftalik to‘plam · juma", "Подборка недели · пятница")}`, cb: "sub:weekly" }],
+    [{ t: `${ch(S.subs.price)} ${T("Sevimlilar arzonlashsa", "Скидки на избранное")}`, cb: "sub:price" }],
+    [{ t: T("🚫 Hammasidan obunani bekor qilish", "🚫 Отписаться от всего"), cb: "sub:off" }]] };
+}
+const showSubs = () => botChat.say(subsMsg(), 400);
+async function showBranches() {
+  for (const b of BRANCHES) {
+    const o = isOpen(b);
+    await botChat.say({ text: `📍 <b>${L(b.name)}</b>\n${L(b.addr)}\n${T("Har kuni", "Ежедневно")} ${hh(b.open)}–${hh(b.close)} · ${o ? T("🟢 hozir ochiq", "🟢 сейчас открыто") : T(`🔴 yopiq, ${hh(b.open)} da ochiladi`, `🔴 закрыто, откроется в ${hh(b.open)}`)}`, kb: [[{ t: T("🗺 Yo‘nalish", "🗺 Маршрут"), cb: "loc:" + b.id }, { t: T("📞 Qo‘ng‘iroq", "📞 Позвонить"), cb: "call:" + b.id }], [{ t: T("Shu filialdagi kiyimlar", "Что есть в этом филиале"), cb: `list:branch:${b.id}:0` }]] }, 350);
+  }
+}
+async function sendLocation(id) {
+  const b = branchOf(id);
+  await botChat.say({ loc: true, text: `<b>${L(b.name)}</b>\n${L(b.addr)}` }, 400);
+}
+
+/* contact a seller (TZ 6.3) */
+async function askSeller() {
+  await botChat.say({ text: T("Qaysi filial sotuvchisiga yozasiz?", "Какому филиалу написать?"), kb: [BRANCHES.map(b => ({ t: L(b.name), cb: "sc:" + b.id }))] }, 400);
+}
+async function sellerForward(kind, payload) {
+  const b = branchOf(S.sellerBranch);
+  const head = `💬 <b>${T("Savol", "Вопрос")}</b> · ${T("Dilshod", "Дильшод")}${S.phone ? ", " + S.phone : ""}`;
+  const o = kind === "photo" ? { photo: payload.photo, text: `${head}\n«${esc(payload.text)}»` } : { text: `${head}\n«${esc(payload)}»` };
+  o.kb = [[{ t: T("↩️ Javob berish", "↩️ Ответить"), cb: "s:reply" }]];
+  await groupChat.say(o, 500);
+  if (!isOpen(b)) await botChat.say({ text: T(`Filial hozir yopiq. Sotuvchilar ${hh(b.open)} da javob berishadi.`, `Филиал сейчас закрыт. Продавцы ответят после ${hh(b.open)}.`) }, 300);
+}
+
+/* size helper (TZ 7) */
+const HCHART = [["S", 164, 172, 55, 65], ["M", 170, 178, 63, 74], ["L", 175, 184, 72, 84], ["XL", 180, 190, 82, 95], ["XXL", 184, 196, 93, 110]];
+function fitTop(h, w) {
+  const score = r => Math.abs(w - (r[3] + r[4]) / 2) / ((r[4] - r[3]) / 2) + Math.abs(h - (r[1] + r[2]) / 2) / ((r[2] - r[1]) / 2) * .8;
+  const rows = HCHART.map((r, i) => ({ r, i, s: score(r) })).sort((a, b) => a.s - b.s);
+  return { a: rows[0].r[0], b: rows[1].i === rows[0].i + 1 && rows[1].s - rows[0].s < .6 ? rows[1].r[0] : null };
+}
+
+/* ---------- text input ---------- */
+async function onText(raw) {
+  const txt = raw.trim(); if (!txt) return;
+  const menu = MENU().map(m => m.t);
+  if (txt.startsWith("/start")) { const p = txt.split(/\s+/)[1]; S.awaiting = null; setPlaceholder(); return start(p); }
+  botChat.me(txt);
+  if (S.lang === null) { await botChat.say({ text: "Tilni tanlang · Выберите язык 👆" }, 300); return; }
+  if (txt === T("O‘tkazib yuborish", "Пропустить")) { setReply(null); return mainMenu(T("Mayli, raqamni keyinroq bron qilganda so‘rayman.", "Хорошо, номер спрошу, когда будете бронировать.")); }
+  const idx = menu.indexOf(txt);
+  if (idx >= 0) { S.awaiting = null; setPlaceholder(); return [() => showCats(), () => showList("new", "", 0), () => showList("sale", "", 0), showMyBookings, showSizes, showSubs, showBranches, askSeller][idx](); }
+  if (S.awaiting === "h") { const h = parseInt(txt, 10); if (!(h > 140 && h < 215)) return botChat.say({ text: T("Bo‘yni santimetrda yozing, masalan 178.", "Напишите рост в сантиметрах, например 178.") }, 300); S.h = h; S.awaiting = "w"; setPlaceholder(T("Masalan, 76", "Например, 76")); return botChat.say({ text: T("Vazningiz necha kilogramm?", "Сколько вы весите, кг?") }, 400); }
+  if (S.awaiting === "w") {
+    const w = parseInt(txt, 10); if (!(w > 40 && w < 160)) return botChat.say({ text: T("Vaznni kilogrammda yozing, masalan 76.", "Напишите вес в килограммах, например 76.") }, 300);
+    S.awaiting = null; setPlaceholder(); const r = fitTop(S.h, w);
+    return botChat.say({ text: T(`Bo‘y ${S.h} sm, vazn ${w} kg.\nSizga <b>${r.a}</b> mos keladi.${r.b ? `\nErkinroq kiyishni yoqtirsangiz: <b>${r.b}</b>.` : ""}`, `Рост ${S.h} см, вес ${w} кг.\nВам подойдёт <b>${r.a}</b>.${r.b ? `\nЕсли любите свободнее: <b>${r.b}</b>.` : ""}`), kb: [[{ t: T(`💾 ${r.a} ni saqlash`, `💾 Сохранить ${r.a}`), cb: "szs:top:" + r.a }]].concat(r.b ? [[{ t: T(`💾 ${r.b} ni saqlash`, `💾 Сохранить ${r.b}`), cb: "szs:top:" + r.b }]] : []) }, 600);
+  }
+  if (S.awaiting === "seller") { S.awaiting = null; setPlaceholder(); await botChat.say({ text: T("✉️ Sotuvchiga yuborildi. Odatda 5–10 daqiqada javob berishadi.", "✉️ Отправил продавцу. Обычно отвечают за 5–10 минут.") }, 400); return sellerForward("text", txt); }
+  if (S.awaiting === "feedback") { S.awaiting = null; setPlaceholder(); return botChat.say({ text: T("Rahmat. Fikringizni do‘kon rahbariyatiga yubordim, albatta ko‘rib chiqishadi.", "Спасибо. Передал отзыв руководству магазина, его обязательно разберут.") }, 500); }
+  return botChat.say({ text: T("Menyudan bo‘limni tanlang yoki «💬 Sotuvchi bilan aloqa»ni bosing.", "Выберите пункт меню или нажмите «💬 Связаться с продавцом».") }, 400);
+}
+
+/* ---------- callbacks ---------- */
+async function showMyBookings() {
+  const act = S.bookings.filter(b => ["new", "hold"].includes(b.status));
+  if (!act.length) return botChat.say({ text: T("Faol bronlar yo‘q. Katalogdan kiyim tanlang va kiyib ko‘rishga bron qiling.", "Активных броней нет. Выберите вещь в каталоге и забронируйте примерку."), kb: [[{ t: T("🛍 Katalog", "🛍 Каталог"), cb: "cats" }]] }, 400);
+  for (const b of act) await botChat.say(myBookingMsg(b), 350);
+}
+function myBookingMsg(b) {
+  const st = b.status === "hold" ? T("✅ Ajratib qo‘yilgan", "✅ Отложено") : T("🕐 Yangi · sotuvchi tekshirmoqda", "🕐 Новая · продавец проверяет");
+  const kb = [[...(!b.ext ? [{ t: T("⏳ Sutkaga uzaytirish", "⏳ Продлить на сутки"), cb: "my:ext:" + b.id }] : []), { t: T("❌ Bekor qilish", "❌ Отменить"), cb: "my:cancel:" + b.id }]];
+  return { text: `🧾 <b>${T("Bron", "Бронь")} №${b.id} · ${L(branchOf(b.branch).name)}</b>\n${st}\n${b.items.map((i, n) => itemLine(i, n + 1)).join("\n")}\n${T("Muddat", "До")}: ${b.until}`, kb };
+}
+async function onCb(chat, cb, mid) {
+  const [a, ...r] = cb.split(":");
+  if (chat === "group") return onSellerCb(a, r, mid);
+  if (chat === "chan") { if (a === "chanp") { showCol("bot"); if (S.lang === null) { S.lang = 0; relabel(); } menuReply(); botChat.me("/start p_" + r[0]); return productCard(r[0]); } return; }
+  const m = botChat.msgs.get(+mid);
+  switch (a) {
+    case "lang": {
+      S.lang = +r[0];
+      botChat.edit(+mid, { kb: [], text: S.lang ? "Язык: Русский 🇷🇺" : "Til: O‘zbekcha 🇺🇿" });
+      relabel();
+      if (S.pendingStart) { const p = S.pendingStart; S.pendingStart = null; await welcomeShort(); return deep(p); }
+      return welcome();
+    }
+    case "cats": return showCats();
+    case "cat": { const c = CATS.find(x => x.id === r[0]); if (!c.subs.length) return showList("cat", r[0], 0); return botChat.edit(+mid, { text: `${L(c.n)} · ${T("bo‘limni tanlang:", "выберите раздел:")}`, kb: catKb(r[0]) }); }
+    case "list": return showList(r[0], r[1], +r[2]);
+    case "all": S.listAll = true; await showList(r[0], r[1], 0); S.listAll = false; return;
+    case "p": return productCard(r[0]);
+    case "pc": { const pc = m.pc; const p = bySku(pc.sku), ci = +r[1]; return botChat.edit(+mid, productMsg(pc.sku, ci, pc.size && anyAvail(p, ci, pc.size) ? pc.size : null)); }
+    case "ps": return botChat.edit(+mid, productMsg(r[0], +r[1], r[2]));
+    case "na": return botChat.say({ text: T(`${r[2]} o‘lchami hozir hech bir filialda yo‘q. Paydo bo‘lishi bilan bir marta xabar beraymi?`, `Размера ${r[2]} сейчас нет ни в одном филиале. Сообщить один раз, когда появится?`), kb: [[{ t: T("🔔 Ha, xabar bering", "🔔 Да, сообщите"), cb: `ntfok:${r[0]}:${r[1]}:${r[2]}` }]] }, 350);
+    case "ntf": return botChat.say({ text: T("Qaysi o‘lcham kerak? Paydo bo‘lishi bilan xabar beraman.", "Какой размер нужен? Сообщу, как только появится."), kb: [SIZES[bySku(r[0]).sg].slice(0, 4).map(s => ({ t: s, cb: `ntfok:${r[0]}:${r[1]}:${s}` })), SIZES[bySku(r[0]).sg].slice(4).map(s => ({ t: s, cb: `ntfok:${r[0]}:${r[1]}:${s}` }))].filter(x => x.length) }, 350);
+    case "ntfok": botChat.edit(+mid, { kb: [] }); return botChat.say({ text: T(`🔔 Kelishdik! <b>${esc(L(bySku(r[0]).n))}</b>, ${r[2]} o‘lchami paydo bo‘lganda bir marta xabar beraman.`, `🔔 Договорились! Когда появится <b>${esc(L(bySku(r[0]).n))}</b> в размере ${r[2]}, напишу один раз.`) }, 400);
+    case "pick": return ctoast("bot", T("Avval mavjud o‘lchamni tanlang", "Сначала выберите доступный размер"));
+    case "fav": { const s = r[0]; S.favs.has(s) ? S.favs.delete(s) : S.favs.add(s); ctoast("bot", S.favs.has(s) ? T("♥ Sevimlilarga qo‘shildi. Arzonlashsa xabar beraman", "♥ В избранном. Сообщу, если подешевеет") : T("Sevimlilardan olib tashlandi", "Убрано из избранного")); return botChat.edit(+mid, productMsg(s, +r[1], r[2] || null)); }
+    case "pr": return reserve(r[0], +r[1], r[2]);
+    case "rb": S.cart = { branch: r[0], items: [S.pick] }; botChat.edit(+mid, { kb: [], text: m.text + `\n\n→ ${L(branchOf(r[0]).name)}` }); return cartAdded(S.pick);
+    case "cart": if (r[0] === "more") return showCats(T(`Faqat ${L(branchOf(S.cart.branch).name)} filialida borlarini qo‘shish mumkin.`, `Можно добавить только то, что есть в филиале ${L(branchOf(S.cart.branch).name)}.`)); return cartSummary();
+    case "res": if (r[0] === "ok") return confirmRes(+mid); S.cart = null; botChat.edit(+mid, { kb: [], text: m.text + `\n\n❌ ${T("Bekor qilindi", "Отменено")}` }); return mainMenu();
+    case "my": {
+      const b = S.bookings.find(x => x.id === +r[1]); if (!b) return;
+      if (r[0] === "ext") { b.ext = true; b.until = expiry(branchOf(b.branch), 1); botChat.edit(+mid, myBookingMsg(b)); ctoast("bot", T(`Bron ${b.until} gacha uzaytirildi`, `Бронь продлена до ${b.until}`)); return groupChat.say({ text: `⏳ ${T("Bron", "Бронь")} №${b.id} ${T("bir sutkaga uzaytirildi", "продлена на сутки")}: ${b.until}` }, 500); }
+      b.status = "cancelled"; botChat.edit(+mid, { kb: [], text: `🧾 ${T("Bron", "Бронь")} №${b.id} · ${T("bekor qilindi", "отменена")}` });
+      if (b.sellerMid) groupChat.edit(b.sellerMid, { kb: [], text: sellerCardText(b) + `\n\n🚫 ${T("Xaridor bekor qildi", "Покупатель отменил")}` });
+      return groupChat.say({ text: `🚫 ${T("Bron", "Бронь")} №${b.id} ${T("xaridor tomonidan bekor qilindi. Kiyimni sotuvga qaytaring.", "отменена покупателем. Верните вещи в продажу.")}` }, 400);
+    }
+    case "sz": { const g = r[0], list = g === "top" ? SIZES.top : g === "bottom" ? SIZES.bottom : SIZES.shoe; const rows = []; for (let i = 0; i < list.length; i += 4) rows.push(list.slice(i, i + 4).map(s => ({ t: (S.sizes[g] === s ? "✓ " : "") + s, cb: `szs:${g}:${s}`, cls: S.sizes[g] === s ? "sel" : "" }))); rows.push([{ t: T("⬅️ Orqaga", "⬅️ Назад"), cb: "szback" }]); return botChat.edit(+mid, { kb: rows }); }
+    case "szback": return botChat.edit(+mid, { text: sizesText(), kb: sizesKb() });
+    case "szs": { S.sizes[r[0]] = r[1]; ctoast("bot", T(`Saqlandi: ${r[1]}`, `Сохранено: ${r[1]}`)); if (m.text.startsWith("📏")) return botChat.edit(+mid, { text: sizesText(), kb: sizesKb() }); botChat.edit(+mid, { kb: [] }); return showSizes(); }
+    case "szh": S.awaiting = "h"; setPlaceholder(T("Masalan, 178", "Например, 178")); return botChat.say({ text: T("Bo‘yingizni santimetrda yozing, masalan 178.", "Напишите рост в сантиметрах, например 178.") }, 400);
+    case "sub": { if (r[0] === "off") { S.subs = { new: false, weekly: false, price: false }; ctoast("bot", T("Barcha obunalar o‘chirildi. Bron xabarlari keladi", "Все подписки выключены. Сообщения о брони будут приходить")); } else S.subs[r[0]] = !S.subs[r[0]]; return botChat.edit(+mid, subsMsg()); }
+    case "loc": return sendLocation(r[0]);
+    case "call": return ctoast("bot", `📞 ${L(branchOf(r[0]).name)}: +998 •• ••• •• ••`);
+    case "sc": S.sellerBranch = r[0]; S.awaiting = "seller"; setPlaceholder(T("Savolingiz…", "Ваш вопрос…")); botChat.edit(+mid, { kb: [], text: m.text + `\n→ ${L(branchOf(r[0]).name)}` }); return botChat.say({ text: T("Savolingizni yozing yoki 📎 orqali rasm yuboring. Sotuvchi shu yerda javob beradi.", "Напишите вопрос или пришлите фото через 📎. Продавец ответит здесь.") }, 400);
+    case "rate": {
+      botChat.edit(+mid, { kb: [], text: m.text + `\n${"⭐".repeat(+r[0])}` });
+      if (+r[0] >= 4) return botChat.say({ text: T("Rahmat! Fikringizni xaritalarda ham qoldirsangiz, boshqalarga yordam berasiz:", "Спасибо! Если оставите отзыв на картах, это поможет другим покупателям:"), kb: [[{ t: "2GIS", cb: "ext:2GIS" }, { t: "Google", cb: "ext:Google" }, { t: "Yandex", cb: "ext:Yandex" }]] }, 500);
+      S.awaiting = "feedback"; setPlaceholder(T("Nima yoqmadi?", "Что не понравилось?"));
+      return botChat.say({ text: T("Kechirasiz. Nima yoqmadi? Yozing, do‘kon rahbariyatiga yetkazaman.", "Жаль. Что не понравилось? Напишите, я передам руководству магазина.") }, 500);
+    }
+    case "ext": return ctoast("bot", T(`${r[0]} sharhlar sahifasi ochiladi`, `Откроется страница отзывов ${r[0]}`));
+    case "my_open": return showMyBookings();
+  }
+}
+async function welcomeShort() { await botChat.say({ text: T("<b>change premium</b> do‘koniga xush kelibsiz!", "Добро пожаловать в <b>change premium</b>!") }, 400); menuReply(); }
+
+async function onSellerCb(a, r, mid) {
+  if (a !== "s") return;
+  const [act, id] = r;
+  if (act === "reply") {
+    return groupChat.say({ text: T("Tezkor javobni tanlang:", "Выберите быстрый ответ:"), kb: [[{ t: T("Ha, bor. Ajratib qo‘yaymi?", "Да, есть. Отложить?"), cb: "s:ans:0" }], [{ t: T("Hozir yo‘q, ertaga keladi", "Сейчас нет, привезём завтра"), cb: "s:ans:1" }], [{ t: T("Yana bir rasm yuboring, iltimos", "Пришлите, пожалуйста, ещё фото"), cb: "s:ans:2" }]] }, 200);
+  }
+  if (act === "ans") {
+    const txts = [T("Ha, bor. Ajratib qo‘yaymi?", "Да, есть. Отложить?"), T("Hozir yo‘q, ertaga keladi", "Сейчас нет, привезём завтра"), T("Yana bir rasm yuboring, iltimos", "Пришлите, пожалуйста, ещё фото")];
+    groupChat.edit(+mid, { kb: [], text: `↩️ ${T("Javob yuborildi", "Ответ отправлен")}: «${txts[+id]}»` });
+    showCol("bot");
+    return botChat.say({ text: `💬 <b>${T("Sotuvchi", "Продавец")} · ${L(branchOf(S.sellerBranch).name)}</b>\n${txts[+id]}` }, 700);
+  }
+  const bk = S.bookings.find(x => x.id === +id); if (!bk) return;
+  const b = branchOf(bk.branch);
+  if (act === "call") return ctoast("seller", `📞 ${S.phone || "+998 90 123 45 67"}`);
+  if (bk.status !== "new") return ctoast("seller", T("Bu bron allaqachon ko‘rib chiqilgan", "Эта бронь уже обработана"));
+  if (act === "hold") {
+    bk.status = "hold";
+    groupChat.edit(+mid, { kb: [], text: sellerCardText(bk) + `\n\n✅ ${T("Ajratildi", "Отложено")} · Aziza, ${clock()}` });
+    showCol("bot");
+    return botChat.say({ text: T(`✅ Kiyimlaringiz <b>${L(b.name)}</b> filialida ajratib qo‘yildi.\n${bk.until} gacha kutamiz.`, `✅ Ваши вещи отложены в <b>${L(b.name)}</b>.\nЖдём до ${bk.until}.`), kb: [[{ t: T("🗺 Yo‘nalish", "🗺 Маршрут"), cb: "loc:" + b.id }, { t: T("🧾 Bronlarim", "🧾 Мои брони"), cb: "my_open" }]] }, 700);
+  }
+  if (act === "none") {
+    bk.status = "na";
+    const i = bk.items[0], p = bySku(i.sku);
+    stockOverride[i.sku + "|" + i.ci + "|" + i.size + "|" + bk.branch] = 0;
+    groupChat.edit(+mid, { kb: [], text: sellerCardText(bk) + `\n\n❌ ${T("Mavjud emas deb belgilandi", "Отмечено: нет в наличии")}` });
+    showCol("bot");
+    const other = BRANCHES.find(x => x.id !== bk.branch && avail(p, i.ci, i.size, x.id) > 0);
+    return botChat.say({ text: T(`Kechirasiz, <b>${esc(L(p.n))}</b> (${i.size}) ${L(b.name)} filialida topilmadi: hozirgina sotilgan. Nima qilamiz?`, `Извините, <b>${esc(L(p.n))}</b> (${i.size}) не нашли в ${L(b.name)}: только что продали. Что делаем?`), kb: [
+      ...(other ? [[{ t: T(`${L(other.name)} filialida bor`, `Есть в ${L(other.name)}`), cb: `pr:${i.sku}:${i.ci}:${i.size}` }]] : []),
+      [{ t: T("Boshqa o‘lcham", "Другой размер"), cb: "p:" + i.sku }],
+      [{ t: T("🔔 Paydo bo‘lganda xabar berish", "🔔 Сообщить, когда появится"), cb: `ntfok:${i.sku}:${i.ci}:${i.size}` }]] }, 700);
+  }
+}
+
+/* ---------- presenter events ---------- */
+function ensureLang() { if (S.lang === null) { S.lang = 1; relabel(); menuReply(); } }
+async function ev(name) {
+  if (name === "reset") return reset();
+  if (name === "start") { showCol("bot"); return start(); }
+  if (name === "deeplink") { showCol("bot"); return start("p_CH-6012"); }
+  if (["stock", "price", "remind", "expire", "rate", "weekly"].includes(name)) { ensureLang(); showCol("bot"); }
+  if (name === "stock") { stockOverride["CH-6012|0|42|citymall"] = 3; return botChat.say({ photo: "CH-6012-0", text: T("🔔 <b>Derbi tufli, 42</b> Siti Mollda paydo bo‘ldi.\nBu xabar bir marta keladi, obuna o‘chirildi.", "🔔 <b>Туфли дерби, 42</b> появились в Сити Молле.\nЭто сообщение приходит один раз, подписка выключена."), kb: [[{ t: T("🛍 Bron qilish", "🛍 Забронировать"), cb: "p:CH-6012" }]] }, 500); }
+  if (name === "price") { const p = bySku("CH-3011"); return botChat.say({ photo: "CH-3011-0", text: T(`💸 Sevimlingizdagi <b>${L(p.n)}</b> arzonlashdi:\n<s>${money(p.old)}</s> → <b>${money(p.price)}</b> (−${pct(p)}%)`, `💸 <b>${L(p.n)}</b> из избранного подешевел:\n<s>${money(p.old)}</s> → <b>${money(p.price)}</b> (−${pct(p)}%)`), kb: [[{ t: T("Ko‘rish va bron", "Смотреть и бронировать"), cb: "p:CH-3011" }]] }, 500); }
+  if (name === "remind" || name === "expire") {
+    let b = S.bookings.find(x => ["new", "hold"].includes(x.status));
+    if (!b) { b = { id: ++S.seq, branch: "citymall", items: [{ sku: "CH-3011", ci: 0, size: "50" }], status: "hold", until: T("bugun, 22:00", "сегодня, 22:00"), ext: false, first: true }; S.bookings.push(b); S.phone ??= "+998 90 123 45 67"; }
+    if (name === "remind") return botChat.say({ text: T(`⏰ Bron №${b.id} ${b.until} gacha amal qiladi. Ulgurmasangiz, bir marta sutkaga uzaytirish mumkin.`, `⏰ Бронь №${b.id} действует до ${b.until}. Не успеваете? Можно один раз продлить на сутки.`), kb: [[...(!b.ext ? [{ t: T("⏳ Uzaytirish", "⏳ Продлить"), cb: "my:ext:" + b.id }] : []), { t: T("❌ Bekor qilish", "❌ Отменить"), cb: "my:cancel:" + b.id }]] }, 500);
+    b.status = "expired";
+    if (b.sellerMid) groupChat.edit(b.sellerMid, { kb: [], text: sellerCardText(b) + `\n\n⌛ ${T("Kelmadi, muddat tugadi", "Не пришёл, срок истёк")}` });
+    return botChat.say({ text: T(`⌛ Bron №${b.id} muddati tugadi. Kiyimlar sotuvga qaytdi.`, `⌛ Бронь №${b.id} закончилась. Вещи вернулись в продажу.`), kb: [[{ t: T("Qayta bron qilish", "Забронировать снова"), cb: "p:" + b.items[0].sku }]] }, 500);
+  }
+  if (name === "rate") return botChat.say({ text: T("Xaridingiz uchun rahmat! Siti Moll filialiga tashrifingizni baholang:", "Спасибо за покупку! Оцените визит в Сити Молл:"), kb: [[1, 2, 3, 4, 5].map(n => ({ t: n + " ⭐", cb: "rate:" + n }))] }, 500);
+  if (name === "weekly") { const list = P.filter(p => p.days <= 8).slice(0, 4); await botChat.say({ album: list.map(p => p.sku + "-0"), text: T(`🗞 <b>Haftaning yangiliklari</b>\n${list.map(p => `• ${L(p.n)} · ${money(p.price)}`).join("\n")}\nHammasi sizning o‘lchamlaringizda bor.`, `🗞 <b>Новинки недели</b>\n${list.map(p => `• ${L(p.n)} · ${money(p.price)}`).join("\n")}\nВсё есть в ваших размерах.`), kb: [[{ t: T("Barcha yangiliklar", "Все новинки"), cb: "list:new::0" }]] }, 600); return; }
+  if (name === "sla") {
+    showCol("seller"); tab("group");
+    const b = S.bookings.find(x => x.status === "new");
+    return groupChat.say({ text: T(`⏰ <b>Bron №${b ? b.id : S.seq + 1}</b> 20 daqiqadan beri ko‘rib chiqilmagan! 40 daqiqada xabar administratorga ketadi.`, `⏰ <b>Бронь №${b ? b.id : S.seq + 1}</b> не обработана 20 минут! Через 40 минут сообщение уйдёт администратору.`) }, 400);
+  }
+  if (name === "post") {
+    showCol("seller"); tab("chan");
+    const p = bySku("CH-4005");
+    S.lastPost = await chanChat.say({ photo: "CH-4005-0", text: `<b>${L(p.n)}</b>\n${money(p.price)}\n${T("O‘lchamlar", "Размеры")}: ${sizesAvail(p).join(" · ")}\n${T("Rang", "Цвет")}: ${p.colors.map(L).join(", ")}\n\n#yangi #kuz2026`, kb: [[{ t: T("🛍 Botda bron qilish", "🛍 Забронировать в боте"), cb: "chanp:CH-4005" }]] }, 500);
+    return;
+  }
+  if (name === "soldout") {
+    showCol("seller"); tab("chan");
+    if (!S.lastPost) { await ev("post"); await sleep(900); }
+    const p = bySku("CH-4005");
+    return chanChat.edit(S.lastPost, { text: `<b>${L(p.n)}</b>\n<s>${money(p.price)}</s>\n❌ ${T("Mavjud emas · barcha o‘lchamlar sotildi", "Нет в наличии · все размеры проданы")}\n\n#yangi #kuz2026`, kb: [] });
+  }
+}
+
+/* ---------- layout helpers ---------- */
+function showCol(c) {
+  if (!matchMedia("(max-width: 760px)").matches) return;
+  ["bot", "seller", "remote"].forEach(x => { $("#col-" + x).classList.toggle("on", x === c); $("#sw-" + x).setAttribute("aria-pressed", String(x === c)); });
+  if (c === "seller") $("#sw-seller i").hidden = true;
+}
+function tab(name) {
+  $("#pane-group").style.display = name === "group" ? "flex" : "none";
+  $("#pane-chan").style.display = name === "chan" ? "flex" : "none";
+  $("#tab-group").setAttribute("aria-pressed", String(name === "group")); $("#tab-chan").setAttribute("aria-pressed", String(name === "chan"));
+  $("#tab-" + name + " i").hidden = true;
+}
+function relabel() {
+  $("#group-title").textContent = T("Siti Moll · sotuvchilar", "Сити Молл · продавцы");
+  $("#group-sub").textContent = T("guruh · 6 a’zo", "группа · 6 участников");
+  $("#chan-sub").textContent = T("kanal", "канал");
+  setPlaceholder();
+}
+function reset() {
+  S = fresh(); for (const k in stockOverride) delete stockOverride[k];
+  setReply(null); setPlaceholder(); relabel();
+  botChat.clear(); groupChat.clear(); chanChat.clear();
+  const quiet = chanChat.opts.onNew; chanChat.opts.onNew = null;
+  setTimeout(() => (chanChat.opts.onNew = quiet), 0);
+  chanChat.add("bot", { photo: "LOOK-1", text: "<b>Kuz 2026 · Осень 2026</b>\nYangi kolleksiya do‘konlarda.\nНовая коллекция уже в магазинах." });
+  botChat.add("bot", { text: "👋 <b>change premium</b>\n" + "Botni boshlash uchun /start ni bosing.\nНажмите /start, чтобы начать.", kb: [[{ t: "▶️ /start", cb: "boot" }]] });
+  showCol("bot");
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const d = b.dataset;
+  if (d.cb) { if (d.cb === "boot") { botChat.edit(+d.mid, { kb: [] }); return start(); } return onCb(d.chat, d.cb, d.mid); }
+  if (d.reply) { if (d.contact) return shareContact(); return onText(d.reply); }
+  if (d.ev) return ev(d.ev);
+  if (d.col) return showCol(d.col);
+  if (d.tab) return tab(d.tab);
+});
+$("#input-form").addEventListener("submit", e => { e.preventDefault(); const i = $("#msg-input"); const v = i.value; i.value = ""; onText(v); });
+$("#attach").addEventListener("click", async () => {
+  if (S.lang === null) return ctoast("bot", "/start");
+  botChat.me({ photo: "CH-6105-1", text: T("Shunaqasi bormi?", "Такие есть?") });
+  if (S.awaiting !== "seller") S.sellerBranch ??= "citymall";
+  S.awaiting = null; setPlaceholder();
+  await botChat.say({ text: T(`📷 Rasmni ${L(branchOf(S.sellerBranch).name)} sotuvchilariga yubordim. Javobni shu yerda olasiz.`, `📷 Отправил фото продавцам ${L(branchOf(S.sellerBranch).name)}. Ответ придёт сюда.`) }, 500);
+  sellerForward("photo", { photo: "CH-6105-1", text: T("Shunaqasi bormi?", "Такие есть?") });
+});
+["#ava-bot", "#ava-group"].forEach(s => ($(s).innerHTML = CMARK("#111214")));
+$("#ava-chan").innerHTML = CMARK("#ECEAE5");
+setInterval(() => { $("#clock1").textContent = $("#clock2").textContent = clock(); }, 15000);
+$("#clock1").textContent = $("#clock2").textContent = clock();
+reset();
+</script>
+
+</body>
+</html>
